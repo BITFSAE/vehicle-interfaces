@@ -21,6 +21,7 @@ jobs:
         with:
           python-version: "3.13"
           cache: pip
+          cache-dependency-path: requirements-dev.txt
       - name: Install validators
         run: python -m pip install --requirement requirements-dev.txt
       - name: Validate DBC, Proto and docs
