@@ -1,0 +1,2 @@
+cantools==41.3.0
+grpcio-tools==1.74.0

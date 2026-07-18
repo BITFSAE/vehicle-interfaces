@@ -1,0 +1,45 @@
+name: 接口变更
+description: 提议新增或修改 CAN、遥测及相关公共接口
+title: "[接口] "
+labels:
+  - interface-change
+body:
+  - type: dropdown
+    id: interface
+    attributes:
+      label: 接口类型
+      options:
+        - CANA
+        - CANB
+        - Protobuf / MQTT Payload
+        - 文档或工具
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: 背景与目标
+      description: 说明需要解决的问题，不只写准备改哪个文件。
+    validations:
+      required: true
+  - type: textarea
+    id: layout
+    attributes:
+      label: 接口定义
+      description: CAN 请写 ID、方向、帧类型、DLC、周期、字段、字节序、比例、单位、范围和无效值；Proto 请写字段号、类型、容量和 Topic 影响。
+    validations:
+      required: true
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: 兼容性与受影响项目
+      description: 列出固件、服务器、工具、上线顺序和回滚方式。
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: 计划验证方式
+      description: 写明原始 CAN 帧、编解码测试或联调方法。
+    validations:
+      required: true

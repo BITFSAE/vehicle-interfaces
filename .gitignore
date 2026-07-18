@@ -1,0 +1,14 @@
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+build/
+dist/
+*.log
+*.pem
+*.key
+*.p12
+*.pfx
+.env
+.env.*
+!.env.example

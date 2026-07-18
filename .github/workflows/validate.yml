@@ -1,0 +1,27 @@
+name: Validate interfaces
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+          cache: pip
+      - name: Install validators
+        run: python -m pip install --requirement requirements-dev.txt
+      - name: Validate DBC, Proto and docs
+        run: python tools/validate_interfaces.py

@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.dbc text eol=lf
+*.proto text eol=lf
+*.options text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
