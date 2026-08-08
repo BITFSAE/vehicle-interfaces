@@ -13,6 +13,7 @@
 - CANB 合入 BMS `0x4B0..0x4B2`、ECU SOP `0x4A0/0x4A3/0x4A4`、自有 IVT-S、Chroma 和 Legacy 充电接口。
 - 新增 CAN1/CANB 使用文档；CANB 文档同时登记现有 ECU、显示、PDM、FanController、方向盘和数采报文入口。
 - 验证脚本增加 CAN1/CANB 关键 ID、DLC、帧类型、字节序、符号和缩放回归检查；遥测 Proto/Options 本次无需修改。
+- 调整文档分工：CAN ID 只在总线索引集中登记，CANB 文档引用 CAN1 的共用 BMS 状态字段，README 和维护文档删除重复流程与历史说明。
 
 ### 待办
 
