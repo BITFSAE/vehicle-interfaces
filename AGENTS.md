@@ -2,7 +2,7 @@
 
 ## 接口修改
 
-- `can/Vehicle_CanA.dbc`、`can/Vehicle_CanB.dbc`、`can/Vehicle_CanC.dbc` 和 `telemetry/fsae_telemetry.proto` 是正式接口源。
+- `can/Vehicle_Can1.dbc`、`can/Vehicle_CanA.dbc`、`can/Vehicle_CanB.dbc`、`can/Vehicle_CanC.dbc` 和 `telemetry/fsae_telemetry.proto` 是正式接口源。
 - 修改 CAN 或遥测接口时，同步更新对应说明、测试和 `CHANGELOG.md`。
 - 不修改已发布 Protobuf 字段号；删除字段时使用 `reserved`。
 - 不把生成的 Nanopb C/H 文件当作手工编辑源。

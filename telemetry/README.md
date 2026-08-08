@@ -1,5 +1,7 @@
 # 遥测协议维护
 
+本次接口审计已将 CANRS485_G473/REFERENCE/protobuf-master 的服务器 Proto/Options 与车端副本逐字节核对，当前中央副本无需改动；生成的 Nanopb/Python 文件仍不属于本仓库的手工编辑源。
+
 `fsae_telemetry.proto` 是遥测消息的唯一协议源，`fsae_telemetry.options` 只负责 Nanopb 的静态容量限制。生成的 `.pb.c/.pb.h` 应在使用方通过固定版本的 Protobuf、Nanopb 重新生成，不在这里手工维护。
 
 ## 兼容规则

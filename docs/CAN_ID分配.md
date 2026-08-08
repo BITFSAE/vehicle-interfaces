@@ -1,6 +1,6 @@
 # CAN ID 分配
 
-本文用于快速查找报文归属和审核新 ID。具体信号布局以 `can/` 下的三个正式 DBC 为准；不要只根据本表编写解析代码。
+本文用于快速查找报文归属和审核新 ID。具体信号布局以 `can/` 下的四个正式 DBC 为准；不要只根据本表编写解析代码。
 
 ## CANA
 
@@ -11,9 +11,21 @@ CANA 当前主要承载四个 AMK 电机控制器的 Setpoint 与 Actual Value�
 | `0x184..0x189` | ECU → AMK | 四轮 Setpoint；具体轮位并非连续排列，以 DBC 为准 |
 | `0x283..0x292` | AMK → ECU | 四轮 ActualValue1..4；具体 ID 与轮位以 DBC 为准 |
 
+## CAN1（BMS 内部总线）
+
+详细字段见 [CAN1 接口](CAN1接口.md)，机器可读来源为 [Vehicle_Can1.dbc](../can/Vehicle_Can1.dbc)。CAN1 不接 IVT。
+
+| ID 范围 | 帧类型 | 方向 | 用途 |
+| --- | --- | --- | --- |
+| `0x180050F3 + (n << 16)`，n=0..35 | 扩展 | 从控 → 主控 | 6 个从控的 138 串电压 |
+| `0x184050F3 + (n << 16)`，n=0..5 | 扩展 | 从控 → 主控 | 6 个从控的 48 路温度 |
+| `0x186050F4..0x187F50F4` | 扩展 | 主控 → 显示/工具 | BMS 状态、告警、均衡、IMD、SOP 镜像和固件身份 |
+| `0x18A050F5` | 扩展 | 工具 → 主控 | 统一工具请求 |
+| `0x18A450F4/0x18A650F4/0x18A750F4` | 扩展 | 主控 → 工具 | RTC 应答、统一应答和日志数据 |
+
 ## CANB
 
-当前报文均为 11 位标准数据帧。
+CANB 主要使用 11 位标准数据帧；Legacy 充电接口使用两个 29 位扩展 ID。
 
 | ID | DBC 名称 | DLC | 发送节点 | 主要用途 |
 | --- | --- | ---: | --- | --- |
@@ -40,6 +52,16 @@ CANA 当前主要承载四个 AMK 电机控制器的 Setpoint 与 Actual Value�
 | `0x5A5` | `FanController_CommandAck` | 8 | FanController | 命令确认和当前控制状态 |
 | `0x5A6` | `FanController_CurveStatus` | 8 | FanController | 温控曲线参数回读 |
 | `0x5A7` | `FanController_FailsafeStatus` | 8 | FanController | 失效策略、回退占空比和控制租约 |
+| `0x401/0x402` | `Chroma_VoltageFeedback/CurrentFeedback` | 8 | Chroma | 充电电压和电流反馈 |
+| `0x404/0x405` | `Chroma_ProtectionFeedback/OutputFeedback` | 8 | Chroma | 保护和输出状态 |
+| `0x490/0x491` | `Chroma_Command/CommandResponse` | 3 或 6/可变 | BMS_Master/Chroma | 充电机设置和应答 |
+| `0x4A0/0x4A3` | `BMS_SOPLimits/BMS_SOPStatus` | 8 | BMS_Master | ECU SOP 限值、状态和 CRC |
+| `0x4A4` | `ECU_SOPAcknowledgement` | 8 | ECU | ECU 采用 SOP 后的确认 |
+| `0x4B0` | `BMS_PackStatus` | 7 | BMS_Master | BMS 包状态和有效位 |
+| `0x4B1` | `BMS_FaultStatus` | 8 | BMS_Master | BMS 当前故障汇总 |
+| `0x4B2` | `BMS_AlarmLevels` | 8 | BMS_Master | BMS 32 项告警等级 |
+| `0x512..0x519` | `IVT_*_Result` | 6 | IVT_S | 自有 IVT-S 可配置结果帧 |
+| `0x1806E5F4/0x18FF50E5` | `LegacyCharger_*` | 5/至少 5 | BMS_Master/LegacyCharger | Legacy 充电请求和反馈，扩展帧 |
 | `0x700` | `SteeringPanel_0x700` | 8 | SteeringWheel | 记录、清错、驾驶模式和滑移等级 |
 | `0x784` | `DriveMode_0x784` | 8 | SteeringWheel | 冗余驾驶模式报文 |
 
@@ -65,7 +87,7 @@ CANA 当前主要承载四个 AMK 电机控制器的 Setpoint 与 Actual Value�
 
 ## 新 ID 分配规则
 
-- 先在三个 DBC 和本表中检索，不凭记忆分配；
+- 先在四个正式 DBC 和本表中检索，不凭记忆分配；
 - 在 Issue 中写明总线、发送者、接收者、周期、DLC 和预计带宽；
 - 同一功能的状态、命令、确认尽量放在连续区间，但不要为了连续而改动已发布 ID；
 - 正式分配通过 PR 完成，口头约定和未合并分支不占用 ID；

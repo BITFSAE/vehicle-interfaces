@@ -1,0 +1,620 @@
+VERSION ""
+
+NS_ :
+	NS_DESC_
+	CM_
+	VAL_
+	BA_DEF_
+	BA_
+	BO_TX_BU_
+
+BS_:
+
+BU_: BMS_Master BMS_Slave Display Tools
+
+BO_ 2550157555 BMS_Slave1_CellVoltage_0: 8 BMS_Slave
+ SG_ Cell001_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell002_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell003_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2550157555 "CAN1 扩展帧 0x180050F3，从控1电压帧0；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2550223091 BMS_Slave1_CellVoltage_1: 8 BMS_Slave
+ SG_ Cell004_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell005_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell006_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell007_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2550223091 "CAN1 扩展帧 0x180150F3，从控1电压帧1；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2550288627 BMS_Slave1_CellVoltage_2: 8 BMS_Slave
+ SG_ Cell008_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell009_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell010_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell011_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2550288627 "CAN1 扩展帧 0x180250F3，从控1电压帧2；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2550354163 BMS_Slave1_CellVoltage_3: 8 BMS_Slave
+ SG_ Cell012_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell013_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell014_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell015_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2550354163 "CAN1 扩展帧 0x180350F3，从控1电压帧3；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2550419699 BMS_Slave1_CellVoltage_4: 8 BMS_Slave
+ SG_ Cell016_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell017_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell018_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell019_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2550419699 "CAN1 扩展帧 0x180450F3，从控1电压帧4；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2550485235 BMS_Slave1_CellVoltage_5: 8 BMS_Slave
+ SG_ Cell020_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell021_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell022_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell023_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2550485235 "CAN1 扩展帧 0x180550F3，从控1电压帧5；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2550550771 BMS_Slave2_CellVoltage_0: 8 BMS_Slave
+ SG_ Cell024_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell025_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell026_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2550550771 "CAN1 扩展帧 0x180650F3，从控2电压帧0；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2550616307 BMS_Slave2_CellVoltage_1: 8 BMS_Slave
+ SG_ Cell027_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell028_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell029_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell030_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2550616307 "CAN1 扩展帧 0x180750F3，从控2电压帧1；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2550681843 BMS_Slave2_CellVoltage_2: 8 BMS_Slave
+ SG_ Cell031_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell032_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell033_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell034_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2550681843 "CAN1 扩展帧 0x180850F3，从控2电压帧2；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2550747379 BMS_Slave2_CellVoltage_3: 8 BMS_Slave
+ SG_ Cell035_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell036_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell037_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell038_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2550747379 "CAN1 扩展帧 0x180950F3，从控2电压帧3；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2550812915 BMS_Slave2_CellVoltage_4: 8 BMS_Slave
+ SG_ Cell039_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell040_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell041_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell042_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2550812915 "CAN1 扩展帧 0x180A50F3，从控2电压帧4；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2550878451 BMS_Slave2_CellVoltage_5: 8 BMS_Slave
+ SG_ Cell043_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell044_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell045_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell046_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2550878451 "CAN1 扩展帧 0x180B50F3，从控2电压帧5；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2550943987 BMS_Slave3_CellVoltage_0: 8 BMS_Slave
+ SG_ Cell047_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell048_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell049_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2550943987 "CAN1 扩展帧 0x180C50F3，从控3电压帧0；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2551009523 BMS_Slave3_CellVoltage_1: 8 BMS_Slave
+ SG_ Cell050_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell051_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell052_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell053_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2551009523 "CAN1 扩展帧 0x180D50F3，从控3电压帧1；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2551075059 BMS_Slave3_CellVoltage_2: 8 BMS_Slave
+ SG_ Cell054_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell055_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell056_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell057_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2551075059 "CAN1 扩展帧 0x180E50F3，从控3电压帧2；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2551140595 BMS_Slave3_CellVoltage_3: 8 BMS_Slave
+ SG_ Cell058_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell059_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell060_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell061_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2551140595 "CAN1 扩展帧 0x180F50F3，从控3电压帧3；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2551206131 BMS_Slave3_CellVoltage_4: 8 BMS_Slave
+ SG_ Cell062_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell063_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell064_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell065_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2551206131 "CAN1 扩展帧 0x181050F3，从控3电压帧4；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2551271667 BMS_Slave3_CellVoltage_5: 8 BMS_Slave
+ SG_ Cell066_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell067_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell068_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell069_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2551271667 "CAN1 扩展帧 0x181150F3，从控3电压帧5；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2551337203 BMS_Slave4_CellVoltage_0: 8 BMS_Slave
+ SG_ Cell070_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell071_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell072_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2551337203 "CAN1 扩展帧 0x181250F3，从控4电压帧0；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2551402739 BMS_Slave4_CellVoltage_1: 8 BMS_Slave
+ SG_ Cell073_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell074_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell075_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell076_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2551402739 "CAN1 扩展帧 0x181350F3，从控4电压帧1；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2551468275 BMS_Slave4_CellVoltage_2: 8 BMS_Slave
+ SG_ Cell077_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell078_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell079_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell080_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2551468275 "CAN1 扩展帧 0x181450F3，从控4电压帧2；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2551533811 BMS_Slave4_CellVoltage_3: 8 BMS_Slave
+ SG_ Cell081_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell082_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell083_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell084_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2551533811 "CAN1 扩展帧 0x181550F3，从控4电压帧3；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2551599347 BMS_Slave4_CellVoltage_4: 8 BMS_Slave
+ SG_ Cell085_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell086_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell087_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell088_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2551599347 "CAN1 扩展帧 0x181650F3，从控4电压帧4；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2551664883 BMS_Slave4_CellVoltage_5: 8 BMS_Slave
+ SG_ Cell089_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell090_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell091_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell092_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2551664883 "CAN1 扩展帧 0x181750F3，从控4电压帧5；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2551730419 BMS_Slave5_CellVoltage_0: 8 BMS_Slave
+ SG_ Cell093_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell094_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell095_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2551730419 "CAN1 扩展帧 0x181850F3，从控5电压帧0；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2551795955 BMS_Slave5_CellVoltage_1: 8 BMS_Slave
+ SG_ Cell096_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell097_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell098_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell099_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2551795955 "CAN1 扩展帧 0x181950F3，从控5电压帧1；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2551861491 BMS_Slave5_CellVoltage_2: 8 BMS_Slave
+ SG_ Cell100_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell101_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell102_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell103_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2551861491 "CAN1 扩展帧 0x181A50F3，从控5电压帧2；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2551927027 BMS_Slave5_CellVoltage_3: 8 BMS_Slave
+ SG_ Cell104_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell105_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell106_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell107_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2551927027 "CAN1 扩展帧 0x181B50F3，从控5电压帧3；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2551992563 BMS_Slave5_CellVoltage_4: 8 BMS_Slave
+ SG_ Cell108_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell109_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell110_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell111_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2551992563 "CAN1 扩展帧 0x181C50F3，从控5电压帧4；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2552058099 BMS_Slave5_CellVoltage_5: 8 BMS_Slave
+ SG_ Cell112_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell113_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell114_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell115_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2552058099 "CAN1 扩展帧 0x181D50F3，从控5电压帧5；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2552123635 BMS_Slave6_CellVoltage_0: 8 BMS_Slave
+ SG_ Cell116_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell117_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell118_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2552123635 "CAN1 扩展帧 0x181E50F3，从控6电压帧0；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2552189171 BMS_Slave6_CellVoltage_1: 8 BMS_Slave
+ SG_ Cell119_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell120_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell121_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell122_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2552189171 "CAN1 扩展帧 0x181F50F3，从控6电压帧1；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2552254707 BMS_Slave6_CellVoltage_2: 8 BMS_Slave
+ SG_ Cell123_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell124_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell125_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell126_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2552254707 "CAN1 扩展帧 0x182050F3，从控6电压帧2；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2552320243 BMS_Slave6_CellVoltage_3: 8 BMS_Slave
+ SG_ Cell127_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell128_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell129_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell130_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2552320243 "CAN1 扩展帧 0x182150F3，从控6电压帧3；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2552385779 BMS_Slave6_CellVoltage_4: 8 BMS_Slave
+ SG_ Cell131_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell132_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell133_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell134_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2552385779 "CAN1 扩展帧 0x182250F3，从控6电压帧4；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2552451315 BMS_Slave6_CellVoltage_5: 8 BMS_Slave
+ SG_ Cell135_mV : 0|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell136_mV : 16|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell137_mV : 32|16@1+ (1,0) [0|65534] "mV" BMS_Master
+ SG_ Cell138_mV : 48|16@1+ (1,0) [0|65534] "mV" BMS_Master
+CM_ BO_ 2552451315 "CAN1 扩展帧 0x182350F3，从控6电压帧5；小端 uint16，单位 mV；0xFFFF 表示无效。";
+
+BO_ 2554351859 BMS_Slave1_Temperature: 8 BMS_Slave
+ SG_ Temperature01 : 0|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature02 : 8|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature03 : 16|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature04 : 24|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature05 : 32|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature06 : 40|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature07 : 48|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature08 : 56|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+CM_ BO_ 2554351859 "CAN1 扩展帧 0x184050F3，从控1的 8 路温度；物理值为原始值减 30 degC；0xFF 表示无效。";
+
+BO_ 2554417395 BMS_Slave2_Temperature: 8 BMS_Slave
+ SG_ Temperature09 : 0|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature10 : 8|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature11 : 16|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature12 : 24|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature13 : 32|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature14 : 40|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature15 : 48|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature16 : 56|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+CM_ BO_ 2554417395 "CAN1 扩展帧 0x184150F3，从控2的 8 路温度；物理值为原始值减 30 degC；0xFF 表示无效。";
+
+BO_ 2554482931 BMS_Slave3_Temperature: 8 BMS_Slave
+ SG_ Temperature17 : 0|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature18 : 8|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature19 : 16|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature20 : 24|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature21 : 32|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature22 : 40|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature23 : 48|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature24 : 56|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+CM_ BO_ 2554482931 "CAN1 扩展帧 0x184250F3，从控3的 8 路温度；物理值为原始值减 30 degC；0xFF 表示无效。";
+
+BO_ 2554548467 BMS_Slave4_Temperature: 8 BMS_Slave
+ SG_ Temperature25 : 0|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature26 : 8|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature27 : 16|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature28 : 24|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature29 : 32|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature30 : 40|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature31 : 48|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature32 : 56|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+CM_ BO_ 2554548467 "CAN1 扩展帧 0x184350F3，从控4的 8 路温度；物理值为原始值减 30 degC；0xFF 表示无效。";
+
+BO_ 2554614003 BMS_Slave5_Temperature: 8 BMS_Slave
+ SG_ Temperature33 : 0|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature34 : 8|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature35 : 16|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature36 : 24|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature37 : 32|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature38 : 40|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature39 : 48|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature40 : 56|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+CM_ BO_ 2554614003 "CAN1 扩展帧 0x184450F3，从控5的 8 路温度；物理值为原始值减 30 degC；0xFF 表示无效。";
+
+BO_ 2554679539 BMS_Slave6_Temperature: 8 BMS_Slave
+ SG_ Temperature41 : 0|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature42 : 8|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature43 : 16|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature44 : 24|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature45 : 32|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature46 : 40|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature47 : 48|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+ SG_ Temperature48 : 56|8@1+ (1,-30) [-30|99] "degC" BMS_Master
+CM_ BO_ 2554679539 "CAN1 扩展帧 0x184550F3，从控6的 8 路温度；物理值为原始值减 30 degC；0xFF 表示无效。";
+
+BO_ 2556449012 BMS_BatterySummary: 7 BMS_Master
+ SG_ BatteryVoltage : 7|16@0+ (0.1,0) [0|6553.5] "V" Display
+ SG_ BatteryCurrent : 23|16@0- (0.1,0) [-3276.8|3276.7] "A" Display
+ SG_ BatterySOC : 32|8@1+ (1,0) [0|100] "%" Display
+ SG_ PackVoltageValid : 40|1@1+ (1,0) [0|1] "" Display
+ SG_ PackCurrentValid : 41|1@1+ (1,0) [0|1] "" Display
+ SG_ SOCValid : 42|1@1+ (1,0) [0|1] "" Display
+ SG_ CellVoltagesComplete : 43|1@1+ (1,0) [0|1] "" Display
+ SG_ TemperaturesComplete : 44|1@1+ (1,0) [0|1] "" Display
+ SG_ BatteryAlarmLevel : 48|4@1+ (1,0) [0|15] "" Display
+ SG_ BatteryState : 52|4@1+ (1,0) [0|15] "" Display
+CM_ BO_ 2556449012 "CAN1 扩展帧 0x186050F4，500 ms；电压、电流和 SOC 必须结合 Byte5 有效位使用。";
+
+BO_ 2556514548 BMS_CellVoltageExtrema: 6 BMS_Master
+ SG_ MaxCellVoltage : 7|16@0+ (1,0) [0|65534] "mV" Display
+ SG_ MinCellVoltage : 23|16@0+ (1,0) [0|65534] "mV" Display
+ SG_ MaxCellIndex : 32|8@1+ (1,0) [0|137] "" Display
+ SG_ MinCellIndex : 40|8@1+ (1,0) [0|137] "" Display
+CM_ BO_ 2556514548 "CAN1 扩展帧 0x186150F4，500 ms；单体编号从 0 开始。";
+
+BO_ 2556580084 BMS_TemperatureAndFan: 8 BMS_Master
+ SG_ MaxTemperature : 0|8@1+ (1,-30) [-30|99] "degC" Display
+ SG_ MinTemperature : 8|8@1+ (1,-30) [-30|99] "degC" Display
+ SG_ MaxTemperatureIndex : 16|8@1+ (1,0) [0|47] "" Display
+ SG_ MinTemperatureIndex : 24|8@1+ (1,0) [0|47] "" Display
+ SG_ CoolingControl : 32|8@1+ (1,0) [0|1] "" Display
+ SG_ FanTargetDuty : 40|8@1+ (1,0) [0|100] "%" Display
+ SG_ FanSpeed : 48|8@1+ (100,0) [0|25400] "rpm" Display
+ SG_ FanHardwareReady : 56|1@1+ (1,0) [0|1] "" Display
+ SG_ FanTargetActive : 57|1@1+ (1,0) [0|1] "" Display
+ SG_ FanSpeedDetected : 58|1@1+ (1,0) [0|1] "" Display
+ SG_ FanManualMode : 59|1@1+ (1,0) [0|1] "" Display
+ SG_ FanStallConfirmed : 60|1@1+ (1,0) [0|1] "" Display
+CM_ BO_ 2556580084 "CAN1 扩展帧 0x186250F4，500 ms；温度原始值减 30 得到 degC。";
+
+BO_ 2556645620 BMS_RelayAndChargeStatus: 8 BMS_Master
+ SG_ PositiveRelayCommand : 6|2@1+ (1,0) [0|3] "" Display
+ SG_ NegativeRelayCommand : 4|2@1+ (1,0) [0|3] "" Display
+ SG_ PrechargeRelayCommand : 2|2@1+ (1,0) [0|3] "" Display
+ SG_ ChargeCommunicationValid : 11|1@1+ (1,0) [0|1] "" Display
+ SG_ ChargeActive : 12|1@1+ (1,0) [0|1] "" Display
+ SG_ ChargeRequestVoltage : 23|16@0+ (0.1,0) [0|6553.5] "V" Display
+ SG_ ChargeRequestCurrent : 39|16@0+ (0.1,0) [0|6553.5] "A" Display
+ SG_ PrechargeVoltage : 55|16@0+ (0.1,0) [0|6553.5] "V" Display
+CM_ BO_ 2556645620 "CAN1 扩展帧 0x186350F4，500 ms；继电器字段是主控当前命令，充电请求和预充电压为大端。";
+
+BO_ 2556711156 BMS_CellBalance_0: 6 BMS_Master
+ SG_ BalanceByte0 : 0|8@1+ (1,0) [0|255] "" Display
+ SG_ BalanceByte1 : 8|8@1+ (1,0) [0|255] "" Display
+ SG_ BalanceByte2 : 16|8@1+ (1,0) [0|255] "" Display
+ SG_ BalanceByte3 : 24|8@1+ (1,0) [0|255] "" Display
+ SG_ BalanceByte4 : 32|8@1+ (1,0) [0|255] "" Display
+ SG_ BalanceByte5 : 40|8@1+ (1,0) [0|255] "" Display
+CM_ BO_ 2556711156 "CAN1 扩展帧 0x186450F4，均衡位图第 1 帧；仅在均衡功能启用时约 250 ms 发送。";
+
+BO_ 2556776692 BMS_CellBalance_1: 6 BMS_Master
+ SG_ BalanceByte0 : 0|8@1+ (1,0) [0|255] "" Display
+ SG_ BalanceByte1 : 8|8@1+ (1,0) [0|255] "" Display
+ SG_ BalanceByte2 : 16|8@1+ (1,0) [0|255] "" Display
+ SG_ BalanceByte3 : 24|8@1+ (1,0) [0|255] "" Display
+ SG_ BalanceByte4 : 32|8@1+ (1,0) [0|255] "" Display
+ SG_ BalanceByte5 : 40|8@1+ (1,0) [0|255] "" Display
+CM_ BO_ 2556776692 "CAN1 扩展帧 0x186550F4，均衡位图第 2 帧；仅在均衡功能启用时约 250 ms 发送。";
+
+BO_ 2556842228 BMS_CellBalance_2: 6 BMS_Master
+ SG_ BalanceByte0 : 0|8@1+ (1,0) [0|255] "" Display
+ SG_ BalanceByte1 : 8|8@1+ (1,0) [0|255] "" Display
+ SG_ BalanceByte2 : 16|8@1+ (1,0) [0|255] "" Display
+ SG_ BalanceByte3 : 24|8@1+ (1,0) [0|255] "" Display
+ SG_ BalanceByte4 : 32|8@1+ (1,0) [0|255] "" Display
+ SG_ BalanceByte5 : 40|8@1+ (1,0) [0|255] "" Display
+CM_ BO_ 2556842228 "CAN1 扩展帧 0x186650F4，均衡位图第 3 帧；仅在均衡功能启用时约 250 ms 发送。";
+
+BO_ 2556907764 BMS_CellVoltageSum: 2 BMS_Master
+ SG_ CellVoltageSum : 7|16@0+ (0.1,0) [0|6553.5] "V" Display
+CM_ BO_ 2556907764 "CAN1 扩展帧 0x186750F4，1 s；138 串单体电压累加值。";
+
+BO_ 2556973300 BMS_IMDDiagnostic: 8 BMS_Master
+ SG_ IMDFrequencyClass : 0|4@1+ (1,0) [0|15] "" Display
+ SG_ IMDStatusCode : 4|4@1+ (1,0) [0|15] "" Display
+ SG_ IMDPinLevel : 8|1@1+ (1,0) [0|1] "" Display
+ SG_ IMDDutyComplete : 9|1@1+ (1,0) [0|1] "" Display
+ SG_ IMDSSTBad : 10|1@1+ (1,0) [0|1] "" Display
+ SG_ IMDSSTGood : 11|1@1+ (1,0) [0|1] "" Display
+ SG_ IMDInsulationPassed : 12|1@1+ (1,0) [0|1] "" Display
+ SG_ IMDResistanceValid : 13|1@1+ (1,0) [0|1] "" Display
+ SG_ IMDPWMValid : 14|1@1+ (1,0) [0|1] "" Display
+ SG_ IMDDigitalLinkOK : 15|1@1+ (1,0) [0|1] "" Display
+ SG_ IMDDuty : 23|16@0+ (0.1,0) [0|100] "%" Display
+ SG_ IMDResistance : 39|16@0+ (1,0) [0|65535] "kOhm" Display
+ SG_ IMDFrequency : 55|16@0+ (0.01,0) [0|655.35] "Hz" Display
+CM_ BO_ 2556973300 "CAN1 扩展帧 0x186850F4，500 ms；测量字段必须结合 Byte1 对应有效位使用。";
+
+BO_ 2557038836 BMS_HVStatus: 8 BMS_Master
+ SG_ HVRequest : 0|1@1+ (1,0) [0|1] "" Display
+ SG_ ChargeRequest : 1|1@1+ (1,0) [0|1] "" Display
+ SG_ LastPrechargeResult : 2|2@1+ (1,0) [0|3] "" Display
+ SG_ LastPrechargeSuccessTime : 15|16@0+ (1,0) [0|65535] "ms" Display
+ SG_ LastPrechargeFailureTime : 31|16@0+ (1,0) [0|65535] "ms" Display
+CM_ BO_ 2557038836 "CAN1 扩展帧 0x186950F4，500 ms；Byte5..7 保留并发送 0。";
+
+BO_ 2557104372 BMS_SOPLimitsMirror: 8 BMS_Master
+ SG_ DischargeCurrentLimit : 7|16@0+ (0.1,0) [0|6553.5] "A" Display
+ SG_ ChargeCurrentLimit : 23|16@0+ (0.1,0) [0|6553.5] "A" Display
+ SG_ DischargePowerLimit : 39|16@0+ (0.1,0) [0|6553.5] "kW" Display
+ SG_ ChargePowerLimit : 55|16@0+ (0.1,0) [0|6553.5] "kW" Display
+CM_ BO_ 2557104372 "CAN1 扩展帧 0x186A50F4，1 s；CANB 0x4A0 的诊断镜像，本帧使用大端。";
+
+BO_ 2557169908 BMS_RuntimeConfiguration: 8 BMS_Master
+ SG_ ToolProtocolVersion : 0|8@1+ (1,0) [0|255] "" Display
+ SG_ CurrentDirectionReversed : 8|1@1+ (1,0) [0|1] "" Display
+ SG_ ChargerType : 9|1@1+ (1,0) [0|1] "" Display
+ SG_ BalancingSupported : 10|1@1+ (1,0) [0|1] "" Display
+ SG_ BalancingEnabled : 11|1@1+ (1,0) [0|1] "" Display
+ SG_ FlashOnline : 12|1@1+ (1,0) [0|1] "" Display
+ SG_ ConfigurationSavePending : 13|1@1+ (1,0) [0|1] "" Display
+ SG_ CurrentDirectionSavePending : 14|1@1+ (1,0) [0|1] "" Display
+ SG_ RTCValid : 15|1@1+ (1,0) [0|1] "" Display
+ SG_ ChargerFeedbackVoltage : 23|16@0+ (0.1,0) [0|6553.5] "V" Display
+ SG_ ChargerFeedbackCurrent : 39|16@0+ (0.1,0) [0|6553.5] "A" Display
+ SG_ ChargerStatus : 48|8@1+ (1,0) [0|255] "" Display
+ SG_ ChromaOutputStatus : 56|3@1+ (1,0) [0|7] "" Display
+ SG_ ChromaOutputFresh : 59|1@1+ (1,0) [0|1] "" Display
+ SG_ ChromaProtectionFresh : 60|1@1+ (1,0) [0|1] "" Display
+ SG_ ChromaCurrentFresh : 61|1@1+ (1,0) [0|1] "" Display
+ SG_ ChromaVoltageFresh : 62|1@1+ (1,0) [0|1] "" Display
+ SG_ ChargerFeedbackFresh : 63|1@1+ (1,0) [0|1] "" Display
+CM_ BO_ 2557169908 "CAN1 扩展帧 0x186B50F4，1 s；Byte0 当前为协议版本 4。";
+
+BO_ 2557235444 BMS_FirmwareIdentity: 8 BMS_Master
+ SG_ ToolProtocolVersion : 0|8@1+ (1,0) [0|255] "" Display
+ SG_ BuildType : 8|2@1+ (1,0) [0|3] "" Display
+ SG_ ChargerBuildVariant : 10|2@1+ (1,0) [0|3] "" Display
+ SG_ GitWorkingTreeDirty : 15|1@1+ (1,0) [0|1] "" Display
+ SG_ GitRevision48 : 23|48@0+ (1,0) [0|281474976710655] "" Display
+CM_ BO_ 2557235444 "CAN1 扩展帧 0x186C50F4；上电首轮发送，之后每 5 s 发送。";
+
+BO_ 2557235700 BMS_FirmwareBuildDate: 8 BMS_Master
+ SG_ ToolProtocolVersion : 0|8@1+ (1,0) [0|255] "" Display
+ SG_ BuildYear : 8|8@1+ (1,2000) [2000|2255] "year" Display
+ SG_ BuildMonth : 16|8@1+ (1,0) [0|12] "" Display
+ SG_ BuildDay : 24|8@1+ (1,0) [0|31] "" Display
+CM_ BO_ 2557235700 "CAN1 扩展帧 0x186C51F4；与固件身份帧同时发送，Byte4..7 保留并发送 0。";
+
+BO_ 2557300980 BMS_IVTAndSOCDiagnostic: 8 BMS_Master
+ SG_ ToolProtocolVersion : 0|8@1+ (1,0) [0|255] "" Display
+ SG_ IVTEnergyOnline : 8|1@1+ (1,0) [0|1] "" Display
+ SG_ IVTPowerOnline : 9|1@1+ (1,0) [0|1] "" Display
+ SG_ IVTChargeOnline : 10|1@1+ (1,0) [0|1] "" Display
+ SG_ IVTU3Online : 11|1@1+ (1,0) [0|1] "" Display
+ SG_ IVTU2Ready : 12|1@1+ (1,0) [0|1] "" Display
+ SG_ IVTU1Ready : 13|1@1+ (1,0) [0|1] "" Display
+ SG_ IVTCurrentError : 14|1@1+ (1,0) [0|1] "" Display
+ SG_ IVTCurrentOnline : 15|1@1+ (1,0) [0|1] "" Display
+ SG_ SOCSource : 16|8@1+ (1,0) [0|3] "" Display
+ SG_ CurrentZeroOffset : 39|32@0- (1,0) [-2147483648|2147483647] "mA" Display
+CM_ BO_ 2557300980 "CAN1 扩展帧 0x186D50F4，1 s；Byte3 保留并发送 0。";
+
+BO_ 2557890804 BMS_FaultStatus: 8 BMS_Master
+ SG_ BatteryAlarmLevel : 0|4@1+ (1,0) [0|15] "" Display
+ SG_ BatteryState : 4|4@1+ (1,0) [0|15] "" Display
+ SG_ FaultCode : 15|32@0+ (1,0) [0|4294967295] "" Display
+ SG_ ChargerType : 41|1@1+ (1,0) [0|1] "" Display
+ SG_ ChargeMode : 42|1@1+ (1,0) [0|1] "" Display
+ SG_ LogClearActive : 43|1@1+ (1,0) [0|1] "" Display
+ SG_ FlashWriteError : 44|1@1+ (1,0) [0|1] "" Display
+ SG_ FaultResetRequested : 45|1@1+ (1,0) [0|1] "" Display
+ SG_ FaultOutputLatched : 46|1@1+ (1,0) [0|1] "" Display
+ SG_ FaultLatched : 47|1@1+ (1,0) [0|1] "" Display
+ SG_ SlaveOfflineMask : 48|6@1+ (1,0) [0|63] "" Display
+ SG_ FaultFrameVersion : 56|8@1+ (1,0) [0|255] "" Display
+CM_ BO_ 2557890804 "CAN1 扩展帧 0x187650F4，500 ms，并在状态变化时补发；当前格式版本为 2。";
+
+BO_ 2557956340 BMS_AlarmThresholds: 6 BMS_Master
+ SG_ CellOverVoltageThreshold : 7|16@0+ (1,0) [0|65535] "mV" Display
+ SG_ CellUnderVoltageThreshold : 23|16@0+ (1,0) [0|65535] "mV" Display
+ SG_ CellOverTemperatureThreshold : 32|8@1+ (1,-30) [-30|99] "degC" Display
+ SG_ CellUnderTemperatureThreshold : 40|8@1+ (1,-30) [-30|99] "degC" Display
+CM_ BO_ 2557956340 "CAN1 扩展帧 0x187750F4，2 s；发送当前阈值。";
+
+BO_ 2558021876 BMS_AlarmLevels: 8 BMS_Master
+ SG_ CellOverVoltageLevel : 0|2@1+ (1,0) [0|3] "" Display
+ SG_ CellUnderVoltageLevel : 2|2@1+ (1,0) [0|3] "" Display
+ SG_ CellOverTemperatureLevel : 4|2@1+ (1,0) [0|3] "" Display
+ SG_ CellUnderTemperatureLevel : 6|2@1+ (1,0) [0|3] "" Display
+ SG_ CellVoltageSenseLevel : 8|2@1+ (1,0) [0|3] "" Display
+ SG_ TemperatureSenseLevel : 10|2@1+ (1,0) [0|3] "" Display
+ SG_ CellDeltaVoltageLevel : 12|2@1+ (1,0) [0|3] "" Display
+ SG_ PackDeltaTemperatureLevel : 14|2@1+ (1,0) [0|3] "" Display
+ SG_ PackOverVoltageLevel : 16|2@1+ (1,0) [0|3] "" Display
+ SG_ PackUnderVoltageLevel : 18|2@1+ (1,0) [0|3] "" Display
+ SG_ AuxiliaryFailureLevel : 20|2@1+ (1,0) [0|3] "" Display
+ SG_ LowSOCLevel : 22|2@1+ (1,0) [0|3] "" Display
+ SG_ ChargeSustainedOvercurrentLevel : 24|2@1+ (1,0) [0|3] "" Display
+ SG_ DischargeSustainedOvercurrentLevel : 26|2@1+ (1,0) [0|3] "" Display
+ SG_ ChargeInstantOvercurrentLevel : 28|2@1+ (1,0) [0|3] "" Display
+ SG_ DischargeInstantOvercurrentLevel : 30|2@1+ (1,0) [0|3] "" Display
+ SG_ SlaveOfflineLevel : 32|2@1+ (1,0) [0|3] "" Display
+ SG_ PrechargeFailureLevel : 34|2@1+ (1,0) [0|3] "" Display
+ SG_ CriticalControlFailureLevel : 36|2@1+ (1,0) [0|3] "" Display
+ SG_ PackVoltageMismatchLevel : 38|2@1+ (1,0) [0|3] "" Display
+ SG_ CurrentSensorFailureLevel : 40|2@1+ (1,0) [0|3] "" Display
+ SG_ CANRuntimeFailureLevel : 42|2@1+ (1,0) [0|3] "" Display
+ SG_ SafetyCircuitBreakLevel : 44|2@1+ (1,0) [0|3] "" Display
+ SG_ ChromaTelemetryLossLevel : 46|2@1+ (1,0) [0|3] "" Display
+ SG_ ChromaCommandFailureLevel : 48|2@1+ (1,0) [0|3] "" Display
+ SG_ Slave1OfflineLevel : 50|2@1+ (1,0) [0|3] "" Display
+ SG_ Slave2OfflineLevel : 52|2@1+ (1,0) [0|3] "" Display
+ SG_ Slave3OfflineLevel : 54|2@1+ (1,0) [0|3] "" Display
+ SG_ Slave4OfflineLevel : 56|2@1+ (1,0) [0|3] "" Display
+ SG_ Slave5OfflineLevel : 58|2@1+ (1,0) [0|3] "" Display
+ SG_ Slave6OfflineLevel : 60|2@1+ (1,0) [0|3] "" Display
+ SG_ IVTVoltageLossLevel : 62|2@1+ (1,0) [0|3] "" Display
+CM_ BO_ 2558021876 "CAN1 扩展帧 0x187850F4，2 s，并在告警变化时补发；0 未触发，1 一级故障，2 二级告警，3 保留。";
+
+BO_ 2558480628 BMS_AlarmSwitches: 4 BMS_Master
+ SG_ CellOverVoltageEnabled : 7|1@1+ (1,0) [0|1] "" Display
+ SG_ CellUnderVoltageEnabled : 6|1@1+ (1,0) [0|1] "" Display
+ SG_ CellOverTemperatureEnabled : 5|1@1+ (1,0) [0|1] "" Display
+ SG_ CellUnderTemperatureEnabled : 4|1@1+ (1,0) [0|1] "" Display
+ SG_ CellDeltaVoltageEnabled : 3|1@1+ (1,0) [0|1] "" Display
+ SG_ PackDeltaTemperatureEnabled : 2|1@1+ (1,0) [0|1] "" Display
+ SG_ ChargeSustainedOvercurrentEnabled : 1|1@1+ (1,0) [0|1] "" Display
+ SG_ DischargeSustainedOvercurrentEnabled : 0|1@1+ (1,0) [0|1] "" Display
+ SG_ AuxiliaryFailureEnabled : 15|1@1+ (1,0) [0|1] "" Display
+ SG_ CANRuntimeFailureEnabled : 14|1@1+ (1,0) [0|1] "" Display
+ SG_ PackVoltageMismatchEnabled : 13|1@1+ (1,0) [0|1] "" Display
+ SG_ CurrentSensorFailureEnabled : 12|1@1+ (1,0) [0|1] "" Display
+ SG_ PackOverVoltageEnabled : 11|1@1+ (1,0) [0|1] "" Display
+ SG_ PackUnderVoltageEnabled : 10|1@1+ (1,0) [0|1] "" Display
+ SG_ BuzzerEnabled : 9|1@1+ (1,0) [0|1] "" Display
+ SG_ LowSOCEnabled : 8|1@1+ (1,0) [0|1] "" Display
+ SG_ IVTVoltageLossEnabled : 23|1@1+ (1,0) [0|1] "" Display
+ SG_ BlockAllLevel1Enabled : 22|1@1+ (1,0) [0|1] "" Display
+ SG_ BlockAllLevel2Enabled : 21|1@1+ (1,0) [0|1] "" Display
+ SG_ AlarmSwitchFrameVersion : 24|8@1+ (1,0) [0|255] "" Display
+CM_ BO_ 2558480628 "CAN1 扩展帧 0x187F50F4，2 s；Byte2 bit4..0 保留并发送 0，Byte3 当前为版本 4。";
+
+BO_ 2560643317 BMS_ToolRequest: 8 Tools
+ SG_ OperationCode : 0|4@1+ (1,0) [0|15] "" BMS_Master
+ SG_ ToolProtocolVersion : 4|4@1+ (1,0) [0|15] "" BMS_Master
+ SG_ RequestCounter : 8|8@1+ (1,0) [0|255] "" BMS_Master
+ SG_ ParameterByte2 : 16|8@1+ (1,0) [0|255] "" BMS_Master
+ SG_ ParameterByte3 : 24|8@1+ (1,0) [0|255] "" BMS_Master
+ SG_ ParameterByte4 : 32|8@1+ (1,0) [0|255] "" BMS_Master
+ SG_ ParameterByte5 : 40|8@1+ (1,0) [0|255] "" BMS_Master
+ SG_ ParameterByte6 : 48|8@1+ (1,0) [0|255] "" BMS_Master
+ SG_ ParameterByte7 : 56|8@1+ (1,0) [0|255] "" BMS_Master
+CM_ BO_ 2560643317 "CAN1 扩展帧 0x18A050F5，DLC=8；所有工具操作共用此请求 ID，Byte0 高 4 bit 为版本、低 4 bit 为操作码。";
+
+BO_ 2560905460 BMS_RTCResponse: 8 BMS_Master
+ SG_ RTCResult : 0|8@1+ (1,0) [0|255] "" Tools
+ SG_ RequestCounter : 8|8@1+ (1,0) [0|255] "" Tools
+ SG_ RTCYear : 16|8@1+ (1,2000) [2000|2255] "year" Tools
+ SG_ RTCMonth : 24|8@1+ (1,0) [0|12] "" Tools
+ SG_ RTCDay : 32|8@1+ (1,0) [0|31] "" Tools
+ SG_ RTCHour : 40|8@1+ (1,0) [0|23] "" Tools
+ SG_ RTCMinute : 48|8@1+ (1,0) [0|59] "" Tools
+ SG_ RTCSecond : 56|8@1+ (1,0) [0|59] "" Tools
+CM_ BO_ 2560905460 "CAN1 扩展帧 0x18A450F4；RTC 操作的专用应答。";
+
+BO_ 2561036532 BMS_ToolResponse: 8 BMS_Master
+ SG_ ToolProtocolVersion : 0|8@1+ (1,0) [0|255] "" Tools
+ SG_ RequestCounter : 8|8@1+ (1,0) [0|255] "" Tools
+ SG_ ResponseCommand : 16|8@1+ (1,0) [0|255] "" Tools
+ SG_ ResponseResult : 24|8@1+ (1,0) [0|255] "" Tools
+ SG_ BatteryState : 32|8@1+ (1,0) [0|255] "" Tools
+ SG_ FlashOnline : 40|1@1+ (1,0) [0|1] "" Tools
+ SG_ ConfigurationSavePending : 41|1@1+ (1,0) [0|1] "" Tools
+ SG_ CurrentDirectionSavePending : 42|1@1+ (1,0) [0|1] "" Tools
+ SG_ LogClearActive : 43|1@1+ (1,0) [0|1] "" Tools
+ SG_ FaultLogWritePending : 44|1@1+ (1,0) [0|1] "" Tools
+ SG_ BasicProtectionDisableAllowed : 45|1@1+ (1,0) [0|1] "" Tools
+ SG_ ResponseDetail : 55|16@0+ (1,0) [0|65535] "" Tools
+CM_ BO_ 2561036532 "CAN1 扩展帧 0x18A650F4；按请求计数和命令码与 0x18A050F5 配对。";
+
+BO_ 2561102068 BMS_LogData: 8 BMS_Master
+ SG_ ToolProtocolVersion : 0|8@1+ (1,0) [0|255] "" Tools
+ SG_ RequestCounter : 8|8@1+ (1,0) [0|255] "" Tools
+ SG_ LogDataType : 16|8@1+ (1,0) [0|255] "" Tools
+ SG_ LogDataByte3 : 24|8@1+ (1,0) [0|255] "" Tools
+ SG_ LogDataByte4 : 32|8@1+ (1,0) [0|255] "" Tools
+ SG_ LogDataByte5 : 40|8@1+ (1,0) [0|255] "" Tools
+ SG_ LogDataByte6 : 48|8@1+ (1,0) [0|255] "" Tools
+ SG_ LogDataByte7 : 56|8@1+ (1,0) [0|255] "" Tools
+CM_ BO_ 2561102068 "CAN1 扩展帧 0x18A750F4；日志信息或 16 字节记录的分片数据。";
+
+VAL_ 2556449012 BatteryState 2 "SelfTest" 3 "Standby" 4 "Precharge" 5 "HighVoltageOn" 7 "FaultHold";
+
+VAL_ 2556449012 BatteryAlarmLevel 0 "Normal" 1 "Level1Fault" 2 "Level2Alarm";
+
+VAL_ 2557038836 LastPrechargeResult 0 "None" 1 "Success" 2 "Failure";
+
+VAL_ 2557300980 SOCSource 0 "Unknown" 1 "IVTChargeCounter" 2 "SoftwareIntegration" 3 "Frozen";
