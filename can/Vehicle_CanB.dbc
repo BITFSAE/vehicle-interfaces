@@ -33,7 +33,7 @@ NS_ :
 
 BS_:
 
-BU_: ECU Display VCU SteeringWheel WirelessGateway DATA_COLLECTION_INTEGRAL VEHICLE_LOGGER PDM FanController BMS_Master IVT_S Chroma LegacyCharger
+BU_: ECU Display VCU SteeringWheel WirelessGateway DATA_COLLECTION_INTEGRAL VEHICLE_LOGGER PDM FanController BMS_Master IVT_S Competition_Meter FS_Datalogger Chroma LegacyCharger
 
 BO_ 1289 Debug9: 5 ECU
  SG_ LogicState_RR : 24|4@1+ (1,0) [0|15] "" Vector__XXX
@@ -490,6 +490,39 @@ BO_ 1202 BMS_AlarmLevels: 8 BMS_Master
  SG_ Slave5OfflineLevel : 58|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
  SG_ Slave6OfflineLevel : 60|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
  SG_ IVTVoltageLossLevel : 62|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
+
+BO_ 1072 FS_Datalogger_Status: 6 FS_Datalogger
+ SG_ MsgCounter : 0|8@1+ (1,0) [0|255] "" VEHICLE_LOGGER,WirelessGateway
+ SG_ StatusReady : 8|1@1+ (1,0) [0|1] "" VEHICLE_LOGGER,WirelessGateway
+ SG_ StatusLogging : 9|1@1+ (1,0) [0|1] "" VEHICLE_LOGGER,WirelessGateway
+ SG_ StatusTriggeredVoltage : 10|1@1+ (1,0) [0|1] "" VEHICLE_LOGGER,WirelessGateway
+ SG_ StatusTriggeredCurrent : 11|1@1+ (1,0) [0|1] "" VEHICLE_LOGGER,WirelessGateway
+ SG_ Voltage : 23|16@0+ (16,0) [0|1048560] "mV" VEHICLE_LOGGER,WirelessGateway
+ SG_ Current : 39|16@0+ (64,0) [0|4194240] "mA" VEHICLE_LOGGER,WirelessGateway
+
+BO_ 1313 CompetitionMeter_Current_Result: 6 Competition_Meter
+ SG_ ResultMux : 0|8@1+ (1,0) [0|255] "" VEHICLE_LOGGER,WirelessGateway
+ SG_ ResultCounter : 8|4@1+ (1,0) [0|15] "" VEHICLE_LOGGER,WirelessGateway
+ SG_ ResultState : 12|4@1+ (1,0) [0|15] "" VEHICLE_LOGGER,WirelessGateway
+ SG_ ResultValue : 23|32@0- (1,0) [-2147483648|2147483647] "mA" VEHICLE_LOGGER,WirelessGateway
+
+BO_ 1314 CompetitionMeter_U1_Result: 6 Competition_Meter
+ SG_ ResultMux : 0|8@1+ (1,0) [0|255] "" VEHICLE_LOGGER,WirelessGateway
+ SG_ ResultCounter : 8|4@1+ (1,0) [0|15] "" VEHICLE_LOGGER,WirelessGateway
+ SG_ ResultState : 12|4@1+ (1,0) [0|15] "" VEHICLE_LOGGER,WirelessGateway
+ SG_ ResultValue : 23|32@0- (1,0) [-2147483648|2147483647] "mV" VEHICLE_LOGGER,WirelessGateway
+
+BO_ 1318 CompetitionMeter_Power_Result: 6 Competition_Meter
+ SG_ ResultMux : 0|8@1+ (1,0) [0|255] "" VEHICLE_LOGGER,WirelessGateway
+ SG_ ResultCounter : 8|4@1+ (1,0) [0|15] "" VEHICLE_LOGGER,WirelessGateway
+ SG_ ResultState : 12|4@1+ (1,0) [0|15] "" VEHICLE_LOGGER,WirelessGateway
+ SG_ ResultValue : 23|32@0- (1,0) [-2147483648|2147483647] "W" VEHICLE_LOGGER,WirelessGateway
+
+BO_ 1320 CompetitionMeter_Energy_Result: 6 Competition_Meter
+ SG_ ResultMux : 0|8@1+ (1,0) [0|255] "" VEHICLE_LOGGER,WirelessGateway
+ SG_ ResultCounter : 8|4@1+ (1,0) [0|15] "" VEHICLE_LOGGER,WirelessGateway
+ SG_ ResultState : 12|4@1+ (1,0) [0|15] "" VEHICLE_LOGGER,WirelessGateway
+ SG_ ResultValue : 23|32@0- (1,0) [-2147483648|2147483647] "Wh" VEHICLE_LOGGER,WirelessGateway
 CM_ BO_ 1202 "CANB 标准帧 0x4B2，500 ms，并在告警变化时补发；0 未触发，1 一级故障，2 二级告警，3 保留。";
 
 BO_ 1298 IVT_Current_Result: 6 IVT_S
@@ -547,6 +580,11 @@ BO_ 1305 IVT_Energy_Result: 6 IVT_S
  SG_ ResultState : 12|4@1+ (1,0) [0|15] "" BMS_Master
  SG_ ResultValue : 16|32@1- (1,0) [-2147483648|2147483647] "Wh" BMS_Master
 CM_ BO_ 1305 "CANB 标准帧 0x519，DLC=6；MUX 固定为 0x07，Byte2..5 为小端有符号 int32。";
+CM_ BO_ 1072 "FS Datalogger 赛会能量计状态帧；Byte2..3 为大端电压 raw*16 mV，Byte4..5 为大端电流 raw*64 mA。";
+CM_ BO_ 1313 "赛会能量计电流结果，标准帧 0x521；MUX=0x00，Byte2..5 为大端有符号 int32 mA。";
+CM_ BO_ 1314 "赛会能量计 U1 逆变器侧总压，标准帧 0x522；MUX=0x01，Byte2..5 为大端有符号 int32 mV。";
+CM_ BO_ 1318 "赛会能量计功率结果，标准帧 0x526；MUX=0x05，Byte2..5 为大端有符号 int32 W；设备可能不发送。";
+CM_ BO_ 1320 "赛会能量计 Wh 结果，标准帧 0x528；MUX=0x07，Byte2..5 为大端有符号 int32 Wh；设备可能不发送。";
 
 BO_ 2550588916 LegacyCharger_Command: 5 BMS_Master
  SG_ LegacyRequestVoltage : 7|16@0+ (0.1,0) [0|6553.5] "V" LegacyCharger

@@ -22,7 +22,7 @@ docs/correct-canb-byte-order
 1. 创建或关联 Issue。
 2. 从最新 `main` 创建分支。
 3. 只修改一个清楚的接口主题。
-4. 执行 `python3 tools/validate_interfaces.py`。
+4. 执行 `.venv/bin/python tools/validate_interfaces.py`；首次使用先按 README 创建仓库内 `.venv`。
 5. 更新 `CHANGELOG.md`。
 6. 提交 PR，并写明受影响项目、兼容性和验证结果。
 

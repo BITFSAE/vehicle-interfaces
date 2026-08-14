@@ -12,7 +12,7 @@
 
 - 使用清楚、直接的中文，写明方向、帧类型、DLC、字节序、类型、比例、单位、范围、无效值和兼容性。
 - 未确认的字段、节点或厂家资料放在待确认文档，不写入正式 DBC。
-- 修改后运行 `python3 tools/validate_interfaces.py`，并检查 Git 差异中没有生成垃圾或秘密。
+- 修改后运行 `.venv/bin/python tools/validate_interfaces.py`（首次按 README 创建仓库内固定 `.venv`），并检查 Git 差异中没有生成垃圾或秘密。
 - README 只做入口和索引；详细接口、协作流程和迁移记录分别由对应文档维护。
 
 DO NOT send optional commentary

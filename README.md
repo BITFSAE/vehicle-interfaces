@@ -14,9 +14,12 @@
 | `can/Vehicle_CanC.dbc` | 整车 CANC |
 | `telemetry/fsae_telemetry.proto` | 遥测 Protobuf 唯一源 |
 | `telemetry/fsae_telemetry.options` | Nanopb 静态容量配置 |
+| `archive/` | 已退出正式接口的历史参考资料，不得据此新增实现 |
 | [`docs/CAN1接口.md`](docs/CAN1接口.md) | BMS 从控、主控状态和工具协议 |
 | [`docs/CANB接口.md`](docs/CANB接口.md) | BMS、ECU SOP、IVT-S 和充电接口 |
 | [`docs/CAN_ID分配.md`](docs/CAN_ID分配.md) | 各总线 ID 归属和用途索引 |
+| [`docs/CAN与遥测对照.md`](docs/CAN与遥测对照.md) | 全链路 CAN 到遥测端到端映射与 Fallback 策略 |
+| [`docs/Grafana监控指南.md`](docs/Grafana监控指南.md) | 云端 InfluxDB 全字段矩阵、InfluxQL 查询与仪表盘配置 |
 | [`docs/迁移与待确认项.md`](docs/迁移与待确认项.md) | 尚未完成的接口确认和实物验证 |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | 修改接口时的提交和验证要求 |
 | [`docs/协作与维护方案.md`](docs/协作与维护方案.md) | 权限、发布和交接规则 |
@@ -31,11 +34,20 @@ CAN1 连接 BMS 从控、F405 主控和调试工具。IVT-S 位于 CANB；CANB �
 git checkout <release-or-commit>
 ```
 
-修改接口后运行：
+首次在本机创建仓库内固定虚拟环境（`.venv/` 已由 `.gitignore` 排除）：
 
 ```bash
-python3 tools/validate_interfaces.py
+python3.12 -m venv .venv
+.venv/bin/python -m pip install --requirement requirements-dev.txt
 ```
+
+以后修改接口后直接复用：
+
+```bash
+.venv/bin/python tools/validate_interfaces.py
+```
+
+依赖版本由 `requirements-dev.txt` 固定；只有依赖文件变化或主动升级环境时才需要重新安装。
 
 校验内容包括 DBC、Proto、Nanopb options、文档链接和公开仓库边界。
 

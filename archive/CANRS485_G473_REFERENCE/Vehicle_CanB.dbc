@@ -1,0 +1,122 @@
+VERSION ""
+
+
+NS_ :
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: ECU
+
+
+BO_ 1289 Debug9: 5 ECU
+ SG_ LogicState_RR : 24|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ LogicState_RL : 28|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ LogicState_FR : 32|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ LogicState_FL : 36|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ FR_AMK_bEnable : 20|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FL_AMK_bEnable : 21|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ RR_AMK_bEnable : 22|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ RL_AMK_bEnable : 23|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FR_AMK_bQuitInverterOn : 16|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FL_AMK_bQuitInverterOn : 17|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ RR_AMK_bQuitInverterOn : 18|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ RL_AMK_bQuitInverterOn : 19|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FR_AMK_bQuitDcOn : 12|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FL_AMK_bQuitDcOn : 13|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ RR_AMK_bQuitDcOn : 14|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ RL_AMK_bQuitDcOn : 15|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FR_AMK_bSystemReady : 8|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FL_AMK_bSystemReady : 9|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ RR_AMK_bSystemReady : 10|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ RL_AMK_bSystemReady : 11|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FR_AMK_bError : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FL_AMK_bError : 1|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ RR_AMK_bError : 2|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ RL_AMK_bError : 3|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ModeFlag : 4|4@1- (1,0) [-8|7] "" Vector__XXX
+
+BO_ 1288 Debug8: 8 ECU
+ SG_ FR_IGBT_temperature : 48|16@1- (0.1,0) [-3276.8|3276.7] "°" Vector__XXX
+ SG_ FL_IGBT_temperature : 32|16@1- (0.1,0) [-3276.8|3276.7] "°" Vector__XXX
+ SG_ RR_IGBT_temperature : 16|16@1- (0.1,0) [-3276.8|3276.7] "°" Vector__XXX
+ SG_ RL_IGBT_temperature : 0|16@1- (0.1,0) [-3276.8|3276.7] "°" Vector__XXX
+
+BO_ 1287 Debug7: 8 ECU
+ SG_ FR_Inverter_temperature : 48|16@1- (0.1,0) [-3276.8|3276.7] "°" Vector__XXX
+ SG_ FL_Inverter_temperature : 32|16@1- (0.1,0) [-3276.8|3276.7] "°" Vector__XXX
+ SG_ RR_Inverter_temperature : 16|16@1- (0.1,0) [-3276.8|3276.7] "°" Vector__XXX
+ SG_ RL_Inverter_temperature : 0|16@1- (0.1,0) [-3276.8|3276.7] "°" Vector__XXX
+
+BO_ 1286 Debug6: 8 ECU
+ SG_ FR_Motor_temperature : 48|16@1- (0.1,0) [-3276.8|3276.7] "°" Vector__XXX
+ SG_ FL_Motor_temperature : 32|16@1- (0.1,0) [-3276.8|3276.7] "°" Vector__XXX
+ SG_ RR_Motor_temperature : 16|16@1- (0.1,0) [-3276.8|3276.7] "°" Vector__XXX
+ SG_ RL_Motor_temperature : 0|16@1- (0.1,0) [-3276.8|3276.7] "°" Vector__XXX
+
+BO_ 1285 Debug5: 8 ECU
+ SG_ FR_ActualVelocity : 48|16@1- (1,0) [-32768|32767] "" Vector__XXX
+ SG_ FL_ActualVelocity : 32|16@1- (1,0) [-32768|32767] "" Vector__XXX
+ SG_ RR_ActualVelocity : 16|16@1- (1,0) [-32768|32767] "" Vector__XXX
+ SG_ RL_ActualVelocity : 0|16@1- (1,0) [-32768|32767] "" Vector__XXX
+
+BO_ 1282 Debug2: 8 ECU
+ SG_ FR_ActualTorque : 48|16@1- (1,0) [-32768|32767] "0.1%Mn" Vector__XXX
+ SG_ FL_ActualTorque : 32|16@1- (1,0) [-32768|32767] "0.1%Mn" Vector__XXX
+ SG_ RR_ActualTorque : 16|16@1- (1,0) [-32768|32767] "0.1%Mn" Vector__XXX
+ SG_ RL_ActualTorque : 0|16@1- (1,0) [-32768|32767] "0.1%Mn" Vector__XXX
+
+BO_ 773 DataLogger: 6 ECU
+ SG_ OilPressure_Kpa : 32|16@1+ (0.001,0) [0|65.535] "Kpa" Vector__XXX
+ SG_ APS_OpenPct : 16|16@1+ (0.1,0) [0|6553.5] "%" Vector__XXX
+ SG_ SteeringWheelAngle : 0|16@1- (0.1,0) [-3276.8|3276.7] "deg" Vector__XXX
+
+BO_ 1284 Debug4: 8 ECU
+ SG_ Diagnostic_number_4 : 32|32@1+ (1,0) [0|4294967295] "" Vector__XXX
+ SG_ Diagnostic_number_3 : 0|32@1+ (1,0) [0|4294967295] "" Vector__XXX
+
+BO_ 1283 Debug3: 8 ECU
+ SG_ Diagnostic_number_2 : 32|32@1+ (1,0) [0|4294967295] "" Vector__XXX
+ SG_ Diagnostic_number_1 : 0|32@1+ (1,0) [0|4294967295] "" Vector__XXX
+
+
+
+CM_ SG_ 1289 FR_AMK_bEnable "表示电机是否使能";
+CM_ SG_ 1288 FR_IGBT_temperature "单位：摄氏度";
+CM_ SG_ 1287 FR_Inverter_temperature "单位：摄氏度";
+CM_ SG_ 1286 FR_Motor_temperature "单位：摄氏度";
+CM_ SG_ 1282 FR_ActualTorque "右前实际扭矩";
+CM_ SG_ 773 OilPressure_Kpa "油压信号，单位是Kpa";
+CM_ SG_ 773 APS_OpenPct "0~100%表示油门开度";
+CM_ SG_ 773 SteeringWheelAngle "方向盘转角从-137到136deg";
+BA_DEF_  "MultiplexExtEnabled" ENUM  "No","Yes";
+BA_DEF_  "BusType" STRING ;
+BA_DEF_DEF_  "MultiplexExtEnabled" "No";
+BA_DEF_DEF_  "BusType" "CAN";
