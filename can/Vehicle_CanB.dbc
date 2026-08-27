@@ -33,7 +33,7 @@ NS_ :
 
 BS_:
 
-BU_: ECU Display VCU SteeringWheel WirelessGateway DATA_COLLECTION_INTEGRAL VEHICLE_LOGGER PDM FanController
+BU_: ECU Display VCU SteeringWheel WirelessGateway DATA_COLLECTION_INTEGRAL VEHICLE_LOGGER PDM FanController BMS_Master
 
 BO_ 1289 Debug9: 5 ECU
  SG_ LogicState_RR : 24|4@1+ (1,0) [0|15] "" Vector__XXX
@@ -230,6 +230,49 @@ BO_ 102 IMU_Magnetic: 6 Display
 
 
 
+BO_ 1184 BMS_SOPLimits: 8 BMS_Master
+ SG_ DischargeCurrentLimit : 0|16@1+ (0.1,0) [0|6553.5] "A" ECU
+ SG_ ChargeCurrentLimit : 16|16@1+ (0.1,0) [0|6553.5] "A" ECU
+ SG_ DischargePowerLimit : 32|16@1+ (0.1,0) [0|6553.5] "kW" ECU
+ SG_ ChargePowerLimit : 48|16@1+ (0.1,0) [0|6553.5] "kW" ECU
+
+BO_ 1187 BMS_SOPStatus: 8 BMS_Master
+ SG_ SOPSequence : 0|4@1+ (1,0) [0|15] "" ECU
+ SG_ SOPProtocolVersion : 4|4@1+ (1,0) [0|15] "" ECU
+ SG_ LimitsValid : 8|1@1+ (1,0) [0|1] "" ECU
+ SG_ DriveAllowed : 9|1@1+ (1,0) [0|1] "" ECU
+ SG_ RegenAllowed : 10|1@1+ (1,0) [0|1] "" ECU
+ SG_ OvercurrentLimitZero : 11|1@1+ (1,0) [0|1] "" ECU
+ SG_ BMSFaultHold : 12|1@1+ (1,0) [0|1] "" ECU
+ SG_ SOPAckRequired : 13|1@1+ (1,0) [0|1] "" ECU
+ SG_ LimitsReduced : 14|1@1+ (1,0) [0|1] "" ECU
+ SG_ BatteryState : 16|8@1+ (1,0) [0|255] "" ECU
+ SG_ LimitReason : 24|16@1+ (1,0) [0|65535] "" ECU
+ SG_ InputHealth : 40|8@1+ (1,0) [0|255] "" ECU
+ SG_ InterventionLevel : 48|2@1+ (1,0) [0|3] "" ECU
+ SG_ DischargeOvercurrentZero : 50|1@1+ (1,0) [0|1] "" ECU
+ SG_ ChargeOvercurrentZero : 51|1@1+ (1,0) [0|1] "" ECU
+ SG_ AckMissing : 52|1@1+ (1,0) [0|1] "" ECU
+ SG_ AckFresh : 53|1@1+ (1,0) [0|1] "" ECU
+ SG_ CurrentBelowClearThreshold : 54|1@1+ (1,0) [0|1] "" ECU
+ SG_ SOPCRC8 : 56|8@1+ (1,0) [0|255] "" ECU
+
+BO_ 1188 ECU_SOPAcknowledgement: 8 ECU
+ SG_ AcceptedSOPSequence : 0|4@1+ (1,0) [0|15] "" BMS_Master
+ SG_ SOPProtocolVersion : 4|4@1+ (1,0) [0|15] "" BMS_Master
+ SG_ SOPChecksPassed : 8|1@1+ (1,0) [0|1] "" BMS_Master
+ SG_ SOPAppliedToTorque : 9|1@1+ (1,0) [0|1] "" BMS_Master
+ SG_ PositiveTorqueZero : 10|1@1+ (1,0) [0|1] "" BMS_Master
+ SG_ NegativeTorqueZero : 11|1@1+ (1,0) [0|1] "" BMS_Master
+ SG_ DriveLimitedByBMS : 12|1@1+ (1,0) [0|1] "" BMS_Master
+ SG_ RegenLimitedByBMS : 13|1@1+ (1,0) [0|1] "" BMS_Master
+ SG_ ECUSOPTimeout : 14|1@1+ (1,0) [0|1] "" BMS_Master
+ SG_ ECUFaultBlocksDrive : 15|1@1+ (1,0) [0|1] "" BMS_Master
+ SG_ FinalDischargePowerLimit : 16|16@1+ (0.1,0) [0|6553.5] "kW" BMS_Master
+ SG_ FinalChargePowerLimit : 32|16@1+ (0.1,0) [0|6553.5] "kW" BMS_Master
+ SG_ PrimaryLimitSource : 48|8@1+ (1,0) [0|255] "" BMS_Master
+ SG_ SOPAckCRC8 : 56|8@1+ (1,0) [0|255] "" BMS_Master
+
 BO_ 1440 PDM_LowVoltageBus: 8 PDM
  SG_ BusVoltage : 7|16@0- (0.001,0) [-32.768|32.767] "V" ECU
  SG_ BusCurrent : 23|16@0- (0.01,0) [-327.68|327.67] "A" ECU
@@ -348,3 +391,5 @@ VAL_ 1445 AckMode 0 "Auto" 1 "Manual" 2 "Off";
 VAL_ 1445 AckFailsafe 0 "HoldLast" 1 "Fallback" 2 "Full";
 VAL_ 1447 FanFailsafeStrategy 0 "HoldLast" 1 "Fallback" 2 "Full";
 VAL_ 1447 FanControlMode 0 "Auto" 1 "Manual" 2 "Off";
+VAL_ 1187 BatteryState 2 "SelfTest" 3 "Standby" 4 "Precharge" 5 "HighVoltageOn" 7 "FaultHold";
+VAL_ 1187 InterventionLevel 0 "Normal" 1 "Derating" 2 "OvercurrentZero" 3 "FaultOrShutdown";
