@@ -22,13 +22,13 @@ docs/correct-canb-byte-order
 1. 创建或关联 Issue。
 2. 从最新 `main` 创建分支。
 3. 只修改一个清楚的接口主题。
-4. 执行 `python3 tools/validate_interfaces.py`。
+4. 执行 `.venv/bin/python tools/validate_interfaces.py`；首次使用先按 README 创建仓库内 `.venv`。
 5. 更新 `CHANGELOG.md`。
 6. 提交 PR，并写明受影响项目、兼容性和验证结果。
 
 ## CAN 修改要求
 
-- 新 ID 先查 `docs/CAN_ID分配.md` 和两个正式 DBC。
+- 新 ID 先查 `docs/CAN_ID分配.md` 和对应总线的正式 DBC。
 - 写明发送节点、接收节点、标准/扩展帧、DLC、周期或触发条件。
 - 每个字段写明字节序、符号、比例、偏移、单位、范围和无效值。
 - 已发布报文的 ID、DLC、字节序或比例变化属于高风险修改，必须提供迁移方案。

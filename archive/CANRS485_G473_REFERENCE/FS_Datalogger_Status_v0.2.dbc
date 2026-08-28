@@ -1,0 +1,105 @@
+VERSION ""
+
+
+NS_ :
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: FS_Datalogger
+
+
+BO_ 1877 FS_Datalogger_Reserved_6: 8 Vector__XXX
+
+BO_ 1876 FS_Datalogger_Reserved_5: 8 Vector__XXX
+
+BO_ 1875 FS_Datalogger_Reserved_4: 8 Vector__XXX
+
+BO_ 1874 FS_Datalogger_Reserved_3: 8 Vector__XXX
+
+BO_ 1873 FS_Datalogger_Reserved_2: 8 Vector__XXX
+
+BO_ 1872 FS_Datalogger_Reserved_1: 8 Vector__XXX
+
+BO_ 1072 FS_Datalogger_Status: 6 FS_Datalogger
+ SG_ Current : 39|16@0+ (64,0) [0|4194240] "mA" Vector__XXX
+ SG_ Voltage : 23|16@0+ (16,0) [0|1048560] "mV" Vector__XXX
+ SG_ Status_Triggered_Current : 11|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Status_Triggered_Voltage : 10|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Status_Logging : 9|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Status_Ready : 8|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ MsgCnt : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 1313 FS_Datalogger_Result_I: 6 FS_Datalogger
+ SG_ Result_Mux : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ MsgCnt : 8|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ Result_State : 12|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ Current : 23|32@0- (1,0) [-2147483648|2147483647] "mA" Vector__XXX
+
+BO_ 1314 FS_Datalogger_Result_U1: 6 FS_Datalogger
+ SG_ Result_Mux : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ MsgCnt : 8|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ Result_State : 12|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ Voltage_U1 : 23|32@0- (1,0) [-2147483648|2147483647] "mV" Vector__XXX
+
+BO_ 1315 FS_Datalogger_Result_U2: 6 FS_Datalogger
+ SG_ Result_Mux : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ MsgCnt : 8|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ Result_State : 12|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ Voltage_U2 : 23|32@0- (1,0) [-2147483648|2147483647] "mV" Vector__XXX
+
+BO_ 1318 FS_Datalogger_Result_W: 6 FS_Datalogger
+ SG_ Result_Mux : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ MsgCnt : 8|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ Result_State : 12|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ Power : 23|32@0- (1,0) [-2147483648|2147483647] "W" Vector__XXX
+
+BO_ 1320 FS_Datalogger_Result_Wh: 6 FS_Datalogger
+ SG_ Result_Mux : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ MsgCnt : 8|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ Result_State : 12|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ Energy : 23|32@0- (1,0) [-2147483648|2147483647] "Wh" Vector__XXX
+
+BA_DEF_  "BusType" STRING ;
+BA_DEF_DEF_  "BusType" "CAN";
+
+CM_ BO_ 1072 "Firmware decodes byte0 as message counter, byte1 bits 0..3 as status flags, bytes2..3 as big-endian voltage raw*16 mV, and bytes4..5 as big-endian current raw*64 mA.";
+CM_ SG_ 1072 Voltage "Bytes 2..3: raw = (byte2 << 8) | byte3; voltage_mV = raw * 16.";
+CM_ SG_ 1072 Current "Bytes 4..5: raw = (byte4 << 8) | byte5; current_mA = raw * 64.";
+CM_ BO_ 1313 "Optional FS Datalogger result frame decoded by CAN2RS485 in FS mode. Layout mirrors IVT result IDs, but DB2..DB5 are big-endian signed raw mA.";
+CM_ BO_ 1314 "Optional FS Datalogger result frame decoded by CAN2RS485 in FS mode. Layout mirrors IVT result IDs, but DB2..DB5 are big-endian signed raw mV.";
+CM_ BO_ 1315 "Optional FS Datalogger result U2 frame for trace analysis. CAN2RS485 currently uses U1 (0x522) for HV voltage. DB2..DB5 are big-endian signed raw mV.";
+CM_ BO_ 1318 "Optional FS Datalogger power result frame decoded by CAN2RS485 in auto/FS mode. DB2..DB5 are big-endian signed raw W.";
+CM_ BO_ 1320 "Optional FS Datalogger energy result frame decoded by CAN2RS485 in FS mode. DB2..DB5 are big-endian signed raw Wh.";
+CM_ SG_ 1313 Result_Mux "Expected 0x00 for current.";
+CM_ SG_ 1314 Result_Mux "Expected 0x01 for U1 voltage.";
+CM_ SG_ 1315 Result_Mux "Expected 0x02 for U2 voltage.";
+CM_ SG_ 1318 Result_Mux "Expected 0x05 for power.";
+CM_ SG_ 1320 Result_Mux "Expected 0x07 for Wh.";
