@@ -388,7 +388,7 @@ BO_ 1184 BMS_SOPLimits: 8 BMS_Master
  SG_ ChargeCurrentLimit : 16|16@1+ (0.1,0) [0|6553.5] "A" ECU
  SG_ DischargePowerLimit : 32|16@1+ (0.1,0) [0|6553.5] "kW" ECU
  SG_ ChargePowerLimit : 48|16@1+ (0.1,0) [0|6553.5] "kW" ECU
-CM_ BO_ 1184 "CANB 标准帧 0x4A0，50 ms；四个上限均为小端无符号值。";
+CM_ BO_ 1184 "CANB 标准帧 0x4A0，10 ms；四个上限均为小端无符号值。";
 
 BO_ 1187 BMS_SOPStatus: 8 BMS_Master
  SG_ SOPSequence : 0|4@1+ (1,0) [0|15] "" ECU

@@ -2,7 +2,10 @@
 
 本仓库集中维护 BITFSAE 整车 CAN 和遥测接口。DBC、Proto 和 Nanopb options 是机器可读的正式来源；Markdown 说明总线边界、兼容规则、维护流程和待确认事项。
 
-各固件、上位机、服务器和分析项目应固定使用本仓库的 Release 或 Commit，并记录所用版本。
+各固件、HMI/遥测链路、服务器和分析项目应固定使用本仓库的 Release 或 Commit，并记录所用版本。
+
+> 当前尚未发布首个稳定版本 `v1.0.0`。ECU 和其他 CANB 节点的最终确认见 [`docs/迁移与待确认项.md`](docs/迁移与待确认项.md) 和 [`docs/ECU_SOP实现确认.md`](docs/ECU_SOP实现确认.md)。
+> **当前周期、触发条件和处理优先级都是暂定值，不代表最终接口参数。** 各节点结合实际模型、接收端需求和 CAN 容量给出最终值；如果现有值不合理，应提出修改方案，而不是沿用。
 
 ## 接口与文档
 
@@ -16,15 +19,24 @@
 | `telemetry/fsae_telemetry.options` | Nanopb 静态容量配置 |
 | `archive/` | 已退出正式接口的历史参考资料，不得据此新增实现 |
 | [`docs/CAN1接口.md`](docs/CAN1接口.md) | BMS 从控、主控状态和工具协议 |
-| [`docs/CANB接口.md`](docs/CANB接口.md) | BMS、ECU SOP、IVT-S 和充电接口 |
+| [`docs/CANB接口.md`](docs/CANB接口.md) | CANB 全报文总表、BMS、ECU SOP、IVT-S 和充电接口 |
+| [`docs/ECU_SOP实现确认.md`](docs/ECU_SOP实现确认.md) | ECU 最终 SOP 接收、限制、扭矩、周期和确认策略确认模板 |
 | [`docs/CAN_ID分配.md`](docs/CAN_ID分配.md) | 各总线 ID 归属和用途索引 |
 | [`docs/CAN与遥测对照.md`](docs/CAN与遥测对照.md) | 全链路 CAN 到遥测端到端映射与 Fallback 策略 |
 | [`docs/Grafana监控指南.md`](docs/Grafana监控指南.md) | 云端 InfluxDB 全字段矩阵、InfluxQL 查询与仪表盘配置 |
-| [`docs/迁移与待确认项.md`](docs/迁移与待确认项.md) | 尚未完成的接口确认和实物验证 |
+| [`docs/迁移与待确认项.md`](docs/迁移与待确认项.md) | 尚未完成的接口确认、周期/优先级确认、v1.0.0 发布检查表 |
+| [`docs/协作与维护方案.md`](docs/协作与维护方案.md) | 节点确认责任、权限、发布和交接规则 |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | 修改接口时的提交和验证要求 |
-| [`docs/协作与维护方案.md`](docs/协作与维护方案.md) | 权限、发布和交接规则 |
 
 CAN1 连接 BMS 从控、F405 主控和调试工具。IVT-S 位于 CANB；CANB 还承载整车调试、显示、PDM、FanController、ECU SOP 和充电机报文。具体 ID 和字段见对应 DBC 与接口文档。
+
+## 当前状态
+
+**已按代码确认：** BMS 相关接口（CAN1、CANB `0x4B0..0x4B2`、SOP `0x4A0/0x4A3`、自有 IVT-S、Chroma、Legacy）。
+
+**待确认：** ECU 的 `0x4A4` 和 ECU 侧 SOP 策略、ECU `0x305/0x502..0x509`、Display/HMI/遥测 GPS/IMU、胎温 `0x071..0x074`、PDM、FanController、方向盘、赛会能量计。
+
+**确认要求：** 各节点除提交 DBC 外，必须提供对应报文说明文档，明确字段、单位、比例、有效范围、周期、发送/接收节点和异常处理，并说明报文处理优先级是否合理、是否存在误触发风险。
 
 ## 使用和验证
 

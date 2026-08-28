@@ -23,6 +23,13 @@ DBC_FILES = (
 PROTO_FILE = ROOT / "telemetry/fsae_telemetry.proto"
 OPTIONS_FILE = ROOT / "telemetry/fsae_telemetry.options"
 
+CANB_DOC = ROOT / "docs/CANB接口.md"
+CANB_CONFIRMED_IDS = (
+    "0x401/0x402/0x404/0x405", "0x490", "0x491",
+    "0x4A0", "0x4A3", "0x4B0", "0x4B1", "0x4B2", "0x512..0x519",
+    "0x1806E5F4", "0x18FF50E5",
+)
+
 
 def repository_files() -> tuple[Path, ...]:
     """返回 Git 已跟踪及未忽略的未跟踪文件，排除 .venv/build 等本地状态。"""
@@ -146,6 +153,30 @@ def expected_signals() -> dict[str, tuple[tuple[int, str, int, int, str, bool, f
 def fail(message: str) -> None:
     print(f"ERROR: {message}", file=sys.stderr)
     raise SystemExit(1)
+
+
+def validate_canb_confirmation_status() -> None:
+    """检查 CANB 正式文档的报文总表是否记录确认状态，并允许以后增加待确认组。"""
+    if not CANB_DOC.is_file():
+        fail(f"缺少 CANB 接口文档：{CANB_DOC.relative_to(ROOT)}")
+    row = re.compile(
+        r"^\| `([^`]+)` .*\| (BMS 已确认|ECU 待确认|节点待确认|赛会待确认) \|$"
+    )
+    seen: set[str] = set()
+    pending: set[str] = set()
+    for line in CANB_DOC.read_text(encoding="utf-8").splitlines():
+        match = row.match(line)
+        if not match:
+            continue
+        identifier, status = match.group(1), match.group(2)
+        seen.add(identifier)
+        if status != "BMS 已确认":
+            pending.add(identifier)
+    for identifier in CANB_CONFIRMED_IDS:
+        if identifier not in seen:
+            fail(f"CANB 接口文档缺少已确认报文行：{identifier}")
+    print(f"OK: CANB 确认状态表，{len(seen)} 行，待确认 {len(pending)} 组")
+    return pending
 
 
 def validate_dbc() -> None:
@@ -273,6 +304,7 @@ def validate_public_boundary() -> None:
 
 
 def main() -> None:
+    validate_canb_confirmation_status()
     validate_dbc()
     validate_proto()
     validate_markdown_links()
@@ -282,3 +314,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

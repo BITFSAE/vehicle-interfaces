@@ -175,7 +175,7 @@ Telegraf 根据 `fsae_telemetry.proto` 的 XPath 配置，将单条 `TelemetryFr
 
 ---
 
-> 当前帧→轮位映射假设：0x071=FL、0x072=FR、0x073=RL、0x074=RR，待与数采模块确认。
+> 当前帧→轮位映射假设：0x071=FL、0x072=FR、0x073=RL、0x074=RR，待与胎温采集模块/遥测确认。
 
 ### 2.5 `alarm_state` 表（整车告警列表）
 
