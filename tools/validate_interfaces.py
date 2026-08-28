@@ -24,6 +24,7 @@ PROTO_FILE = ROOT / "telemetry/fsae_telemetry.proto"
 OPTIONS_FILE = ROOT / "telemetry/fsae_telemetry.options"
 
 CANB_DOC = ROOT / "docs/CANB接口.md"
+FAN_NODE_DBC = ROOT.parent / "FanController" / "Doc" / "FanController_CANB.dbc"
 CANB_CONFIRMED_IDS = (
     "0x401/0x402/0x404/0x405", "0x490", "0x491",
     "0x4A0", "0x4A3", "0x4B0", "0x4B1", "0x4B2", "0x512..0x519",
@@ -144,6 +145,24 @@ def expected_signals() -> dict[str, tuple[tuple[int, str, int, int, str, bool, f
             (0x5A7, "FanFailsafeStrategy", 0, 8, "little_endian", False, 1.0),
             (0x5A8, "PowerSupplyState", 0, 4, "little_endian", False, 1.0),
             (0x5A9, "CalibState", 0, 4, "little_endian", False, 1.0),
+            (0x5A6, "FanTempCritical", 40, 8, "little_endian", False, 1.0),
+            (0x5A6, "FanStartDuty", 48, 8, "little_endian", False, 1.0),
+            (0x5A6, "FanCurveChannel", 56, 8, "little_endian", False, 1.0),
+            (0x5A7, "FanProtocolVersion", 56, 8, "little_endian", False, 1.0),
+            (0x5A8, "PowerLimitReason", 4, 4, "little_endian", False, 1.0),
+            (0x5A8, "ThermalRequest1_Duty", 8, 8, "little_endian", False, 1.0),
+            (0x5A8, "ThermalRequest2_Duty", 16, 8, "little_endian", False, 1.0),
+            (0x5A8, "PowerLimitedTarget1_Duty", 24, 8, "little_endian", False, 1.0),
+            (0x5A8, "PowerLimitedTarget2_Duty", 32, 8, "little_endian", False, 1.0),
+            (0x5A8, "CurrentBudget", 40, 8, "little_endian", False, 0.1),
+            (0x5A8, "PredictedCurrent", 48, 16, "little_endian", False, 0.1),
+            (0x5A9, "CalibAbortReason", 4, 4, "little_endian", False, 1.0),
+            (0x5A9, "CalibStep", 8, 8, "little_endian", False, 1.0),
+            (0x5A9, "CalibPWM1Target", 16, 8, "little_endian", False, 1.0),
+            (0x5A9, "CalibPWM2Target", 24, 8, "little_endian", False, 1.0),
+            (0x5A9, "CalibLeaseRemaining", 32, 8, "little_endian", False, 1.0),
+            (0x5A9, "CalibParamVersion", 40, 8, "little_endian", False, 1.0),
+            (0x5A9, "CalibFlags", 48, 16, "little_endian", False, 1.0),
             (0x4B0, "BatteryCurrent", 23, 16, "big_endian", True, 0.1),
             (0x512, "ResultValue", 16, 32, "little_endian", True, 1.0),
             (0x521, "ResultValue", 23, 32, "big_endian", True, 1.0),
@@ -229,6 +248,28 @@ def validate_dbc() -> None:
         print(f"OK: {path.relative_to(ROOT)}，{len(database.messages)} 条报文")
 
 
+def validate_fan_enum_sync() -> None:
+    """核对中央 DBC 与 FanController 节点 DBC 的关键枚举值。"""
+    if not FAN_NODE_DBC.is_file():
+        fail(f"缺少 FanController 节点 DBC：{FAN_NODE_DBC.relative_to(ROOT.parent)}")
+    central = (ROOT / "can/Vehicle_CanB.dbc").read_text(encoding="utf-8")
+    node = FAN_NODE_DBC.read_text(encoding="utf-8")
+    required_lines = (
+        'VAL_ 1444 CommandOpcode 1 "SetControl" 2 "SetCurveCH1" '
+        '3 "SetFailsafe" 4 "RestoreDefaults" 5 "Query" 6 "SetCurveCH2" 8 "SetCalib";',
+        'VAL_ 1445 AckResult 0 "OK" 1 "BadCRC" 2 "BadLength" 3 "BadValue" '
+        '4 "Unsupported" 5 "LeaseExpired" 6 "SafetyAbort";',
+        'VAL_ 1448 PowerLimitReason 0 "None" 1 "BusLimit" 2 "BatteryLimit" '
+        '3 "PdmTimeout" 4 "TransitionHold" 5 "StallHold" 6 "OverTemperature" 7 "SafetyAbort";',
+    )
+    for line in required_lines:
+        if line not in central:
+            fail(f"中央 DBC 缺失枚举行：{line}")
+        if line not in node:
+            fail(f"FanController 节点 DBC 缺失枚举行：{line}")
+    print("OK: FanController 命令/应答/限功率枚举中央与节点一致")
+
+
 def validate_proto() -> None:
     if not PROTO_FILE.is_file() or not OPTIONS_FILE.is_file():
         fail("缺少正式 Proto 或 Nanopb options")
@@ -309,6 +350,7 @@ def validate_public_boundary() -> None:
 def main() -> None:
     validate_canb_confirmation_status()
     validate_dbc()
+    validate_fan_enum_sync()
     validate_proto()
     validate_markdown_links()
     validate_public_boundary()
@@ -317,4 +359,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

@@ -284,6 +284,9 @@ BO_ 1446 FanController_CurveStatus: 8 FanController
  SG_ FanTempFull : 16|8@1+ (1,0) [0|150] "degC" ECU
  SG_ FanMinDuty : 24|8@1+ (1,0) [0|100] "%" ECU
  SG_ FanRampUp : 32|8@1+ (1,0) [0|100] "%/s" ECU
+ SG_ FanTempCritical : 40|8@1+ (1,0) [0|150] "degC" ECU
+ SG_ FanStartDuty : 48|8@1+ (1,0) [0|100] "%" ECU
+ SG_ FanCurveChannel : 56|8@1+ (1,0) [1|2] "" ECU
 
 BO_ 1447 FanController_FailsafeStatus: 8 FanController
  SG_ FanFailsafeStrategy : 0|8@1+ (1,0) [0|2] "" ECU
@@ -293,6 +296,7 @@ BO_ 1447 FanController_FailsafeStatus: 8 FanController
  SG_ FanRampDown : 32|8@1+ (1,0) [0|100] "%/s" ECU
  SG_ FanControlMode : 40|8@1+ (1,0) [0|2] "" ECU
  SG_ FanControlLeaseRemaining : 48|8@1+ (1,0) [0|60] "s" ECU
+ SG_ FanProtocolVersion : 56|8@1+ (1,0) [0|255] "" ECU
 
 BO_ 1448 FanController_PowerStatus: 8 FanController
  SG_ PowerSupplyState : 0|4@1+ (1,0) [0|15] "" ECU
@@ -357,21 +361,21 @@ CM_ SG_ 102 IMU_MagX "Raw X-axis magnetic-field value, decoded from packet 0x050
 
 
 CM_ BO_ 1440 "Low-voltage bus status. All four fields at their invalid raw values mean the INA226 is offline or a read failed.";
-CM_ BO_ 1441 "Low-voltage battery branch status. Energy is accumulated since MCU boot and is not battery state of charge.";
-CM_ BO_ 1442 "Three fan speeds and two measured fan-side PWM duty cycles.";
-CM_ BO_ 1443 "Fan faults, input validity, control mode, maximum temperatures and target duty cycles.";
+CM_ BO_ 1441 "Low-voltage battery branch status. Positive current means battery discharge/load consumption; negative means charging. Signed convention validated by serial load test. Energy is accumulated since MCU boot and is not battery state of charge.";
+CM_ BO_ 1442 "Three fan speeds and two measured fan-side PWM duty cycles. 100ms cycle.";
+CM_ BO_ 1443 "Fan faults, input validity, control mode, maximum temperatures and target duty cycles. 500ms cycle.";
 CM_ BO_ 1444 "Fan control command. Byte 7 is CRC-8/SAE-J1850 over bytes 0 through 6.";
 CM_ BO_ 1445 "Fan command acknowledgement and current control state.";
-CM_ BO_ 1448 "Fan power arbitration status, including power supply state, limits, independent thermal requests, targets and predicted current.";
-CM_ BO_ 1449 "Fan calibration status and active session progress.";
-VAL_ 1444 CommandOpcode 1 "SetControl" 2 "SetCurve" 3 "SetFailsafe" 4 "RestoreDefaults" 5 "Query";
-VAL_ 1445 AckResult 0 "OK" 1 "BadCRC" 2 "BadLength" 3 "BadValue" 4 "Unsupported" 5 "LeaseExpired";
+CM_ BO_ 1448 "Fan power arbitration status, including power supply state, limits, independent thermal requests, targets and predicted current. 100ms cycle.";
+CM_ BO_ 1449 "Fan calibration session status. Sent at 100ms while session is ACTIVE/ABORTED/COMPLETED, not when inactive.";
+VAL_ 1444 CommandOpcode 1 "SetControl" 2 "SetCurveCH1" 3 "SetFailsafe" 4 "RestoreDefaults" 5 "Query" 6 "SetCurveCH2" 8 "SetCalib";
+VAL_ 1445 AckResult 0 "OK" 1 "BadCRC" 2 "BadLength" 3 "BadValue" 4 "Unsupported" 5 "LeaseExpired" 6 "SafetyAbort";
 VAL_ 1445 AckMode 0 "Auto" 1 "Manual" 2 "Off";
 VAL_ 1445 AckFailsafe 0 "HoldLast" 1 "Fallback" 2 "Full";
 VAL_ 1447 FanFailsafeStrategy 0 "HoldLast" 1 "Fallback" 2 "Full";
 VAL_ 1447 FanControlMode 0 "Auto" 1 "Manual" 2 "Off";
 VAL_ 1448 PowerSupplyState 0 "Unknown" 1 "Battery" 2 "Transition" 3 "DcdcReady" 4 "PowerLimited" 5 "DataFault";
-VAL_ 1448 PowerLimitReason 0 "None" 1 "BusLimit" 2 "BatteryLimit" 3 "PdmTimeout" 4 "TransitionHold" 5 "StallHold";
+VAL_ 1448 PowerLimitReason 0 "None" 1 "BusLimit" 2 "BatteryLimit" 3 "PdmTimeout" 4 "TransitionHold" 5 "StallHold" 6 "OverTemperature" 7 "SafetyAbort";
 VAL_ 1449 CalibState 0 "Inactive" 1 "Active" 2 "Aborted" 3 "Completed";
 VAL_ 1449 CalibAbortReason 0 "None" 1 "DcdcLost" 2 "PdmTimeout" 3 "PowerLimit" 4 "OverTemp" 5 "FanStall" 6 "LeaseExpired" 7 "UserStop";
 

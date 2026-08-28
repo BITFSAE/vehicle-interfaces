@@ -9,8 +9,8 @@
 - 新增 [`docs/ECU_SOP实现确认.md`](docs/ECU_SOP实现确认.md)，由 ECU 负责人填写最终 SOP 接收、限值、扭矩、`0x4A4`、周期和目标策略；增加了“暂定策略合理性审查”和“误触发/恢复风险”检查。
 - 将 [`docs/迁移与待确认项.md`](docs/迁移与待确认项.md) 改为可追踪的确认清单，明确各节点不仅要给 DBC，还要提供报文说明、周期、处理优先级和最终策略。
 - 将 [`docs/协作与维护方案.md`](docs/协作与维护方案.md) 和 [`README.md`](README.md) 补充节点确认责任、发布阻断项和当前状态。
-- 更新 PDM 低压遥测 `0x5A0/0x5A1` 发送周期为 100 ms，以支持快速闭环功率限制。
-- 在 `Vehicle_CanB.dbc` 与接口文档中新增 FanController 功率仲裁状态帧 `0x5A8`（`FanController_PowerStatus`，100 ms）与标定状态帧 `0x5A9`（`FanController_CalibStatus`，100 ms）。
+- 更新 PDM 低压遥测 `0x5A0/0x5A1` 发送周期为 100 ms，以支持快速闭环功率限制；电池支路电流方向已串口实测确认（正=放电）。
+- 在 `Vehicle_CanB.dbc` 与接口文档中新增 FanController 功率仲裁状态帧 `0x5A8`（`FanController_PowerStatus`，100 ms）与标定状态帧 `0x5A9`（`FanController_CalibStatus`，会话非 INACTIVE 时 100 ms）；同步补齐 `0x5A6/0x5A7` 字段、命令/应答枚举和限功率原因。
 
 ### 待确认（发布 `v1.0.0` 前必须完成）
 
