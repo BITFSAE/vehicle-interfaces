@@ -294,6 +294,26 @@ BO_ 1447 FanController_FailsafeStatus: 8 FanController
  SG_ FanControlMode : 40|8@1+ (1,0) [0|2] "" ECU
  SG_ FanControlLeaseRemaining : 48|8@1+ (1,0) [0|60] "s" ECU
 
+BO_ 1448 FanController_PowerStatus: 8 FanController
+ SG_ PowerSupplyState : 0|4@1+ (1,0) [0|15] "" ECU
+ SG_ PowerLimitReason : 4|4@1+ (1,0) [0|15] "" ECU
+ SG_ ThermalRequest1_Duty : 8|8@1+ (1,0) [0|100] "%" ECU
+ SG_ ThermalRequest2_Duty : 16|8@1+ (1,0) [0|100] "%" ECU
+ SG_ PowerLimitedTarget1_Duty : 24|8@1+ (1,0) [0|100] "%" ECU
+ SG_ PowerLimitedTarget2_Duty : 32|8@1+ (1,0) [0|100] "%" ECU
+ SG_ CurrentBudget : 40|8@1+ (0.1,0) [0|25.5] "A" ECU
+ SG_ PredictedCurrent : 48|16@1+ (0.1,0) [0|6553.5] "A" ECU
+
+BO_ 1449 FanController_CalibStatus: 8 FanController
+ SG_ CalibState : 0|4@1+ (1,0) [0|15] "" ECU
+ SG_ CalibAbortReason : 4|4@1+ (1,0) [0|15] "" ECU
+ SG_ CalibStep : 8|8@1+ (1,0) [0|255] "" ECU
+ SG_ CalibPWM1Target : 16|8@1+ (1,0) [0|100] "%" ECU
+ SG_ CalibPWM2Target : 24|8@1+ (1,0) [0|100] "%" ECU
+ SG_ CalibLeaseRemaining : 32|8@1+ (1,0) [0|255] "s" ECU
+ SG_ CalibParamVersion : 40|8@1+ (1,0) [0|255] "" ECU
+ SG_ CalibFlags : 48|16@1+ (1,0) [0|65535] "" ECU
+
 
 CM_ SG_ 1289 FR_AMK_bEnable "Front-right motor enable flag.";
 CM_ SG_ 1288 FR_IGBT_temperature "Front-right IGBT temperature in degrees Celsius.";
@@ -342,12 +362,18 @@ CM_ BO_ 1442 "Three fan speeds and two measured fan-side PWM duty cycles.";
 CM_ BO_ 1443 "Fan faults, input validity, control mode, maximum temperatures and target duty cycles.";
 CM_ BO_ 1444 "Fan control command. Byte 7 is CRC-8/SAE-J1850 over bytes 0 through 6.";
 CM_ BO_ 1445 "Fan command acknowledgement and current control state.";
+CM_ BO_ 1448 "Fan power arbitration status, including power supply state, limits, independent thermal requests, targets and predicted current.";
+CM_ BO_ 1449 "Fan calibration status and active session progress.";
 VAL_ 1444 CommandOpcode 1 "SetControl" 2 "SetCurve" 3 "SetFailsafe" 4 "RestoreDefaults" 5 "Query";
 VAL_ 1445 AckResult 0 "OK" 1 "BadCRC" 2 "BadLength" 3 "BadValue" 4 "Unsupported" 5 "LeaseExpired";
 VAL_ 1445 AckMode 0 "Auto" 1 "Manual" 2 "Off";
 VAL_ 1445 AckFailsafe 0 "HoldLast" 1 "Fallback" 2 "Full";
 VAL_ 1447 FanFailsafeStrategy 0 "HoldLast" 1 "Fallback" 2 "Full";
 VAL_ 1447 FanControlMode 0 "Auto" 1 "Manual" 2 "Off";
+VAL_ 1448 PowerSupplyState 0 "Unknown" 1 "Battery" 2 "Transition" 3 "DcdcReady" 4 "PowerLimited" 5 "DataFault";
+VAL_ 1448 PowerLimitReason 0 "None" 1 "BusLimit" 2 "BatteryLimit" 3 "PdmTimeout" 4 "TransitionHold" 5 "StallHold";
+VAL_ 1449 CalibState 0 "Inactive" 1 "Active" 2 "Aborted" 3 "Completed";
+VAL_ 1449 CalibAbortReason 0 "None" 1 "DcdcLost" 2 "PdmTimeout" 3 "PowerLimit" 4 "OverTemp" 5 "FanStall" 6 "LeaseExpired" 7 "UserStop";
 
 
 BO_ 1025 Chroma_VoltageFeedback: 8 Chroma

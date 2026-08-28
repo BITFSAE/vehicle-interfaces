@@ -84,6 +84,7 @@ def expected_frames() -> dict[str, tuple[tuple[int, int, bool], ...]]:
         (0x5A0, 8, False), (0x5A1, 8, False),
         (0x5A2, 8, False), (0x5A3, 8, False), (0x5A5, 8, False),
         (0x5A6, 8, False), (0x5A7, 8, False),
+        (0x5A8, 8, False), (0x5A9, 8, False),
         (0x1806E5F4, 5, True), (0x18FF50E5, 8, True),
     ]
     cana: list[tuple[int, int, bool]] = [
@@ -141,6 +142,8 @@ def expected_signals() -> dict[str, tuple[tuple[int, str, int, int, str, bool, f
             (0x5A5, "AckPWM1Actual", 32, 8, "little_endian", False, 1.0),
             (0x5A6, "FanTempOn", 8, 8, "little_endian", False, 1.0),
             (0x5A7, "FanFailsafeStrategy", 0, 8, "little_endian", False, 1.0),
+            (0x5A8, "PowerSupplyState", 0, 4, "little_endian", False, 1.0),
+            (0x5A9, "CalibState", 0, 4, "little_endian", False, 1.0),
             (0x4B0, "BatteryCurrent", 23, 16, "big_endian", True, 0.1),
             (0x512, "ResultValue", 16, 32, "little_endian", True, 1.0),
             (0x521, "ResultValue", 23, 32, "big_endian", True, 1.0),

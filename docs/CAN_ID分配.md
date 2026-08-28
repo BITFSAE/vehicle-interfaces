@@ -44,8 +44,8 @@ CANB 主要使用 11 位标准数据帧；Legacy 充电接口使用两个 29 位
 | `0x512..0x519` | 标准 | IVT_S | 自有 IVT-S 结果帧 |
 | `0x521/0x522/0x526/0x528` | 标准 | Competition_IVT 或 FS_Datalogger | 赛会能量计大端结果帧 |
 | `0x430` | 标准 | FS_Datalogger | FS 赛会能量计状态、电压和电流 |
-| `0x5A0..0x5A1` | 标准 | PDM | 低压母线和低压电池支路 |
-| `0x5A2..0x5A7` | 标准 | FanController、ECU | 风扇状态、诊断、命令和参数 |
+| `0x5A0..0x5A1` | 标准 | PDM | 低压母线和低压电池支路（100 ms 周期） |
+| `0x5A2..0x5A9` | 标准 | FanController、ECU | 风扇状态、诊断、命令、参数、功率与标定状态 |
 | `0x700/0x784` | 标准 | SteeringWheel | 方向盘面板和冗余驾驶模式 |
 | `0x1806E5F4` | 扩展 | BMS_Master | Legacy 充电请求 |
 | `0x18FF50E5` | 扩展 | LegacyCharger | Legacy 充电反馈 |
