@@ -400,7 +400,7 @@ BO_ 656 Chroma_Command: 6 BMS_Master
  SG_ ChromaCommandCode : 0|8@1+ (1,0) [0|255] "" Chroma
  SG_ ChromaCommandReserved : 8|8@1+ (1,0) [0|255] "" Chroma
  SG_ ChromaCommandParameter : 16|32@1+ (1,0) [0|4294967295] "" Chroma
-CM_ BO_ 656 "CANB 标准帧 0x290；DLC=3 的字节命令或 DLC=6 的 float/uint32 命令，参数从 Byte2 开始并使用小端。";
+CM_ BO_ 656 "CANB 标准帧 0x290；DLC=3 的字节命令或 DLC=6 的 float/uint32 命令，参数从 Byte2 开始并使用小端；BMS 当前将四类反馈周期设为 500 ms。";
 
 BO_ 657 Chroma_CommandResponse: 8 Chroma
  SG_ ChromaResponseByte0 : 0|8@1+ (1,0) [0|255] "" BMS_Master
@@ -418,7 +418,7 @@ BO_ 1184 BMS_SOPLimits: 8 BMS_Master
  SG_ ChargeCurrentLimit : 16|16@1+ (0.1,0) [0|6553.5] "A" ECU
  SG_ DischargePowerLimit : 32|16@1+ (0.1,0) [0|6553.5] "kW" ECU
  SG_ ChargePowerLimit : 48|16@1+ (0.1,0) [0|6553.5] "kW" ECU
-CM_ BO_ 1184 "CANB 标准帧 0x4A0，10 ms；四个上限均为小端无符号值。";
+CM_ BO_ 1184 "CANB 标准帧 0x4A0，放电模式高压接通后 10 ms；四个上限均为小端无符号值。";
 
 BO_ 1187 BMS_SOPStatus: 8 BMS_Master
  SG_ SOPSequence : 0|4@1+ (1,0) [0|15] "" ECU
