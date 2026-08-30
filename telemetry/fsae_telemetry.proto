@@ -206,7 +206,7 @@ message SopLimits { // CANB 0x4A0/0x4A3/0x4A4 与 CAN1 0x186A50F4 镜像
     optional uint32 ecu_flags = 8; // ECU_SOPAcknowledgement 标志位
 }
 
-message ChargerTelemetry { // CANB Chroma 0x401/0x402/0x404/0x405
+message ChargerTelemetry { // CANB Chroma 0x201/0x202/0x204/0x205
     optional float voltage_v = 1; // 充电电压，单位 V
     optional float current_a = 2; // 充电电流，单位 A
     optional uint32 protection = 3; // 保护状态位图

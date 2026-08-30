@@ -421,6 +421,7 @@ BO_ 2557038836 BMS_HVStatus: 8 BMS_Master
  SG_ HVRequest : 0|1@1+ (1,0) [0|1] "" Display
  SG_ ChargeRequest : 1|1@1+ (1,0) [0|1] "" Display
  SG_ LastPrechargeResult : 2|2@1+ (1,0) [0|3] "" Display
+ SG_ ExternalSafetyOpenEvent : 4|1@1+ (1,0) [0|1] "" Display
  SG_ LastPrechargeSuccessTime : 15|16@0+ (1,0) [0|65535] "ms" Display
  SG_ LastPrechargeFailureTime : 31|16@0+ (1,0) [0|65535] "ms" Display
 CM_ BO_ 2557038836 "CAN1 扩展帧 0x186950F4，500 ms；Byte5..7 保留并发送 0。";
@@ -495,7 +496,7 @@ BO_ 2557890804 BMS_FaultStatus: 8 BMS_Master
  SG_ FaultLatched : 47|1@1+ (1,0) [0|1] "" Display
  SG_ SlaveOfflineMask : 48|6@1+ (1,0) [0|63] "" Display
  SG_ FaultFrameVersion : 56|8@1+ (1,0) [0|255] "" Display
-CM_ BO_ 2557890804 "CAN1 扩展帧 0x187650F4，500 ms，并在状态变化时补发；当前格式版本为 2。";
+CM_ BO_ 2557890804 "CAN1 扩展帧 0x187650F4，500 ms，并在状态变化时补发；当前格式版本为 4，fault bit22 保留。版本3的bit22是旧版外部安回事件。";
 
 BO_ 2557956340 BMS_AlarmThresholds: 6 BMS_Master
  SG_ CellOverVoltageThreshold : 7|16@0+ (1,0) [0|65535] "mV" Display
@@ -527,7 +528,7 @@ BO_ 2558021876 BMS_AlarmLevels: 8 BMS_Master
  SG_ PackVoltageMismatchLevel : 38|2@1+ (1,0) [0|3] "" Display
  SG_ CurrentSensorFailureLevel : 40|2@1+ (1,0) [0|3] "" Display
  SG_ CANRuntimeFailureLevel : 42|2@1+ (1,0) [0|3] "" Display
- SG_ SafetyCircuitBreakLevel : 44|2@1+ (1,0) [0|3] "" Display
+ SG_ ReservedAlarm22Level : 44|2@1+ (1,0) [0|3] "" Display
  SG_ ChromaTelemetryLossLevel : 46|2@1+ (1,0) [0|3] "" Display
  SG_ ChromaCommandFailureLevel : 48|2@1+ (1,0) [0|3] "" Display
  SG_ Slave1OfflineLevel : 50|2@1+ (1,0) [0|3] "" Display
@@ -559,8 +560,10 @@ BO_ 2558480628 BMS_AlarmSwitches: 4 BMS_Master
  SG_ IVTVoltageLossEnabled : 23|1@1+ (1,0) [0|1] "" Display
  SG_ BlockAllLevel1Enabled : 22|1@1+ (1,0) [0|1] "" Display
  SG_ BlockAllLevel2Enabled : 21|1@1+ (1,0) [0|1] "" Display
+ SG_ SlaveNotReadyHVActionEnabled : 20|1@1+ (1,0) [0|1] "" Display
+ SG_ SlaveOfflineHVActionEnabled : 19|1@1+ (1,0) [0|1] "" Display
  SG_ AlarmSwitchFrameVersion : 24|8@1+ (1,0) [0|255] "" Display
-CM_ BO_ 2558480628 "CAN1 扩展帧 0x187F50F4，2 s；Byte2 bit4..0 保留并发送 0，Byte3 当前为版本 4。";
+CM_ BO_ 2558480628 "CAN1 扩展帧 0x187F50F4，2 s；Byte2 bit7 为 IVT 电压失联动作，bit6/5 为一级/二级全部受阻，bit4/3 为从控未就绪/完全离线动作，bit2..0 保留并发送 0，Byte3 当前为版本 4。";
 
 BO_ 2560643317 BMS_ToolRequest: 8 Tools
  SG_ OperationCode : 0|4@1+ (1,0) [0|15] "" BMS_Master
@@ -618,3 +621,5 @@ VAL_ 2556449012 BatteryAlarmLevel 0 "Normal" 1 "Level1Fault" 2 "Level2Alarm";
 VAL_ 2557038836 LastPrechargeResult 0 "None" 1 "Success" 2 "Failure";
 
 VAL_ 2557300980 SOCSource 0 "Unknown" 1 "IVTChargeCounter" 2 "SoftwareIntegration" 3 "Frozen";
+
+VAL_ 2557235444 BuildType 0 "Debug" 1 "Release" 2 "DebugBringup" 3 "Reserved";

@@ -1,5 +1,7 @@
 * text=auto eol=lf
 *.dbc text eol=lf
+# CANdb++ delivery copies must retain their GBK/CRLF or UTF-8-BOM/CRLF bytes.
+can/*_candbpp*.dbc -text
 *.proto text eol=lf
 *.options text eol=lf
 *.md text eol=lf

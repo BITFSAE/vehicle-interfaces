@@ -380,29 +380,29 @@ VAL_ 1449 CalibState 0 "Inactive" 1 "Active" 2 "Aborted" 3 "Completed";
 VAL_ 1449 CalibAbortReason 0 "None" 1 "DcdcLost" 2 "PdmTimeout" 3 "PowerLimit" 4 "OverTemp" 5 "FanStall" 6 "LeaseExpired" 7 "UserStop";
 
 
-BO_ 1025 Chroma_VoltageFeedback: 8 Chroma
+BO_ 513 Chroma_VoltageFeedback: 8 Chroma
  SG_ ChromaVoltage : 24|32@1+ (1,0) [0|1000] "V" BMS_Master
-CM_ BO_ 1025 "CANB 标准帧 0x401；Byte3..6 为小端 IEEE-754 float 电压，BMS 接收时要求 DLC 至少为 7。";
+CM_ BO_ 513 "CANB 标准帧 0x201；Byte3..6 为小端 IEEE-754 float 电压，BMS 接收时要求 DLC 至少为 7。";
 
-BO_ 1026 Chroma_CurrentFeedback: 8 Chroma
+BO_ 514 Chroma_CurrentFeedback: 8 Chroma
  SG_ ChromaCurrent : 24|32@1+ (1,0) [0|1000] "A" BMS_Master
-CM_ BO_ 1026 "CANB 标准帧 0x402；Byte3..6 为小端 IEEE-754 float 电流，BMS 接收时要求 DLC 至少为 7。";
+CM_ BO_ 514 "CANB 标准帧 0x202；Byte3..6 为小端 IEEE-754 float 电流，BMS 接收时要求 DLC 至少为 7。";
 
-BO_ 1028 Chroma_ProtectionFeedback: 8 Chroma
+BO_ 516 Chroma_ProtectionFeedback: 8 Chroma
  SG_ ChromaProtection : 24|32@1+ (1,0) [0|4294967295] "" BMS_Master
-CM_ BO_ 1028 "CANB 标准帧 0x404；Byte3..6 为小端 uint32，0 表示没有保护状态，BMS 接收时要求 DLC 至少为 7。";
+CM_ BO_ 516 "CANB 标准帧 0x204；Byte3..6 为小端 uint32，0 表示没有保护状态，BMS 接收时要求 DLC 至少为 7。";
 
-BO_ 1029 Chroma_OutputFeedback: 8 Chroma
+BO_ 517 Chroma_OutputFeedback: 8 Chroma
  SG_ ChromaOutputState : 24|8@1+ (1,0) [0|255] "" BMS_Master
-CM_ BO_ 1029 "CANB 标准帧 0x405；Byte3 为输出状态，0 表示关闭，BMS 接收时要求 DLC 至少为 4。";
+CM_ BO_ 517 "CANB 标准帧 0x205；Byte3 为输出状态，0 表示关闭，BMS 接收时要求 DLC 至少为 4。";
 
-BO_ 1168 Chroma_Command: 6 BMS_Master
+BO_ 656 Chroma_Command: 6 BMS_Master
  SG_ ChromaCommandCode : 0|8@1+ (1,0) [0|255] "" Chroma
  SG_ ChromaCommandReserved : 8|8@1+ (1,0) [0|255] "" Chroma
  SG_ ChromaCommandParameter : 16|32@1+ (1,0) [0|4294967295] "" Chroma
-CM_ BO_ 1168 "CANB 标准帧 0x490；DLC=3 的字节命令或 DLC=6 的 float/uint32 命令，参数从 Byte2 开始并使用小端。";
+CM_ BO_ 656 "CANB 标准帧 0x290；DLC=3 的字节命令或 DLC=6 的 float/uint32 命令，参数从 Byte2 开始并使用小端。";
 
-BO_ 1169 Chroma_CommandResponse: 8 Chroma
+BO_ 657 Chroma_CommandResponse: 8 Chroma
  SG_ ChromaResponseByte0 : 0|8@1+ (1,0) [0|255] "" BMS_Master
  SG_ ChromaResponseByte1 : 8|8@1+ (1,0) [0|255] "" BMS_Master
  SG_ ChromaResponseByte2 : 16|8@1+ (1,0) [0|255] "" BMS_Master
@@ -411,7 +411,7 @@ BO_ 1169 Chroma_CommandResponse: 8 Chroma
  SG_ ChromaResponseByte5 : 40|8@1+ (1,0) [0|255] "" BMS_Master
  SG_ ChromaResponseByte6 : 48|8@1+ (1,0) [0|255] "" BMS_Master
  SG_ ChromaResponseByte7 : 56|8@1+ (1,0) [0|255] "" BMS_Master
-CM_ BO_ 1169 "CANB 标准帧 0x491；成功时 Byte0 为命令码加 0x40，失败时 Byte0=0x7F、Byte1 为失败命令码。";
+CM_ BO_ 657 "CANB 标准帧 0x291；成功时 Byte0 为命令码加 0x40，失败时 Byte0=0x7F、Byte1 为失败命令码。";
 
 BO_ 1184 BMS_SOPLimits: 8 BMS_Master
  SG_ DischargeCurrentLimit : 0|16@1+ (0.1,0) [0|6553.5] "A" ECU
@@ -485,7 +485,7 @@ BO_ 1201 BMS_FaultStatus: 8 BMS_Master
  SG_ FaultLatched : 47|1@1+ (1,0) [0|1] "" ECU,VEHICLE_LOGGER,WirelessGateway
  SG_ SlaveOfflineMask : 48|6@1+ (1,0) [0|63] "" ECU,VEHICLE_LOGGER,WirelessGateway
  SG_ FaultFrameVersion : 56|8@1+ (1,0) [0|255] "" ECU,VEHICLE_LOGGER,WirelessGateway
-CM_ BO_ 1201 "CANB 标准帧 0x4B1，500 ms，并在状态变化时补发；当前格式版本为 2。";
+CM_ BO_ 1201 "CANB 标准帧 0x4B1，500 ms，并在状态变化时补发；当前格式版本为 4，fault bit22 保留。版本3的bit22是旧版外部安回事件。";
 
 BO_ 1202 BMS_AlarmLevels: 8 BMS_Master
  SG_ CellOverVoltageLevel : 0|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
@@ -510,7 +510,7 @@ BO_ 1202 BMS_AlarmLevels: 8 BMS_Master
  SG_ PackVoltageMismatchLevel : 38|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
  SG_ CurrentSensorFailureLevel : 40|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
  SG_ CANRuntimeFailureLevel : 42|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ SafetyCircuitBreakLevel : 44|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ ReservedAlarm22Level : 44|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
  SG_ ChromaTelemetryLossLevel : 46|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
  SG_ ChromaCommandFailureLevel : 48|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
  SG_ Slave1OfflineLevel : 50|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
@@ -628,9 +628,9 @@ BO_ 2566869221 LegacyCharger_Feedback: 8 LegacyCharger
  SG_ LegacyStatus : 32|8@1+ (1,0) [0|255] "" BMS_Master
 CM_ BO_ 2566869221 "CANB 扩展帧 0x18FF50E5；BMS 接收时要求 DLC 至少为 5，Byte5..7 不参与当前接口。";
 
-SIG_VALTYPE_ 1025 ChromaVoltage : 1;
+SIG_VALTYPE_ 513 ChromaVoltage : 1;
 
-SIG_VALTYPE_ 1026 ChromaCurrent : 1;
+SIG_VALTYPE_ 514 ChromaCurrent : 1;
 
 VAL_ 1187 InterventionLevel 0 "Normal" 1 "Derating" 2 "OvercurrentZero" 3 "FaultOrShutdown";
 

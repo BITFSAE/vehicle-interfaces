@@ -26,7 +26,7 @@ OPTIONS_FILE = ROOT / "telemetry/fsae_telemetry.options"
 CANB_DOC = ROOT / "docs/CANB接口.md"
 FAN_NODE_DBC = ROOT.parent / "FanController" / "Doc" / "FanController_CANB.dbc"
 CANB_CONFIRMED_IDS = (
-    "0x401/0x402/0x404/0x405", "0x490", "0x491",
+    "0x201/0x202/0x204/0x205", "0x290", "0x291",
     "0x4A0", "0x4A3", "0x4B0", "0x4B1", "0x4B2", "0x512..0x519",
     "0x1806E5F4", "0x18FF50E5",
 )
@@ -74,8 +74,8 @@ def expected_frames() -> dict[str, tuple[tuple[int, int, bool], ...]]:
         (0x18A750F4, 8, True),
     ]
     canb: list[tuple[int, int, bool]] = [
-        (0x401, 8, False), (0x402, 8, False), (0x404, 8, False),
-        (0x405, 8, False), (0x490, 6, False), (0x491, 8, False),
+        (0x201, 8, False), (0x202, 8, False), (0x204, 8, False),
+        (0x205, 8, False), (0x290, 6, False), (0x291, 8, False),
         (0x4A0, 8, False), (0x4A3, 8, False), (0x4A4, 8, False),
         (0x4B0, 7, False), (0x4B1, 8, False), (0x4B2, 8, False),
         *((0x512 + index, 6, False) for index in range(8)),
@@ -113,6 +113,8 @@ def expected_signals() -> dict[str, tuple[tuple[int, str, int, int, str, bool, f
             (0x186950F4, "LastPrechargeSuccessTime", 15, 16, "big_endian", False, 1.0),
             (0x18A050F5, "ToolProtocolVersion", 4, 4, "little_endian", False, 1.0),
             (0x18A650F4, "ResponseDetail", 55, 16, "big_endian", False, 1.0),
+            (0x187F50F4, "SlaveNotReadyHVActionEnabled", 20, 1, "little_endian", False, 1.0),
+            (0x187F50F4, "SlaveOfflineHVActionEnabled", 19, 1, "little_endian", False, 1.0),
             (0x186850F4, "IMDDuty", 23, 16, "big_endian", False, 0.1),
             (0x186850F4, "IMDResistance", 39, 16, "big_endian", False, 1.0),
             (0x186850F4, "IMDFrequency", 55, 16, "big_endian", False, 0.01),
@@ -128,8 +130,8 @@ def expected_signals() -> dict[str, tuple[tuple[int, str, int, int, str, bool, f
             (0x4A3, "BatteryState", 16, 8, "little_endian", False, 1.0),
             (0x4A4, "AcceptedSOPSequence", 0, 4, "little_endian", False, 1.0),
             (0x4A4, "SOPAppliedToTorque", 9, 1, "little_endian", False, 1.0),
-            (0x401, "ChromaVoltage", 24, 32, "little_endian", False, 1.0),
-            (0x402, "ChromaCurrent", 24, 32, "little_endian", False, 1.0),
+            (0x201, "ChromaVoltage", 24, 32, "little_endian", False, 1.0),
+            (0x202, "ChromaCurrent", 24, 32, "little_endian", False, 1.0),
             (0x71, "TireTemp01_Integer", 0, 8, "little_endian", False, 1.0),
             (0x71, "TireTemp01_Fraction", 8, 8, "little_endian", False, 0.01),
             (0x5A0, "BusVoltage", 7, 16, "big_endian", True, 0.001),
@@ -248,6 +250,45 @@ def validate_dbc() -> None:
         print(f"OK: {path.relative_to(ROOT)}，{len(database.messages)} 条报文")
 
 
+def _dbc_semantic_signature(database: cantools.database.Database) -> dict[int, tuple[int, bool, dict[str, tuple[object, ...]]]]:
+    """返回忽略注释排版、保留协议编码的 DBC 语义签名。"""
+    result: dict[int, tuple[int, bool, dict[str, tuple[object, ...]]]] = {}
+    for message in database.messages:
+        signals: dict[str, tuple[object, ...]] = {}
+        for signal in message.signals:
+            signals[signal.name] = (
+                signal.start, signal.length, signal.byte_order, signal.is_signed,
+                signal.scale, signal.offset, signal.minimum, signal.maximum, signal.unit,
+                tuple(signal.receivers), tuple(sorted((signal.choices or {}).items())),
+            )
+        result[message.frame_id] = (message.length, message.is_extended_frame, signals)
+    return result
+
+
+def validate_candbpp_gbk() -> None:
+    """检查交付给中文 Windows CANdb++ 的 GBK/CRLF 副本与正式 DBC 一致。"""
+    for formal_path in DBC_FILES:
+        gbk_path = formal_path.with_name(f"{formal_path.stem}_candbpp_gbk.dbc")
+        if not gbk_path.is_file():
+            fail(f"缺少 CANdb++ GBK DBC：{gbk_path.relative_to(ROOT)}")
+        raw = gbk_path.read_bytes()
+        if raw.startswith(b"\xef\xbb\xbf"):
+            fail(f"CANdb++ GBK DBC 不应带 UTF-8 BOM：{gbk_path.relative_to(ROOT)}")
+        if b"\n" in raw.replace(b"\r\n", b""):
+            fail(f"CANdb++ GBK DBC 必须使用 CRLF：{gbk_path.relative_to(ROOT)}")
+        try:
+            raw.decode("gbk")
+        except UnicodeDecodeError as error:
+            fail(f"CANdb++ GBK DBC 编码错误：{gbk_path.relative_to(ROOT)}：{error}")
+        formal = cantools.database.load_file(
+            formal_path, encoding="utf-8", strict=True, sort_signals=None,
+        )
+        candbpp = cantools.database.load_file(
+            gbk_path, encoding="gbk", strict=True, sort_signals=None,
+        )
+        if _dbc_semantic_signature(formal) != _dbc_semantic_signature(candbpp):
+            fail(f"CANdb++ GBK DBC 与正式 DBC 语义不一致：{gbk_path.relative_to(ROOT)}")
+        print(f"OK: {gbk_path.relative_to(ROOT)}，GBK/CRLF/语义一致")
 def validate_fan_enum_sync() -> None:
     """核对中央 DBC 与 FanController 节点 DBC 的关键枚举值。"""
     if not FAN_NODE_DBC.is_file():
@@ -350,6 +391,7 @@ def validate_public_boundary() -> None:
 def main() -> None:
     validate_canb_confirmation_status()
     validate_dbc()
+    validate_candbpp_gbk()
     validate_fan_enum_sync()
     validate_proto()
     validate_markdown_links()

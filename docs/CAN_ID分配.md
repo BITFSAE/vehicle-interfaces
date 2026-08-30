@@ -34,9 +34,9 @@ CANB 主要使用 11 位标准数据帧；Legacy 充电接口使用两个 29 位
 | `0x071..0x074` | 标准 | DATA_COLLECTION_INTEGRAL | 四轮胎温 |
 | `0x305` | 标准 | ECU | 转角、油门开度和油压 |
 | `0x310` | 标准 | Display | 驾驶模式请求 |
-| `0x401/0x402/0x404/0x405` | 标准 | Chroma | 充电电压、电流、保护和输出状态 |
-| `0x490` | 标准 | BMS_Master | Chroma 设置命令 |
-| `0x491` | 标准 | Chroma | Chroma 命令应答 |
+| `0x201/0x202/0x204/0x205` | 标准 | Chroma | 充电电压、电流、保护和输出状态 |
+| `0x290` | 标准 | BMS_Master | Chroma 设置命令 |
+| `0x291` | 标准 | Chroma | Chroma 命令应答 |
 | `0x4A0/0x4A3` | 标准 | BMS_Master | ECU SOP 限值、状态和 CRC |
 | `0x4A4` | 标准 | ECU | ECU SOP 确认 |
 | `0x4B0..0x4B2` | 标准 | BMS_Master | BMS 包状态、故障和告警等级 |
@@ -49,6 +49,8 @@ CANB 主要使用 11 位标准数据帧；Legacy 充电接口使用两个 29 位
 | `0x700/0x784` | 标准 | SteeringWheel | 方向盘面板和冗余驾驶模式 |
 | `0x1806E5F4` | 扩展 | BMS_Master | Legacy 充电请求 |
 | `0x18FF50E5` | 扩展 | LegacyCharger | Legacy 充电反馈 |
+
+Chroma 当前节点基准为 `0x200`，上述六个 ID 分别按 `+1/+2/+4/+5/+0x90/+0x91` 派生。改面板基准前须检查所有派生 ID；例如基准 `0x300` 会碰撞 `0x301` 和 `0x305`，当前不能使用。
 
 ## CANC
 

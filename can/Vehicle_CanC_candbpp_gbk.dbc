@@ -1,0 +1,384 @@
+VERSION "created by canmatrix"
+
+NS_ :
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: VDDM SUM VCU WCBS MHU GW Vector__XXX
+
+
+BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
+ SG_ VCU_DmprCurrFromCANSwt : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ CDCCurrCmprFR : 0|8@0- (1,0) [0|1800] "mA" Vector__XXX
+
+BO_ 772 CDC_Curr: 8 SUM
+ SG_ CDC_CurrRbndRR : 63|8@0+ (7,0) [0|1785] "mA"  MHU
+ SG_ CDC_CurrRbndRL : 55|8@0+ (7,0) [0|1785] "mA"  MHU
+ SG_ CDC_CurrRbndFR : 47|8@0+ (7,0) [0|1785] "mA"  MHU
+ SG_ CDC_CurrRbndFL : 39|8@0+ (7,0) [0|1785] "mA"  MHU
+ SG_ CDC_CurrCmprRR : 31|8@0+ (7,0) [0|1785] "mA"  MHU
+ SG_ CDC_CurrCmprRL : 23|8@0+ (7,0) [0|1785] "mA"  MHU
+ SG_ CDC_CurrCmprFR : 15|8@0+ (7,0) [0|1785] "mA"  MHU
+ SG_ CDC_CurrCmprFL : 7|8@0+ (7,0) [0|1785] "mA"  MHU
+
+BO_ 769 CDC_Info: 8 SUM
+ SG_ CDC_OprlSts : 27|2@0+ (1,0) [0|3] ""  MHU
+ SG_ CDC_Mod : 11|4@0+ (1,0) [0|15] ""  MHU
+ SG_ CDC_HeiRR : 55|12@0+ (0.0001,-0.2) [-0.2|0.2095] "m"  MHU
+ SG_ CDC_HeiRL : 39|12@0+ (0.0001,-0.2) [-0.2|0.2095] "m"  MHU
+ SG_ CDC_HeiFR : 23|12@0+ (0.0001,-0.2) [-0.2|0.2095] "m"  MHU
+ SG_ CDC_HeiFL : 7|12@0+ (0.0001,-0.2) [-0.2|0.2095] "m"  MHU
+
+BO_ 771 CDC_IMURotationSignals: 7 SUM
+ SG_ CDC_RollRate : 39|16@0+ (0.01,-300) [-300|300] "deg/s"  MHU
+ SG_ CDC_PitchRate : 23|16@0+ (0.01,-300) [-300|300] "deg/s"  MHU
+ SG_ CDC_RollRateV : 53|1@0+ (1,0) [0|1] ""  MHU
+ SG_ CDC_PitchRateV : 54|1@0+ (1,0) [0|1] ""  MHU
+ SG_ CDC_YawRateV : 55|1@0+ (1,0) [0|1] ""  MHU
+ SG_ CDC_YawRate : 7|16@0+ (0.01,-300) [-300|300] "deg/s"  MHU
+
+BO_ 171 VCU_MCU_Ctrl: 7 VCU
+ SG_ VCU_MCU_TarDrvgReqV : 5|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ VCU_MCU_TarDrvgReq : 47|16@0+ (1,-5000) [-5000|5000] "N" Vector__XXX
+ SG_ VCU_RMCU_TarTqReqV : 6|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ VCU_RMCU_TarTqReq : 31|16@0+ (0.1,-400) [-400|400] "Nm" Vector__XXX
+ SG_ VCU_FMCU_TarTqReq : 15|16@0+ (0.1,-400) [-400|400] "Nm"  SUM
+ SG_ VCU_FMCU_TarTqReqV : 7|1@0+ (1,0) [0|1] ""  SUM
+
+BO_ 293 ABS_Status: 8 WCBS
+ SG_ ABS_VehSpd : 15|13@0+ (0.05625,0) [0|460.63125] "Km/h"  SUM
+ SG_ ABS_VehSpdV : 18|1@0+ (1,0) [0|1] ""  SUM
+
+BO_ 306 ESC_Status_0x132: 2 WCBS
+ SG_ ESC_MstCylPV : 7|1@0+ (1,0) [0|1] ""  SUM
+ SG_ ESC_MstCylP : 4|12@0+ (0.1,-100) [-100|309.4] "bar"  SUM
+ SG_ ESC_EscCtrlActv : 5|1@0+ (1,0) [0|1] ""  SUM
+ SG_ ESC_TcsCtrlActv : 6|1@0+ (1,0) [0|1] ""  SUM
+
+BO_ 358 VCU_Status: 8 VCU
+ SG_ VCU_EOLoffsetRR : 54|15@0- (0.1,0) [-1000|1000] "" Vector__XXX
+ SG_ VCU_EOLoffsetRL : 37|15@0- (0.1,0) [-1000|1000] "" Vector__XXX
+ SG_ VCU_EOLoffsetOvrdSwt : 7|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ VCU_EOLoffsetFR : 20|15@0- (0.1,0) [-1000|1000] "" Vector__XXX
+ SG_ VCU_EOLoffsetFL : 3|15@0- (0.1,0) [-1000|1000] "" Vector__XXX
+ SG_ VCU_DrvModSts : 6|3@0+ (1,0) [0|7] ""  SUM
+
+BO_ 382 SAS_Sensor_0x17E: 5 VCU
+ SG_ SAS_SteerRotSpd : 5|14@0+ (0.125,-1024) [-1024|1023.75] "deg/s"  SUM
+ SG_ SAS_SASStsSnsr : 6|1@0+ (1,0) [0|1] ""  SUM
+ SG_ SAS_SteerAgV : 7|1@0+ (1,0) [0|1] ""  SUM
+ SG_ SAS_SteerRotSpdV : 23|1@0+ (1,0) [0|1] ""  SUM
+ SG_ SAS_SteerAg : 31|16@0+ (0.0238,-780) [-780|779.733] "deg"  SUM
+
+BO_ 624 IBS_Info: 5 WCBS
+ SG_ AB_AccPdlTrvl : 25|10@0+ (0.1,0) [0|100] "%" Vector__XXX
+ SG_ AB_AccPdlSwtStsV : 18|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ AB_AccPdlSwtSts : 19|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ AB_AccPdlPct : 17|8@0+ (0.4,0) [0|100] "%" Vector__XXX
+ SG_ AB_BrkPdlSwtSts : 6|1@0+ (1,0) [0|1] ""  SUM
+ SG_ AB_BrkPdlSwtStsV : 7|1@0+ (1,0) [0|1] ""  SUM
+ SG_ AB_BrkPdlPct : 5|8@0+ (0.4,0) [0|100] "%"  SUM
+ SG_ AB_BrkPdlTrvl : 13|10@0+ (0.1,0) [0|100] "%"  SUM
+
+BO_ 770 CDC_IMUAccelerationSignals: 6 SUM
+ SG_ CDC_HeaveAccV : 7|1@0+ (1,0) [0|1] ""  MHU
+ SG_ CDC_HeaveAcc : 6|12@0+ (0.01,-30) [-30|30] "m/s2"  MHU
+ SG_ CDC_LatAccV : 23|1@0+ (1,0) [0|1] ""  MHU
+ SG_ CDC_LatAcc : 22|12@0+ (0.01,-30) [-30|30] "m/s2"  MHU
+ SG_ CDC_LgtAccV : 39|1@0+ (1,0) [0|1] ""  MHU
+ SG_ CDC_LgtAcc : 38|12@0+ (0.01,-30) [-30|30] "m/s2"  MHU
+
+BO_ 1314 VddmChas2NMFr: 8 VDDM
+ SG_ NM_AW_VDDM : 12|1@0+ (1,0) [0|0] ""  SUM
+ SG_ NM_CS_VDDM : 11|1@0+ (1,0) [0|0] ""  SUM
+ SG_ NM_PNI_VDDM : 14|1@0+ (1,0) [0|0] ""  SUM
+ SG_ NM_RMR_VDDM : 8|1@0+ (1,0) [0|0] ""  SUM
+ SG_ NM_NodeID_VDDM : 7|8@0+ (1,0) [0|0] ""  SUM
+ SG_ PNC16_VDDM : 16|1@0+ (1,0) [0|0] ""  SUM
+ SG_ PNC17_VDDM : 17|1@0+ (1,0) [0|0] ""  SUM
+ SG_ PNC18_VDDM : 18|1@0+ (1,0) [0|0] ""  SUM
+ SG_ PNC19_VDDM : 19|1@0+ (1,0) [0|0] ""  SUM
+ SG_ PNC20_VDDM : 20|1@0+ (1,0) [0|0] ""  SUM
+ SG_ PNC21_VDDM : 21|1@0+ (1,0) [0|0] ""  SUM
+ SG_ PNC22_VDDM : 22|1@0+ (1,0) [0|0] ""  SUM
+ SG_ PNC23_VDDM : 23|1@0+ (1,0) [0|0] ""  SUM
+ SG_ PNC24_VDDM : 24|1@0+ (1,0) [0|0] ""  SUM
+ SG_ PNC25_VDDM : 25|1@0+ (1,0) [0|0] ""  SUM
+ SG_ PNC26_VDDM : 26|1@0+ (1,0) [0|0] ""  SUM
+ SG_ PNC27_VDDM : 27|1@0+ (1,0) [0|0] ""  SUM
+ SG_ PNC28_VDDM : 28|1@0+ (1,0) [0|0] ""  SUM
+ SG_ PNC29_VDDM : 29|1@0+ (1,0) [0|0] ""  SUM
+ SG_ PNC30_VDDM : 30|1@0+ (1,0) [0|0] ""  SUM
+ SG_ PNC31_VDDM : 31|1@0+ (1,0) [0|0] ""  SUM
+ SG_ PNC32_VDDM : 32|1@0+ (1,0) [0|0] ""  SUM
+ SG_ PNC33_VDDM : 33|1@0+ (1,0) [0|0] ""  SUM
+ SG_ PNC34_VDDM : 34|1@0+ (1,0) [0|0] ""  SUM
+ SG_ PNC35_VDDM : 35|1@0+ (1,0) [0|0] ""  SUM
+ SG_ PNC36_VDDM : 36|1@0+ (1,0) [0|0] ""  SUM
+ SG_ PNC37_VDDM : 37|1@0+ (1,0) [0|0] ""  SUM
+ SG_ PNC38_VDDM : 38|1@0+ (1,0) [0|0] ""  SUM
+ SG_ PNC39_VDDM : 39|1@0+ (1,0) [0|0] ""  SUM
+ SG_ PNC40_VDDM : 40|1@0+ (1,0) [0|0] ""  SUM
+ SG_ PNC41_VDDM : 41|1@0+ (1,0) [0|0] ""  SUM
+ SG_ PNC42_VDDM : 42|1@0+ (1,0) [0|0] ""  SUM
+
+BO_ 1317 SumChas2NMFr: 8 SUM
+ SG_ NM_AW_SUM : 12|1@0+ (1,0) [0|0] ""  GW
+ SG_ NM_CS_SUM : 11|1@0+ (1,0) [0|0] ""  GW
+ SG_ NM_PNI_SUM : 14|1@0+ (1,0) [0|0] ""  GW
+ SG_ NM_RMR_SUM : 8|1@0+ (1,0) [0|0] ""  GW
+ SG_ NM_NodeID_SUM : 7|8@0+ (1,0) [0|0] ""  GW
+ SG_ PNC16_SUM : 16|1@0+ (1,0) [0|0] ""  GW
+ SG_ PNC17_SUM : 17|1@0+ (1,0) [0|0] ""  GW
+ SG_ PNC18_SUM : 18|1@0+ (1,0) [0|0] ""  GW
+ SG_ PNC19_SUM : 19|1@0+ (1,0) [0|0] ""  GW
+ SG_ PNC20_SUM : 20|1@0+ (1,0) [0|0] ""  GW
+ SG_ PNC21_SUM : 21|1@0+ (1,0) [0|0] ""  GW
+ SG_ PNC22_SUM : 22|1@0+ (1,0) [0|0] ""  GW
+ SG_ PNC23_SUM : 23|1@0+ (1,0) [0|0] ""  GW
+ SG_ PNC24_SUM : 24|1@0+ (1,0) [0|0] ""  GW
+ SG_ PNC25_SUM : 25|1@0+ (1,0) [0|0] ""  GW
+ SG_ PNC26_SUM : 26|1@0+ (1,0) [0|0] ""  GW
+ SG_ PNC27_SUM : 27|1@0+ (1,0) [0|0] ""  GW
+ SG_ PNC28_SUM : 28|1@0+ (1,0) [0|0] ""  GW
+ SG_ PNC29_SUM : 29|1@0+ (1,0) [0|0] ""  GW
+ SG_ PNC30_SUM : 30|1@0+ (1,0) [0|0] ""  GW
+ SG_ PNC31_SUM : 31|1@0+ (1,0) [0|0] ""  GW
+ SG_ PNC32_SUM : 32|1@0+ (1,0) [0|0] ""  GW
+ SG_ PNC33_SUM : 33|1@0+ (1,0) [0|0] ""  GW
+ SG_ PNC34_SUM : 34|1@0+ (1,0) [0|0] ""  GW
+ SG_ PNC35_SUM : 35|1@0+ (1,0) [0|0] ""  GW
+ SG_ PNC36_SUM : 36|1@0+ (1,0) [0|0] ""  GW
+ SG_ PNC37_SUM : 37|1@0+ (1,0) [0|0] ""  GW
+ SG_ PNC38_SUM : 38|1@0+ (1,0) [0|0] ""  GW
+ SG_ PNC39_SUM : 39|1@0+ (1,0) [0|0] ""  GW
+ SG_ PNC40_SUM : 40|1@0+ (1,0) [0|0] ""  GW
+ SG_ PNC41_SUM : 41|1@0+ (1,0) [0|0] ""  GW
+ SG_ PNC42_SUM : 42|1@0+ (1,0) [0|0] ""  GW
+
+BO_ 1556 SumToVddmChas2DiagResFrame: 8 SUM
+ SG_ SumToVddmChas2DiagResNpdu : 7|64@0+ (1,0) [0|0] ""  VDDM
+
+BO_ 1812 VddmToSumChas2DiagReqFrame: 8 VDDM
+ SG_ VddmToSumChas2DiagReqNpdu : 7|64@0+ (1,0) [0|0] ""  SUM
+
+BO_ 2047 VddmToAllFuncChas2DiagReqFrame: 8 VDDM
+ SG_ VddmToAllFuncChas2DiagReqNpdu : 7|64@0+ (1,0) [0|0] ""  SUM
+
+
+CM_ BU_ SUM "Suspension Unit Management";
+CM_ BU_ WCBS "Wire-Controlled Braking System";
+CM_ BU_ MHU "Multimedia Host Unit";
+CM_ BU_ GW "Gateway";
+CM_ BO_ 3221225472 "This is a message for not used signals, created by Vector CANdb++ DBC OLE DB Provider.";
+CM_ SG_ 3221225472 VCU_DmprCurrFromCANSwt "0:Use controller current 1:Use curremt from CAN";
+CM_ SG_ 3221225472 CDCCurrCmprFR "Front right compresss current";
+CM_ SG_ 772 CDC_CurrRbndRR "Rear right rebound current ";
+CM_ SG_ 772 CDC_CurrRbndRL "Rear left rebound current ";
+CM_ SG_ 772 CDC_CurrRbndFR "Front right rebound current ";
+CM_ SG_ 772 CDC_CurrRbndFL "Front left rebound current ";
+CM_ SG_ 772 CDC_CurrCmprRR "Rear right compress current ";
+CM_ SG_ 772 CDC_CurrCmprRL "Rear left compress current ";
+CM_ SG_ 772 CDC_CurrCmprFR "Front right compress current ";
+CM_ SG_ 772 CDC_CurrCmprFL "Front left compress current ";
+CM_ SG_ 769 CDC_OprlSts "CDC operational mode";
+CM_ SG_ 769 CDC_Mod "CDC Mode";
+CM_ SG_ 769 CDC_HeiRR "Vehicle Rear Right Height";
+CM_ SG_ 769 CDC_HeiRL "Vehicle Rear Left Height";
+CM_ SG_ 769 CDC_HeiFR "Vehicle Front Right Height";
+CM_ SG_ 769 CDC_HeiFL "Vehicle Front Left Height";
+CM_ SG_ 771 CDC_RollRate "Roll rate";
+CM_ SG_ 771 CDC_PitchRate "Pitch rate";
+CM_ SG_ 771 CDC_RollRateV "Roll rate validity";
+CM_ SG_ 771 CDC_PitchRateV "Pitch rate validity";
+CM_ SG_ 771 CDC_YawRateV "Yaw rate validity";
+CM_ SG_ 771 CDC_YawRate "Yaw rate";
+CM_ SG_ 171 VCU_MCU_TarDrvgReq "Target Drving Force Request";
+CM_ SG_ 171 VCU_RMCU_TarTqReqV "Rear Motor Target torque Request Validity";
+CM_ SG_ 171 VCU_RMCU_TarTqReq "Rear Motor Target Torque Request";
+CM_ SG_ 171 VCU_FMCU_TarTqReq "Front Motor Target torque Request";
+CM_ SG_ 171 VCU_FMCU_TarTqReqV "Front Motor Target torque Request Validity";
+CM_ SG_ 293 ABS_VehSpd "Vehicle Speed";
+CM_ SG_ 293 ABS_VehSpdV "Signal from ABS to indicate if VehicleSpeed is valid";
+CM_ SG_ 306 ESC_MstCylPV "Master cylinder pressure Validity";
+CM_ SG_ 306 ESC_MstCylP "Master cylinder pressure";
+CM_ SG_ 306 ESC_EscCtrlActv "Indicate ESC function is active or not";
+CM_ SG_ 306 ESC_TcsCtrlActv "Indicate TCS function is active or not";
+CM_ SG_ 358 VCU_DrvModSts "VCU_Drive Mode Status ";
+CM_ SG_ 382 SAS_SteerRotSpd "The current rotation speed of the steering wheel.";
+CM_ SG_ 382 SAS_SASStsSnsr "the flag of SAS status Punch:Steering angle status";
+CM_ SG_ 382 SAS_SteerAgV "Effective signal for steering angle";
+CM_ SG_ 382 SAS_SteerRotSpdV "The status of SteerWheel Rotation Speed valid";
+CM_ SG_ 382 SAS_SteerAg "The current angle of the steering wheel(Positive, to left; Negative, to right)";
+CM_ SG_ 624 AB_AccPdlTrvl "Acceleration pedal travel";
+CM_ SG_ 624 AB_AccPdlSwtStsV "Acceleration pedal swtich status validity";
+CM_ SG_ 624 AB_AccPdlSwtSts "Acceleration pedal switch status";
+CM_ SG_ 624 AB_AccPdlPct "The percent of acceleration pedal";
+CM_ SG_ 624 AB_BrkPdlSwtSts "Brake pedal switch status";
+CM_ SG_ 624 AB_BrkPdlSwtStsV "Brake pedal switch status Vaildity";
+CM_ SG_ 624 AB_BrkPdlPct "The percent of brake pedal";
+CM_ SG_ 624 AB_BrkPdlTrvl "Brake pedal travel";
+CM_ SG_ 770 CDC_HeaveAccV "Heave acceleration validity";
+CM_ SG_ 770 CDC_HeaveAcc "Heave acceleration";
+CM_ SG_ 770 CDC_LatAccV "Lateral acceleration validity";
+CM_ SG_ 770 CDC_LatAcc "Lateral acceleration";
+CM_ SG_ 770 CDC_LgtAccV "Longitudinal acceleration validity";
+CM_ SG_ 770 CDC_LgtAcc "Longitudinal acceleration";
+
+BA_DEF_ BO_  "DiagRequest" ENUM  "Yes","No";
+BA_DEF_ BO_  "DiagResponse" ENUM  "Yes","No";
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cycle","Event","Mix","spontaneous";
+BA_DEF_ BO_  "GenMsgStartDelayTime" INT 0 65535;
+BA_DEF_ BO_  "NmAsrMessage" ENUM  "Yes","No";
+BA_DEF_ BO_  "NmMessage" ENUM  "Yes","No";
+BA_DEF_ SG_  "GenSigStartValue" HEX 0 0;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_  "DBName" STRING ;
+BA_DEF_  "EcuName" STRING ;
+BA_DEF_  "Manufacturer" STRING ;
+BA_DEF_DEF_  "DiagRequest" "No";
+BA_DEF_DEF_  "DiagResponse" "No";
+BA_DEF_DEF_  "GenMsgCycleTime" 100;
+BA_DEF_DEF_  "GenMsgSendType" "Cycle";
+BA_DEF_DEF_  "GenMsgStartDelayTime" 0;
+BA_DEF_DEF_  "NmAsrMessage" "No";
+BA_DEF_DEF_  "NmMessage" "No";
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_DEF_DEF_  "BusType" "";
+BA_DEF_DEF_  "DBName" "";
+BA_DEF_DEF_  "EcuName" "";
+BA_DEF_DEF_  "Manufacturer" "DPCA";
+
+BA_ "BusType" "CAN";
+BA_ "EcuName" "CDC";
+BA_ "Manufacturer" "DPCA";
+BA_ "DBName" "_";
+BA_ "GenMsgCycleTime" BO_ 772 10;
+BA_ "GenMsgCycleTime" BO_ 769 10;
+BA_ "GenMsgCycleTime" BO_ 771 10;
+BA_ "GenMsgCycleTime" BO_ 171 10;
+BA_ "GenMsgSendType" BO_ 171 0;
+BA_ "GenMsgStartDelayTime" BO_ 171 0;
+BA_ "GenMsgCycleTime" BO_ 293 20;
+BA_ "GenMsgSendType" BO_ 293 0;
+BA_ "GenMsgStartDelayTime" BO_ 293 0;
+BA_ "GenMsgCycleTime" BO_ 306 20;
+BA_ "GenMsgSendType" BO_ 306 0;
+BA_ "GenMsgStartDelayTime" BO_ 306 0;
+BA_ "GenMsgCycleTime" BO_ 358 20;
+BA_ "GenMsgSendType" BO_ 358 0;
+BA_ "GenMsgStartDelayTime" BO_ 358 0;
+BA_ "GenMsgCycleTime" BO_ 382 10;
+BA_ "GenMsgSendType" BO_ 382 0;
+BA_ "GenMsgStartDelayTime" BO_ 382 0;
+BA_ "GenMsgCycleTime" BO_ 624 20;
+BA_ "GenMsgSendType" BO_ 624 0;
+BA_ "GenMsgStartDelayTime" BO_ 624 0;
+BA_ "GenMsgCycleTime" BO_ 770 10;
+BA_ "GenMsgSendType" BO_ 770 0;
+BA_ "GenMsgStartDelayTime" BO_ 770 0;
+BA_ "GenMsgSendType" BO_ 1314 3;
+BA_ "NmAsrMessage" BO_ 1314 0;
+BA_ "NmMessage" BO_ 1314 0;
+BA_ "GenMsgSendType" BO_ 1317 3;
+BA_ "NmAsrMessage" BO_ 1317 0;
+BA_ "NmMessage" BO_ 1317 0;
+BA_ "DiagResponse" BO_ 1556 0;
+BA_ "GenMsgSendType" BO_ 1556 3;
+BA_ "DiagRequest" BO_ 1812 0;
+BA_ "GenMsgSendType" BO_ 1812 3;
+BA_ "DiagRequest" BO_ 2047 0;
+BA_ "GenMsgSendType" BO_ 2047 3;
+BA_ "GenSigStartValue" SG_ 769 CDC_OprlSts 0;
+BA_ "GenSigStartValue" SG_ 769 CDC_Mod 0;
+BA_ "GenSigStartValue" SG_ 769 CDC_HeiRR 2000;
+BA_ "GenSigStartValue" SG_ 769 CDC_HeiRL 2000;
+BA_ "GenSigStartValue" SG_ 769 CDC_HeiFR 2000;
+BA_ "GenSigStartValue" SG_ 769 CDC_HeiFL 2000;
+BA_ "GenSigStartValue" SG_ 771 CDC_RollRate 30000;
+BA_ "GenSigStartValue" SG_ 771 CDC_PitchRate 30000;
+BA_ "GenSigStartValue" SG_ 771 CDC_YawRateV 0;
+BA_ "GenSigStartValue" SG_ 771 CDC_YawRate 30000;
+BA_ "GenSigStartValue" SG_ 171 VCU_MCU_TarDrvgReq 5000;
+BA_ "GenSigStartValue" SG_ 171 VCU_RMCU_TarTqReq 4000;
+BA_ "GenSigStartValue" SG_ 171 VCU_FMCU_TarTqReq 4000;
+BA_ "GenSigStartValue" SG_ 171 VCU_FMCU_TarTqReqV 0;
+BA_ "GenSigStartValue" SG_ 293 ABS_VehSpd 0;
+BA_ "GenSigStartValue" SG_ 293 ABS_VehSpdV 0;
+BA_ "GenSigStartValue" SG_ 306 ESC_MstCylPV 0;
+BA_ "GenSigStartValue" SG_ 306 ESC_MstCylP 1000;
+BA_ "GenSigStartValue" SG_ 306 ESC_EscCtrlActv 0;
+BA_ "GenSigStartValue" SG_ 306 ESC_TcsCtrlActv 0;
+BA_ "GenSigStartValue" SG_ 358 VCU_EOLoffsetRR 0;
+BA_ "GenSigStartValue" SG_ 358 VCU_EOLoffsetRL 0;
+BA_ "GenSigStartValue" SG_ 358 VCU_EOLoffsetOvrdSwt 0;
+BA_ "GenSigStartValue" SG_ 358 VCU_EOLoffsetFR 0;
+BA_ "GenSigStartValue" SG_ 358 VCU_EOLoffsetFL 0;
+BA_ "GenSigStartValue" SG_ 358 VCU_DrvModSts 0;
+BA_ "GenSigStartValue" SG_ 382 SAS_SteerRotSpd 8192;
+BA_ "GenSigStartValue" SG_ 382 SAS_SASStsSnsr 0;
+BA_ "GenSigStartValue" SG_ 382 SAS_SteerAgV 0;
+BA_ "GenSigStartValue" SG_ 382 SAS_SteerRotSpdV 0;
+BA_ "GenSigStartValue" SG_ 382 SAS_SteerAg 32773.1092436975;
+BA_ "GenSigStartValue" SG_ 624 AB_BrkPdlSwtSts 0;
+BA_ "GenSigStartValue" SG_ 624 AB_BrkPdlSwtStsV 0;
+BA_ "GenSigStartValue" SG_ 624 AB_BrkPdlPct 0;
+BA_ "GenSigStartValue" SG_ 624 AB_BrkPdlTrvl 0;
+BA_ "GenSigStartValue" SG_ 770 CDC_HeaveAcc 3000;
+BA_ "GenSigStartValue" SG_ 770 CDC_LatAccV 0;
+BA_ "GenSigStartValue" SG_ 770 CDC_LatAcc 3000;
+BA_ "GenSigStartValue" SG_ 770 CDC_LgtAccV 0;
+BA_ "GenSigStartValue" SG_ 770 CDC_LgtAcc 3000;
+
+VAL_ 769 CDC_OprlSts 0 "Inactive" 1 "Active" 2 "Reserve" 3 "Fault" ;
+VAL_ 769 CDC_Mod 4 "Endurance mode" 0 "Invalid" 1 "Acceleration mode" 2 "Skidpad mode" 3 "Autocross mode" ;
+VAL_ 771 CDC_RollRateV 1 "Valid" 0 "Invalid" ;
+VAL_ 771 CDC_PitchRateV 1 "Valid" 0 "Invalid" ;
+VAL_ 771 CDC_YawRateV 0 "Invalid" 1 "Valid" ;
+VAL_ 171 VCU_MCU_TarDrvgReqV 1 "Valid" 0 "Invalid" ;
+VAL_ 171 VCU_RMCU_TarTqReqV 1 "Valid" 0 "Invalid" ;
+VAL_ 171 VCU_FMCU_TarTqReqV 0 "Invaild" 1 "Valid" ;
+VAL_ 293 ABS_VehSpdV 0 "Invalid" 1 "Valid" ;
+VAL_ 306 ESC_MstCylPV 0 "Invalid" 1 "Valid" ;
+VAL_ 306 ESC_EscCtrlActv 0 "Inactive" 1 "Active" ;
+VAL_ 306 ESC_TcsCtrlActv 0 "Inactive" 1 "Active" ;
+VAL_ 358 VCU_DrvModSts 4 "Endurance Mode" 0 "Invalid" 1 "Acceleration Mode" 2 "Skidpad Mode" 3 "Autocross Mode" ;
+VAL_ 382 SAS_SASStsSnsr 0 "sensor value Invalid" 1 "sensor value valid" ;
+VAL_ 382 SAS_SteerAgV 0 "Invalid" 1 "Valid" ;
+VAL_ 382 SAS_SteerRotSpdV 0 "Invalid" 1 "Valid" ;
+VAL_ 624 AB_AccPdlSwtStsV 1 "Valid" 0 "Invalid" ;
+VAL_ 624 AB_AccPdlSwtSts 1 "Pressed" 0 "Unpressed" ;
+VAL_ 624 AB_BrkPdlSwtSts 0 "unpressed" 1 "pressed" ;
+VAL_ 624 AB_BrkPdlSwtStsV 0 "Invalid" 1 "Valid" ;
+VAL_ 770 CDC_HeaveAccV 1 "Valid" 0 "Invalid" ;
+VAL_ 770 CDC_LatAccV 0 "Invalid" 1 "Valid" ;
+VAL_ 770 CDC_LgtAccV 0 "Invalid" 1 "Valid" ;
