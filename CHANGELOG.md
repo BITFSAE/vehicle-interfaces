@@ -4,6 +4,7 @@
 
 ### 已完成
 
+- 自有 IVT-S `0x512..0x519` 从 CANB 迁到 CAN1/500 kbit/s；八个消息及 `IVT_S` 节点从 `Vehicle_CanB.dbc` 移入 `Vehicle_Can1.dbc`，Chroma/Legacy 的 CANB 位率切换不再影响 IVT。`CAN1接口.md` 补齐八通道布局；`CAN与遥测对照.md` 改为 CAN1 接收自有 IVT，CANB 同 ID 不作为网关输入。
 - 清理 CANdb++ DBC 重复交付物：每条总线仅保留 UTF-8/LF 正式源和 GBK/CRLF 交付副本，删除无 BOM UTF-8 及 UTF-8 BOM 副本；archive/ 历史参考资料不变。
 - BMS SOP `0x4A0/0x4A3` 保持 10 ms 周期，发送条件收紧为放电模式高压接通后；自检、待机、预充、故障保持和充电模式不发送，避免占用 Chroma 通讯时间。
 - Chroma `0x10/0x11/0x13/0x14` 四类反馈周期配置由 100 ms 临时调整为 500 ms，用于降低 CANB 负载；当前 500 ms 新鲜度超时保持不变，待实物确认抖动余量。

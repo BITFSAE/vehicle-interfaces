@@ -18,8 +18,8 @@
 | `telemetry/fsae_telemetry.proto` | 遥测 Protobuf 唯一源 |
 | `telemetry/fsae_telemetry.options` | Nanopb 静态容量配置 |
 | `archive/` | 已退出正式接口的历史参考资料，不得据此新增实现 |
-| [`docs/CAN1接口.md`](docs/CAN1接口.md) | BMS 从控、主控状态和工具协议 |
-| [`docs/CANB接口.md`](docs/CANB接口.md) | CANB 全报文总表、BMS、ECU SOP、IVT-S 和充电接口 |
+| [`docs/CAN1接口.md`](docs/CAN1接口.md) | BMS 从控、自有 IVT-S、主控状态和工具协议 |
+| [`docs/CANB接口.md`](docs/CANB接口.md) | CANB 全报文总表、BMS、ECU SOP、赛会能量计和充电接口 |
 | [`docs/ECU_SOP实现确认.md`](docs/ECU_SOP实现确认.md) | ECU 最终 SOP 接收、限制、扭矩、周期和确认策略确认模板 |
 | [`docs/CAN_ID分配.md`](docs/CAN_ID分配.md) | 各总线 ID 归属和用途索引 |
 | [`docs/CAN与遥测对照.md`](docs/CAN与遥测对照.md) | 全链路 CAN 到遥测端到端映射与 Fallback 策略 |
@@ -28,7 +28,7 @@
 | [`docs/协作与维护方案.md`](docs/协作与维护方案.md) | 节点确认责任、权限、发布和交接规则 |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | 修改接口时的提交和验证要求 |
 
-CAN1 连接 BMS 从控、F405 主控和调试工具。IVT-S 位于 CANB；CANB 还承载整车调试、显示、PDM、FanController、ECU SOP 和充电机报文。具体 ID 和字段见对应 DBC 与接口文档。
+CAN1 连接 BMS 从控、自有 IVT-S、F405 主控和调试工具。CANB 承载整车调试、显示、PDM、FanController、ECU SOP、赛会能量计和充电机报文。具体 ID 和字段见对应 DBC 与接口文档。
 
 ## 当前状态
 

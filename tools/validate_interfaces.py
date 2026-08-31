@@ -27,7 +27,7 @@ CANB_DOC = ROOT / "docs/CANB接口.md"
 FAN_NODE_DBC = ROOT.parent / "FanController" / "Doc" / "FanController_CANB.dbc"
 CANB_CONFIRMED_IDS = (
     "0x201/0x202/0x204/0x205", "0x290", "0x291",
-    "0x4A0", "0x4A3", "0x4B0", "0x4B1", "0x4B2", "0x512..0x519",
+    "0x4A0", "0x4A3", "0x4B0", "0x4B1", "0x4B2",
     "0x1806E5F4", "0x18FF50E5",
 )
 
@@ -51,6 +51,7 @@ def expected_frames() -> dict[str, tuple[tuple[int, int, bool], ...]]:
     can1: list[tuple[int, int, bool]] = [
         *((0x180050F3 + (index << 16), 8, True) for index in range(36)),
         *((0x184050F3 + (index << 16), 8, True) for index in range(6)),
+        *((0x512 + index, 6, False) for index in range(8)),
         (0x186050F4, 7, True),
         (0x186150F4, 6, True),
         (0x186250F4, 8, True),
@@ -78,7 +79,6 @@ def expected_frames() -> dict[str, tuple[tuple[int, int, bool], ...]]:
         (0x205, 8, False), (0x290, 6, False), (0x291, 8, False),
         (0x4A0, 8, False), (0x4A3, 8, False), (0x4A4, 8, False),
         (0x4B0, 7, False), (0x4B1, 8, False), (0x4B2, 8, False),
-        *((0x512 + index, 6, False) for index in range(8)),
         (0x430, 6, False), (0x521, 6, False), (0x522, 6, False),
         (0x526, 6, False), (0x528, 6, False),
         (0x71, 8, False), (0x72, 8, False), (0x73, 8, False), (0x74, 8, False),
@@ -122,6 +122,7 @@ def expected_signals() -> dict[str, tuple[tuple[int, str, int, int, str, bool, f
             (0x186950F4, "LastPrechargeSuccessTime", 15, 16, "big_endian", False, 1.0),
             (0x186A50F4, "DischargeCurrentLimit", 7, 16, "big_endian", False, 0.1),
             (0x186A50F4, "DischargePowerLimit", 39, 16, "big_endian", False, 0.1),
+            (0x512, "ResultValue", 16, 32, "little_endian", True, 1.0),
         ),
         "Vehicle_CanB.dbc": (
             (0x4A0, "DischargeCurrentLimit", 0, 16, "little_endian", False, 0.1),
@@ -166,7 +167,6 @@ def expected_signals() -> dict[str, tuple[tuple[int, str, int, int, str, bool, f
             (0x5A9, "CalibParamVersion", 40, 8, "little_endian", False, 1.0),
             (0x5A9, "CalibFlags", 48, 16, "little_endian", False, 1.0),
             (0x4B0, "BatteryCurrent", 23, 16, "big_endian", True, 0.1),
-            (0x512, "ResultValue", 16, 32, "little_endian", True, 1.0),
             (0x521, "ResultValue", 23, 32, "big_endian", True, 1.0),
             (0x522, "ResultValue", 23, 32, "big_endian", True, 1.0),
             (0x1806E5F4, "LegacyRequestVoltage", 7, 16, "big_endian", False, 0.1),

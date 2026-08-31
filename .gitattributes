@@ -1,7 +1,7 @@
 * text=auto eol=lf
 *.dbc text eol=lf
 # CANdb++ GBK delivery copies must retain their GBK/CRLF bytes.
-can/*_candbpp*.dbc -text
+can/*_candbpp*.dbc -text whitespace=-trailing-space
 *.proto text eol=lf
 *.options text eol=lf
 *.md text eol=lf

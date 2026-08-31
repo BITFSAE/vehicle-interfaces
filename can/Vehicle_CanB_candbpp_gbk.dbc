@@ -32,7 +32,7 @@ NS_ :
 
 BS_:
 
-BU_: ECU Display VCU SteeringWheel WirelessGateway DATA_COLLECTION_INTEGRAL VEHICLE_LOGGER PDM FanController BMS_Master IVT_S Competition_Meter FS_Datalogger Chroma LegacyCharger Vector__XXX
+BU_: ECU Display VCU SteeringWheel WirelessGateway DATA_COLLECTION_INTEGRAL VEHICLE_LOGGER PDM FanController BMS_Master Competition_Meter FS_Datalogger Chroma LegacyCharger Vector__XXX
 
 
 BO_ 1289 Debug9: 5 ECU
@@ -479,54 +479,6 @@ BO_ 1320 CompetitionMeter_Energy_Result: 6 Competition_Meter
  SG_ ResultState : 12|4@1+ (1,0) [0|15] "" VEHICLE_LOGGER,WirelessGateway
  SG_ ResultValue : 23|32@0- (1,0) [-2147483648|2147483647] "Wh" VEHICLE_LOGGER,WirelessGateway
 
-BO_ 1298 IVT_Current_Result: 6 IVT_S
- SG_ ResultMux : 0|8@1+ (1,0) [0|255] "" BMS_Master
- SG_ ResultCounter : 8|4@1+ (1,0) [0|15] "" BMS_Master
- SG_ ResultState : 12|4@1+ (1,0) [0|15] "" BMS_Master
- SG_ ResultValue : 16|32@1- (1,0) [-2147483648|2147483647] "mA" BMS_Master
-
-BO_ 1299 IVT_U1_Result: 6 IVT_S
- SG_ ResultMux : 0|8@1+ (1,0) [0|255] "" BMS_Master
- SG_ ResultCounter : 8|4@1+ (1,0) [0|15] "" BMS_Master
- SG_ ResultState : 12|4@1+ (1,0) [0|15] "" BMS_Master
- SG_ ResultValue : 16|32@1- (1,0) [-2147483648|2147483647] "mV" BMS_Master
-
-BO_ 1300 IVT_U2_Result: 6 IVT_S
- SG_ ResultMux : 0|8@1+ (1,0) [0|255] "" BMS_Master
- SG_ ResultCounter : 8|4@1+ (1,0) [0|15] "" BMS_Master
- SG_ ResultState : 12|4@1+ (1,0) [0|15] "" BMS_Master
- SG_ ResultValue : 16|32@1- (1,0) [-2147483648|2147483647] "mV" BMS_Master
-
-BO_ 1301 IVT_U3_Result: 6 IVT_S
- SG_ ResultMux : 0|8@1+ (1,0) [0|255] "" BMS_Master
- SG_ ResultCounter : 8|4@1+ (1,0) [0|15] "" BMS_Master
- SG_ ResultState : 12|4@1+ (1,0) [0|15] "" BMS_Master
- SG_ ResultValue : 16|32@1- (1,0) [-2147483648|2147483647] "mV" BMS_Master
-
-BO_ 1302 IVT_Temperature_Result: 6 IVT_S
- SG_ ResultMux : 0|8@1+ (1,0) [0|255] "" BMS_Master
- SG_ ResultCounter : 8|4@1+ (1,0) [0|15] "" BMS_Master
- SG_ ResultState : 12|4@1+ (1,0) [0|15] "" BMS_Master
- SG_ ResultValue : 16|32@1- (1,0) [-2147483648|2147483647] "0.1degC" BMS_Master
-
-BO_ 1303 IVT_Power_Result: 6 IVT_S
- SG_ ResultMux : 0|8@1+ (1,0) [0|255] "" BMS_Master
- SG_ ResultCounter : 8|4@1+ (1,0) [0|15] "" BMS_Master
- SG_ ResultState : 12|4@1+ (1,0) [0|15] "" BMS_Master
- SG_ ResultValue : 16|32@1- (1,0) [-2147483648|2147483647] "W" BMS_Master
-
-BO_ 1304 IVT_Charge_Result: 6 IVT_S
- SG_ ResultMux : 0|8@1+ (1,0) [0|255] "" BMS_Master
- SG_ ResultCounter : 8|4@1+ (1,0) [0|15] "" BMS_Master
- SG_ ResultState : 12|4@1+ (1,0) [0|15] "" BMS_Master
- SG_ ResultValue : 16|32@1- (1,0) [-2147483648|2147483647] "As" BMS_Master
-
-BO_ 1305 IVT_Energy_Result: 6 IVT_S
- SG_ ResultMux : 0|8@1+ (1,0) [0|255] "" BMS_Master
- SG_ ResultCounter : 8|4@1+ (1,0) [0|15] "" BMS_Master
- SG_ ResultState : 12|4@1+ (1,0) [0|15] "" BMS_Master
- SG_ ResultValue : 16|32@1- (1,0) [-2147483648|2147483647] "Wh" BMS_Master
-
 BO_ 2550588916 LegacyCharger_Command: 5 BMS_Master
  SG_ LegacyRequestVoltage : 7|16@0+ (0.1,0) [0|6553.5] "V" LegacyCharger
  SG_ LegacyRequestCurrent : 23|16@0+ (0.1,0) [0|6553.5] "A" LegacyCharger
@@ -597,14 +549,6 @@ CM_ BO_ 1188 "CANB 标准帧 0x4A4；ECU 确认采用的 SOP 组，Byte7 为 CRC-8/SAE-J1850
 CM_ BO_ 1200 "CANB 标准帧 0x4B0，500 ms；电压、电流和 SOC 必须结合 Byte5 有效位使用。";
 CM_ BO_ 1201 "CANB 标准帧 0x4B1，500 ms，并在状态变化时补发；当前格式版本为 4，fault bit22 保留。版本3的bit22是旧版外部安回事件。";
 CM_ BO_ 1202 "CANB 标准帧 0x4B2，500 ms，并在告警变化时补发；0 未触发，1 一级故障，2 二级告警，3 保留。";
-CM_ BO_ 1298 "CANB 标准帧 0x512，DLC=6；MUX 固定为 0x00，Byte2..5 为小端有符号 int32。";
-CM_ BO_ 1299 "CANB 标准帧 0x513，DLC=6；MUX 固定为 0x01，Byte2..5 为小端有符号 int32。";
-CM_ BO_ 1300 "CANB 标准帧 0x514，DLC=6；MUX 固定为 0x02，Byte2..5 为小端有符号 int32。";
-CM_ BO_ 1301 "CANB 标准帧 0x515，DLC=6；MUX 固定为 0x03，Byte2..5 为小端有符号 int32。";
-CM_ BO_ 1302 "CANB 标准帧 0x516，DLC=6；MUX 固定为 0x04，Byte2..5 为小端有符号 int32。";
-CM_ BO_ 1303 "CANB 标准帧 0x517，DLC=6；MUX 固定为 0x05，Byte2..5 为小端有符号 int32。";
-CM_ BO_ 1304 "CANB 标准帧 0x518，DLC=6；MUX 固定为 0x06，Byte2..5 为小端有符号 int32。";
-CM_ BO_ 1305 "CANB 标准帧 0x519，DLC=6；MUX 固定为 0x07，Byte2..5 为小端有符号 int32。";
 CM_ BO_ 1072 "FS Datalogger 赛会能量计状态帧；Byte2..3 为大端电压 raw*16 mV，Byte4..5 为大端电流 raw*64 mA。";
 CM_ BO_ 1313 "赛会能量计电流结果，标准帧 0x521；MUX=0x00，Byte2..5 为大端有符号 int32 mA。";
 CM_ BO_ 1314 "赛会能量计 U1 逆变器侧总压，标准帧 0x522；MUX=0x01，Byte2..5 为大端有符号 int32 mV。";
@@ -629,3 +573,4 @@ VAL_ 1200 BatteryAlarmLevel 0 "Normal" 1 "Level1Fault" 2 "Level2Alarm" ;
 
 SIG_VALTYPE_ 513 ChromaVoltage : 1 ;
 SIG_VALTYPE_ 514 ChromaCurrent : 1 ;
+

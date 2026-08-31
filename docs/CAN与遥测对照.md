@@ -26,8 +26,8 @@
 │ 继电器/IMD/SOC   │                                               │ MQTT
 └──────────────────┘                                               ▼
 ┌──────────────────┐                                      ┌──────────────────┐
-│   自有 IVT-S     ├──────► (CANB)                        │    云端服务器     │
-│   赛会能量计     │                                       │ Mosquitto Broker │
+│   自有 IVT-S     ├──────► (CAN1)                        │    云端服务器     │
+│   赛会能量计     ├──────► (CANB)                        │ Mosquitto Broker │
 │   Display/IMU    ├──────► (CANB / CANC)                 │ Telegraf XPath   │
 └──────────────────┘                                      │ InfluxDB 1.x     │
                                                           │ Grafana 可视化   │
@@ -57,8 +57,8 @@
 | **油门开度** | CANB `0x305` (ECU, 50ms) | `apps_position` (#3)<br>`vehicle_state.throttle_position` (#28.3) | `APS_OpenPct` (0.1%) $\div 10.0$ | `telemetry.apps_position` | 0.1% $\to$ % $\to$ `%` | 已接入 |
 | **刹车油压** | CANB `0x305` (ECU, 50ms) | `brake_pressure` (#4) | `OilPressure_Kpa` (milli-kPa) $\div 1000.0$ | `telemetry.brake_pressure` | milli-kPa $\to$ kPa $\to$ `kPa` | 已接入 (语义为油压) |
 | **转向角** | CANB `0x305` (ECU, 50ms) | `steering_angle` (#5) | `SteeringWheelAngle` (0.1 deg) $\div 10.0$ | `telemetry.steering_angle` | 0.1 deg $\to$ deg $\to$ `deg` | 已接入 |
-| **高压总压** | CANB `0x513` (IVT-S)<br>CAN1 `0x186050F4` / CANB `0x4B0`<br>CAN1 `0x186750F4` (累加和)<br>CAN1 `0x180050F3+` (138串) | `hv_voltage` (#6)<br>`fast_telemetry.hv_voltage_dv` (#27.1) | **Fallback 链**：<br>1. IVT-S U1 (`0x513`)<br>2. BMS 包状态 (`0x186050F4/0x4B0`)<br>3. 累加和 (`0x186750F4`)<br>4. 138 串单体累加 | `telemetry.hv_voltage`<br>`telemetry.hv_voltage_dv` | mV / 0.1V $\to$ V / 0.1V $\to$ `V` | 已接入 (多源自适应) |
-| **高压总流** | CANB `0x512` (IVT-S)<br>CANB `0x18FF50E5` (Legacy充电机)<br>CAN1 `0x186050F4` / CANB `0x4B0` | `hv_current` (#7)<br>`fast_telemetry.hv_current_ma` (#27.2) | **Fallback 链**：<br>1. IVT-S 电流 (`0x512`)<br>2. 充电反馈 (`0x18FF50E5`)<br>3. BMS 包状态 (`0x186050F4/0x4B0`) | `telemetry.hv_current`<br>`telemetry.hv_current_ma` | mA / 0.1A $\to$ A / mA $\to$ `A` | 已接入 (多源自适应) |
+| **高压总压** | CAN1 `0x513` (IVT-S)<br>CAN1 `0x186050F4` / CANB `0x4B0`<br>CAN1 `0x186750F4` (累加和)<br>CAN1 `0x180050F3+` (138串) | `hv_voltage` (#6)<br>`fast_telemetry.hv_voltage_dv` (#27.1) | **Fallback 链**：<br>1. IVT-S U1 (`0x513`)<br>2. BMS 包状态 (`0x186050F4/0x4B0`)<br>3. 累加和 (`0x186750F4`)<br>4. 138 串单体累加 | `telemetry.hv_voltage`<br>`telemetry.hv_voltage_dv` | mV / 0.1V $\to$ V / 0.1V $\to$ `V` | 已接入 (多源自适应) |
+| **高压总流** | CAN1 `0x512` (IVT-S)<br>CANB `0x18FF50E5` (Legacy充电机)<br>CAN1 `0x186050F4` / CANB `0x4B0` | `hv_current` (#7)<br>`fast_telemetry.hv_current_ma` (#27.2) | **Fallback 链**：<br>1. IVT-S 电流 (`0x512`)<br>2. 充电反馈 (`0x18FF50E5`)<br>3. BMS 包状态 (`0x186050F4/0x4B0`) | `telemetry.hv_current`<br>`telemetry.hv_current_ma` | mA / 0.1A $\to$ A / mA $\to$ `A` | 已接入 (多源自适应) |
 | **电池最高温度** | CAN1 `0x186250F4` (BMS 极值帧)<br>CAN1 `0x184050F3+` (48路温度数组) | `battery_temp_max` (#8)<br>`fast_telemetry.battery_temp_max_dc` (#27.3) | **Fallback 链**：<br>1. BMS 温度极值帧 (`0x186250F4`)<br>2. 48 路温度数组本地遍历计算 | `telemetry.battery_temp_max`<br>`telemetry.battery_temp_max_dc` | 0.1 °C $\to$ °C / 0.1°C $\to$ `°C` | 已接入 (含备用算法) |
 | **故障字** | CAN1 `0x187650F4` (BMS)<br>CANB `0x4B1` (BMS 冗余) | `fault_code` (#9)<br>`battery_fault_code` (#25) | `App_FaultCompute()` 提取 32 位故障掩码 | `telemetry.battery_fault_code` | 32位位图 $\to$ 十六进制显示 | 已接入 (双源互备) |
 | **左后电机转速 (旧)** | CANB `0x505` (Debug5, 10ms) | `motor_rpm` (#10) | 取 `Debug5` 中 RL 电机转速 (兼容旧表) | `telemetry` (保留) | rpm $\to$ `rpm` | 已接入 (兼容字段) |
@@ -80,7 +80,7 @@
 | **四轮 IGBT 温度** | CANB `0x508` (Debug8, 10ms) | `vehicle_state.motors[].igbt_temp_dc` | 四轮 IGBT 结温 (0.1 °C) | `motor_state.igbt_temp_dc` | 0.1 °C $\to$ `°C` (/10) | 已接入 |
 | **四轮 AMK 诊断码** | CANB `0x503/0x504` (Debug3/4) | `vehicle_state.motors[].diagnostic_number`<br>`vehicle_state.motors[].motor_error` | 四轮 AMK 32 位故障诊断字 | `motor_state.diagnostic_number`<br>`motor_state.motor_error` | 十六进制诊断码 | 已接入 |
 | **四轮使能逻辑状态** | CANB `0x509` (Debug9) | `vehicle_state.motors[].logic_state` | 四轮 `LogicState` (0..15) | `motor_state.logic_state` | 0..15 状态位 | 已接入 |
-| **自有 IVT-S 数据** | CANB `0x512/0x513/0x514/0x517/0x519` | `ivt_telemetry.*` (#31) | 小端解码电流(mA)、U1(mV)、U2(mV)、功率(W)、能量(Wh) 及各通道状态字 | `telemetry.ivt_*` | mA, mV, W, Wh 及状态掩码 | 已完全接入 (5 通道) |
+| **自有 IVT-S 数据** | CAN1 `0x512/0x513/0x514/0x517/0x519` | `ivt_telemetry.*` (#31) | 小端解码电流(mA)、U1(mV)、U2(mV)、功率(W)、能量(Wh) 及各通道状态字 | `telemetry.ivt_*` | mA, mV, W, Wh 及状态掩码 | 已完全接入 (5 通道) |
 | **赛会能量计数据** | CANB `0x521/0x522/0x526/0x528`<br>CANB `0x430` (FS 状态) | `energy_meter.*` (#32) | 大端解码或 FS 格式识别，记录 source (1=IVT, 2=FS)、电流、电压、功率、Wh、MsgCnt | `telemetry.energy_meter_*` | mA, mV, W, Wh 及计数器 | 已接入 (赛会专用) |
 | **IMU 三轴加速度** | CANB `0x061` (IMU_Accel, 源自 `0x050`) | `motion.accel_x/y/z_g` (#33.2~4) | 小端解码 raw $\times 0.00048828125\text{ g}$ | `telemetry.accel_x/y/z_g` | g $\to$ `g` | 已接入 |
 | **IMU 角速度与横摆角** | CANB `0x062/0x065` (源自 `0x050`) | `motion.yaw_rate_dps` (#33.5)<br>`motion.yaw_deg` (#33.6) | 陀螺仪 Z 轴 (raw $\times 0.0610352$)、横摆角 (raw $\times 0.005493$) | `telemetry.yaw_rate_dps`<br>`telemetry.yaw_deg` | deg/s, deg | 已接入 |
@@ -92,12 +92,18 @@
 
 ### 3.1 CAN1（BMS 内部总线，500 kbit/s）
 
-- **机器可读来源**：`vehicle-interfaces/can/Vehicle_Can1.dbc`。所有报文均为 29 位扩展帧。
+- **机器可读来源**：`vehicle-interfaces/can/Vehicle_Can1.dbc`。从控、主控和工具报文为 29 位扩展帧；自有 IVT-S `0x512..0x519` 为 11 位标准帧。
 
 | CAN ID | 帧名 | 周期 | 接入状态 | 字段说明与固件处理 |
 | :--- | :--- | :--- | :--- | :--- |
 | `0x180050F3 + (n << 16)` (n=0..35) | 从控单体电压帧 | 周期 | **已接入** | 6 个从控模块各 6 帧，共 138 串电芯电压 (mV，小端 uint16，有效范围 500..5000 mV)。编码入 `modules[].v01..v23`。 |
 | `0x184050F3 + (n << 16)` (n=0..5) | 从控温度采样帧 | 周期 | **已接入** | 6 个从控模块各 1 帧，共 48 路温度。原始值减 30 得到摄氏度 (0.1 °C 存储，0xFF 无效)。编码入 `modules[].t1..t8`。 |
+| `0x512` | IVT 电流 | 周期 | **已接入** | 自有 IVT-S 电流 (mA, 小端 int32) 及状态位。**`hv_current` 第一优先级主源**。CANB 同 ID 不解析。 |
+| `0x513` | IVT U1 | 周期 | **已接入** | 自有 IVT-S 电池侧总压 (mV, 小端 int32) 及状态位。**`hv_voltage` 第一优先级主源**。 |
+| `0x514` | IVT U2 | 周期 | **已接入** | 自有 IVT-S 逆变器侧 (Pre) 总压 (mV, 小端 int32)。写入 `ivt_telemetry.voltage_u2_mv`。 |
+| `0x517` | IVT 功率 | 周期 | **已接入** | 自有 IVT-S 功率 (W, 小端 int32)。写入 `ivt_telemetry.power_w`。 |
+| `0x519` | IVT 能量 | 周期 | **已接入** | 自有 IVT-S 积分能量 (Wh, 小端 int32)。写入 `ivt_telemetry.energy_wh`。 |
+| `0x515/0x516/0x518` | IVT U3/温度/As | 周期 | **已解析/未上报** | MUX、消息计数、状态和数值已保存；当前公共 Proto 仅定义 I/U1/U2/W/Wh。 |
 | `0x186050F4` | BMS 电池包状态 | 500 ms | **已接入** | 包总压、总流、SOC、有效位 (Byte5)、BMS 状态机与告警等级。作为 `battery_soc` 主源及 `hv_voltage`/`hv_current` 备用源，并刷新 `bms_telemetry.battery_state/battery_alarm_level`。 |
 | `0x186150F4` | 单体电压极值 | 500 ms | **已接入** | 最高/最低单体电压 (大端 mV) 及单体编号 (0..137，上报时 +1 转为 1..138)。编码入 `max/min_cell_voltage(_no)`。 |
 | `0x186250F4` | 温度极值与风扇 | 500 ms | **部分上报** | 温度极值和编号进入遥测；风扇目标占空比、转速和五个状态位已解析到本地状态，公共 Proto 暂无对应字段。 |
@@ -130,11 +136,6 @@
 | `0x507` | Debug7 | ECU | 10 ms | **已接入** | 四轮 AMK 控制器冷板温度 (0.1 °C)。写入 `motors[].inverter_temp_dc`。 |
 | `0x508` | Debug8 | ECU | 10 ms | **已接入** | 四轮 AMK IGBT 结温 (0.1 °C)。写入 `motors[].igbt_temp_dc`。 |
 | `0x509` | Debug9 | ECU | 10 ms | **已接入** | 车辆驾驶模式 `ModeFlag`（写入 `driving_mode`）及四轮使能逻辑状态 `LogicState`。 |
-| `0x512` | IVT 电流 | IVT_S | 周期 | **已接入** | 自有 IVT-S 电流 (mA, 小端 int32) 及状态位。**`hv_current` 第一优先级主源**。 |
-| `0x513` | IVT U1 | IVT_S | 周期 | **已接入** | 自有 IVT-S 电池侧总压 (mV, 小端 int32) 及状态位。**`hv_voltage` 第一优先级主源**。 |
-| `0x514` | IVT U2 | IVT_S | 周期 | **已接入** | 自有 IVT-S 逆变器侧 (Pre) 总压 (mV, 小端 int32)。写入 `ivt_telemetry.voltage_u2_mv`。 |
-| `0x517` | IVT 功率 | IVT_S | 周期 | **已接入** | 自有 IVT-S 功率 (W, 小端 int32)。写入 `ivt_telemetry.power_w`。 |
-| `0x519` | IVT 能量 | IVT_S | 周期 | **已接入** | 自有 IVT-S 积分能量 (Wh, 小端 int32)。写入 `ivt_telemetry.energy_wh`。 |
 | `0x521/522/526/528` | 赛会能量计结果 | 赛会设备 | 周期 | **已接入** | 赛会能量计电流、U1 总压、功率、Wh（大端 int32）。写入 `energy_meter.*`。 |
 | `0x430` | FS Datalogger 状态 | 赛会设备 | 周期 | **已接入** | FS 型号能量计状态、16 mV / 64 mA 低分辨率采样与 MsgCnt。写入 `energy_meter`。 |
 | `0x4B0` | BMS 包状态冗余 | BMS | 500 ms | **已接入** | 与 CAN1 `0x186050F4` 同格式。提供总压/总流/SOC 跨总线冗余。 |
@@ -147,7 +148,6 @@
 | `0x4B2` | BMS 告警等级冗余 | BMS | 2 s | **已解析/未上报** | 32 项两位告警等级已展开到本地状态，与 CAN1 `0x187850F4` 共用数据。 |
 | `0x5A0/0x5A1` | 低压配电 PDM | PDM | 周期 | **已接入** | 低压母线/蓄电池电压、电流、功率、能量，编码入 `pdm_telemetry`。 |
 | `0x5A2..0x5A9` | 风扇控制器 | 风扇板 | 周期/事件 | **部分上报** | `0x5A2..0x5A9` 均已解析；现有 `fan_telemetry` 字段继续上报，新增曲线/协议/功率仲裁/标定字段在公共 Proto 扩展前只保存在本地状态（`0x5A4` 命令帧不解析）。 |
-| `0x515/0x516/0x518` | IVT U3/温度/As | IVT_S | 周期 | **已解析/未上报** | MUX、消息计数、状态和数值已保存；当前公共 Proto 仅定义 I/U1/U2/W/Wh。 |
 
 ---
 
@@ -169,7 +169,7 @@
 ```
 【高压总压 hv_voltage 取数优先级】
 ┌────────────────────────────────────────────────────────┐
-│ 优先级 1: CANB 自有 IVT-S U1 (0x513) (新鲜且状态字正常) │
+│ 优先级 1: CAN1 自有 IVT-S U1 (0x513) (新鲜且状态字正常) │
 └───────────────────────────┬────────────────────────────┘
                             │ 超时 / 错误
                             ▼
@@ -194,7 +194,7 @@
 ```
 【高压总流 hv_current 取数优先级】
 ┌────────────────────────────────────────────────────────┐
-│ 优先级 1: CANB 自有 IVT-S 电流 (0x512) (新鲜且状态字正常)│
+│ 优先级 1: CAN1 自有 IVT-S 电流 (0x512) (新鲜且状态字正常)│
 └───────────────────────────┬────────────────────────────┘
                             │ 超时 / 错误
                             ▼
@@ -215,9 +215,9 @@
 
 | 接入场景 | 高压总压 / 总流 / SOC / 故障码 | 138 串电压 / 48 路温度明细 | 车速 / 踏板 / 四电机 / 驾驶模式 / IMU |
 | :--- | :--- | :--- | :--- |
-| **只接 CAN1**（BMS 专线） | **正常**（自动降级为 BMS `0x186050F4` 供数） | **正常**（CAN1 从控采样帧完整供数） | 无数据（置 0 / 空） |
-| **只接 CANB**（整车总线） | **正常**（由 IVT-S 或 BMS 冗余 `0x4B0` 供数） | 无数据（从控采样帧不走 CANB） | **正常**（ECU、Display、IMU 供数） |
-| **双路全接**（推荐） | **最优**（高精度 IVT-S 供数） | **正常**（CAN1 供数） | **正常**（CANB 供数） |
+| **只接 CAN1**（BMS 专线） | **最优**（CAN1 自有 IVT-S 供数，并可降级到 BMS `0x186050F4`） | **正常**（CAN1 从控采样帧完整供数） | 无数据（置 0 / 空） |
+| **只接 CANB**（整车总线） | **正常**（BMS 冗余 `0x4B0` 供数；自有 IVT-S 不在 CANB） | 无数据（从控采样帧不走 CANB） | **正常**（ECU、Display、IMU 供数） |
+| **双路全接**（推荐） | **最优**（CAN1 高精度 IVT-S 供数） | **正常**（CAN1 供数） | **正常**（CANB 供数） |
 
 ---
 
