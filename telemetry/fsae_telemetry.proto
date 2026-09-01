@@ -41,9 +41,9 @@ message PacketHeader { // 通用报文头
 }
 
 message Alarm { // 告警信息
-    uint32 alarm_id = 1; // 告警 ID
-    AlarmSeverity severity = 2; // 告警等级
-    string message = 3; // 告警内容
+    uint32 alarm_id = 1; // 告警 ID；0..31 固定对应 BMS battery_fault_code bit0..31
+    AlarmSeverity severity = 2; // 告警等级；BMS 一级故障映射 FATAL，二级告警映射 WARNING
+    string message = 3; // 告警内容；允许为空，消费者按 alarm_id 使用权威名称表
 }
 
 message FastTelemetry { // 快速遥测摘要
@@ -293,7 +293,7 @@ message TelemetryFrame {
     FastTelemetry fast_telemetry = 27;
     VehicleState vehicle_state = 28;
     ThermalSummary thermal_summary = 29; // 轮胎温度（CANB 0x071~0x074）按轮位填充 min/max/avg 与 chunks
-    repeated Alarm alarms = 30;
+    repeated Alarm alarms = 30; // BMS 明细存在时按 fault bit 展开；其他系统不得占用 0..31
     IvtTelemetry ivt_telemetry = 31;
     EnergyMeterTelemetry energy_meter = 32;
     MotionTelemetry motion = 33;

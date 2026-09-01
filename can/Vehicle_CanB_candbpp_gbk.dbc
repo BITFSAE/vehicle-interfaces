@@ -3,9 +3,9 @@ VERSION ""
 NS_ :
 	NS_DESC_
 	CM_
-	VAL_
 	BA_DEF_
 	BA_
+	VAL_
 	CAT_DEF_
 	CAT_
 	FILTER
@@ -106,90 +106,90 @@ BO_ 1283 Debug3: 8 ECU
  SG_ Diagnostic_number_1 : 0|32@1+ (1,0) [0|4294967295] "" Vector__XXX
 
 BO_ 113 MLX90640_TireTemp_01_04_0x071: 8 DATA_COLLECTION_INTEGRAL
- SG_ TireTemp01_Integer : 0|8@1+ (1,0) [0|255] "degC" Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp01_Fraction : 8|8@1+ (0.01,0) [0|0.99] "degC" Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp02_Integer : 16|8@1+ (1,0) [0|255] "degC" Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp02_Fraction : 24|8@1+ (0.01,0) [0|0.99] "degC" Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp03_Integer : 32|8@1+ (1,0) [0|255] "degC" Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp03_Fraction : 40|8@1+ (0.01,0) [0|0.99] "degC" Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp04_Integer : 48|8@1+ (1,0) [0|255] "degC" Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp04_Fraction : 56|8@1+ (0.01,0) [0|0.99] "degC" Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp01_Integer : 0|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp01_Fraction : 8|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp02_Integer : 16|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp02_Fraction : 24|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp03_Integer : 32|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp03_Fraction : 40|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp04_Integer : 48|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp04_Fraction : 56|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
 
 BO_ 114 MLX90640_TireTemp_05_08_0x072: 8 DATA_COLLECTION_INTEGRAL
- SG_ TireTemp05_Integer : 0|8@1+ (1,0) [0|255] "degC" Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp05_Fraction : 8|8@1+ (0.01,0) [0|0.99] "degC" Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp06_Integer : 16|8@1+ (1,0) [0|255] "degC" Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp06_Fraction : 24|8@1+ (0.01,0) [0|0.99] "degC" Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp07_Integer : 32|8@1+ (1,0) [0|255] "degC" Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp07_Fraction : 40|8@1+ (0.01,0) [0|0.99] "degC" Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp08_Integer : 48|8@1+ (1,0) [0|255] "degC" Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp08_Fraction : 56|8@1+ (0.01,0) [0|0.99] "degC" Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp05_Integer : 0|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp05_Fraction : 8|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp06_Integer : 16|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp06_Fraction : 24|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp07_Integer : 32|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp07_Fraction : 40|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp08_Integer : 48|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp08_Fraction : 56|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
 
 BO_ 115 MLX90640_TireTemp_09_12_0x073: 8 DATA_COLLECTION_INTEGRAL
- SG_ TireTemp09_Integer : 0|8@1+ (1,0) [0|255] "degC" Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp09_Fraction : 8|8@1+ (0.01,0) [0|0.99] "degC" Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp10_Integer : 16|8@1+ (1,0) [0|255] "degC" Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp10_Fraction : 24|8@1+ (0.01,0) [0|0.99] "degC" Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp11_Integer : 32|8@1+ (1,0) [0|255] "degC" Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp11_Fraction : 40|8@1+ (0.01,0) [0|0.99] "degC" Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp12_Integer : 48|8@1+ (1,0) [0|255] "degC" Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp12_Fraction : 56|8@1+ (0.01,0) [0|0.99] "degC" Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp09_Integer : 0|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp09_Fraction : 8|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp10_Integer : 16|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp10_Fraction : 24|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp11_Integer : 32|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp11_Fraction : 40|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp12_Integer : 48|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp12_Fraction : 56|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
 
 BO_ 116 MLX90640_TireTemp_13_16_0x074: 8 DATA_COLLECTION_INTEGRAL
- SG_ TireTemp13_Integer : 0|8@1+ (1,0) [0|255] "degC" Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp13_Fraction : 8|8@1+ (0.01,0) [0|0.99] "degC" Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp14_Integer : 16|8@1+ (1,0) [0|255] "degC" Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp14_Fraction : 24|8@1+ (0.01,0) [0|0.99] "degC" Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp15_Integer : 32|8@1+ (1,0) [0|255] "degC" Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp15_Fraction : 40|8@1+ (0.01,0) [0|0.99] "degC" Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp16_Integer : 48|8@1+ (1,0) [0|255] "degC" Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp16_Fraction : 56|8@1+ (0.01,0) [0|0.99] "degC" Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp13_Integer : 0|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp13_Fraction : 8|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp14_Integer : 16|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp14_Fraction : 24|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp15_Integer : 32|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp15_Fraction : 40|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp16_Integer : 48|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ TireTemp16_Fraction : 56|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
 
 BO_ 769 GPS_Speed: 2 Display
- SG_ GroundSpeed : 0|16@1+ (0.1,0) [0|300] "km/h" ECU,WirelessGateway
+ SG_ GroundSpeed : 0|16@1+ (0.1,0) [0|300] "km/h"  ECU,WirelessGateway
 
 BO_ 103 GPS_Position_0x067: 8 Display
- SG_ GPS_Latitude : 0|32@1- (0.0000001,0) [-90|90] "deg" WirelessGateway
- SG_ GPS_Longitude : 32|32@1- (0.0000001,0) [-180|180] "deg" WirelessGateway
+ SG_ GPS_Latitude : 0|32@1- (1e-07,0) [-90|90] "deg"  WirelessGateway
+ SG_ GPS_Longitude : 32|32@1- (1e-07,0) [-180|180] "deg"  WirelessGateway
 
 BO_ 104 GPS_Motion_0x068: 8 Display
- SG_ GPS_GroundTrack : 0|16@1+ (0.01,0) [0|359.99] "deg" WirelessGateway
- SG_ GPS_DualHeading : 16|16@1+ (0.01,0) [0|359.99] "deg" WirelessGateway
- SG_ GPS_Altitude : 32|16@1- (0.1,0) [-3276.8|3276.7] "m" WirelessGateway
- SG_ GPS_PositionValid : 48|1@1+ (1,0) [0|1] "" WirelessGateway
- SG_ GPS_HeadingValid : 49|1@1+ (1,0) [0|1] "" WirelessGateway
- SG_ GPS_LapActive : 50|1@1+ (1,0) [0|1] "" WirelessGateway
- SG_ GPS_RMCValid : 51|1@1+ (1,0) [0|1] "" WirelessGateway
- SG_ GPS_LapDiagState : 52|3@1+ (1,0) [0|6] "" WirelessGateway
- SG_ GPS_HeadingQuality : 55|3@1+ (1,0) [0|7] "" WirelessGateway
- SG_ GPS_FixQuality : 58|3@1+ (1,0) [0|7] "" WirelessGateway
- SG_ GPS_SignalLevel : 61|3@1+ (1,0) [0|4] "" WirelessGateway
+ SG_ GPS_GroundTrack : 0|16@1+ (0.01,0) [0|359.99] "deg"  WirelessGateway
+ SG_ GPS_DualHeading : 16|16@1+ (0.01,0) [0|359.99] "deg"  WirelessGateway
+ SG_ GPS_Altitude : 32|16@1- (0.1,0) [-3276.8|3276.7] "m"  WirelessGateway
+ SG_ GPS_PositionValid : 48|1@1+ (1,0) [0|1] ""  WirelessGateway
+ SG_ GPS_HeadingValid : 49|1@1+ (1,0) [0|1] ""  WirelessGateway
+ SG_ GPS_LapActive : 50|1@1+ (1,0) [0|1] ""  WirelessGateway
+ SG_ GPS_RMCValid : 51|1@1+ (1,0) [0|1] ""  WirelessGateway
+ SG_ GPS_LapDiagState : 52|3@1+ (1,0) [0|6] ""  WirelessGateway
+ SG_ GPS_HeadingQuality : 55|3@1+ (1,0) [0|7] ""  WirelessGateway
+ SG_ GPS_FixQuality : 58|3@1+ (1,0) [0|7] ""  WirelessGateway
+ SG_ GPS_SignalLevel : 61|3@1+ (1,0) [0|4] ""  WirelessGateway
 
 BO_ 105 GPS_StatusOdometer_0x069: 8 Display
- SG_ GPS_Odometer : 0|24@1+ (0.1,0) [0|1677721.5] "km" WirelessGateway
- SG_ GPS_MaxSNR : 24|8@1- (1,0) [-128|127] "dB-Hz" WirelessGateway
- SG_ GPS_AvgSNR : 32|8@1- (1,0) [-128|127] "dB-Hz" WirelessGateway
- SG_ GPS_Satellites : 40|8@1+ (1,0) [0|255] "" WirelessGateway
- SG_ GPS_GSVTrackedSatellites : 48|8@1+ (1,0) [0|255] "" WirelessGateway
- SG_ GPS_LapCount : 56|8@1+ (1,0) [0|255] "lap" WirelessGateway
+ SG_ GPS_Odometer : 0|24@1+ (0.1,0) [0|1677721.5] "km"  WirelessGateway
+ SG_ GPS_MaxSNR : 24|8@1- (1,0) [-128|127] "dB-Hz"  WirelessGateway
+ SG_ GPS_AvgSNR : 32|8@1- (1,0) [-128|127] "dB-Hz"  WirelessGateway
+ SG_ GPS_Satellites : 40|8@1+ (1,0) [0|255] ""  WirelessGateway
+ SG_ GPS_GSVTrackedSatellites : 48|8@1+ (1,0) [0|255] ""  WirelessGateway
+ SG_ GPS_LapCount : 56|8@1+ (1,0) [0|255] "lap"  WirelessGateway
 
 BO_ 106 GPS_LapTiming_0x06A: 8 Display
- SG_ GPS_CurrentLapTime : 0|16@1+ (0.01,0) [0|655.35] "s" WirelessGateway
- SG_ GPS_LastLapTime : 16|16@1+ (0.01,0) [0|655.35] "s" WirelessGateway
- SG_ GPS_BestLapTime : 32|16@1+ (0.01,0) [0|655.35] "s" WirelessGateway
- SG_ GPS_LapDelta : 48|16@1- (0.01,0) [-327.68|327.67] "s" WirelessGateway
+ SG_ GPS_CurrentLapTime : 0|16@1+ (0.01,0) [0|655.35] "s"  WirelessGateway
+ SG_ GPS_LastLapTime : 16|16@1+ (0.01,0) [0|655.35] "s"  WirelessGateway
+ SG_ GPS_BestLapTime : 32|16@1+ (0.01,0) [0|655.35] "s"  WirelessGateway
+ SG_ GPS_LapDelta : 48|16@1- (0.01,0) [-327.68|327.67] "s"  WirelessGateway
 
 BO_ 1792 SteeringPanel_0x700: 8 SteeringWheel
- SG_ RecorderToggle : 0|1@1+ (1,0) [0|1] "" VCU,Display
- SG_ ErrorClearActive : 1|1@1+ (1,0) [0|1] "" VCU,Display
- SG_ DriveMode : 8|8@1+ (1,0) [0|3] "" VCU,Display
- SG_ SlipLevel : 16|8@1+ (1,0) [0|7] "" VCU,Display
+ SG_ RecorderToggle : 0|1@1+ (1,0) [0|1] ""  VCU,Display
+ SG_ ErrorClearActive : 1|1@1+ (1,0) [0|1] ""  VCU,Display
+ SG_ DriveMode : 8|8@1+ (1,0) [0|3] ""  VCU,Display
+ SG_ SlipLevel : 16|8@1+ (1,0) [0|7] ""  VCU,Display
 
 BO_ 1924 DriveMode_0x784: 8 SteeringWheel
- SG_ DriveMode : 0|8@1+ (1,0) [0|3] "" VCU,Display
+ SG_ DriveMode : 0|8@1+ (1,0) [0|3] ""  VCU,Display
 
 BO_ 784 DriveMode_Request: 8 Display
- SG_ DriveModeCode : 0|8@1+ (1,0) [48|51] "" ECU
+ SG_ DriveModeCode : 0|8@1+ (1,0) [48|51] ""  ECU
 
 BO_ 80 IMU_Raw: 8 Display
  SG_ IMU_Header : 0|8@1+ (1,0) [85|85] "" Vector__XXX
@@ -229,265 +229,323 @@ BO_ 102 IMU_Magnetic: 6 Display
  SG_ IMU_MagZ : 32|16@1- (1,0) [-32768|32767] "" Vector__XXX
 
 BO_ 1440 PDM_LowVoltageBus: 8 PDM
- SG_ BusVoltage : 7|16@0- (0.001,0) [-32.768|32.767] "V" ECU
- SG_ BusCurrent : 23|16@0- (0.01,0) [-327.68|327.67] "A" ECU
- SG_ BusPower : 39|16@0+ (0.1,0) [0|6553.5] "W" ECU
- SG_ BusEnergy : 55|16@0+ (0.01,0) [0|655.35] "Wh" ECU
+ SG_ BusVoltage : 7|16@0- (0.001,0) [-32.768|32.767] "V"  ECU
+ SG_ BusCurrent : 23|16@0- (0.01,0) [-327.68|327.67] "A"  ECU
+ SG_ BusPower : 39|16@0+ (0.1,0) [0|6553.5] "W"  ECU
+ SG_ BusEnergy : 55|16@0+ (0.01,0) [0|655.35] "Wh"  ECU
 
 BO_ 1441 PDM_LowVoltageBattery: 8 PDM
- SG_ BatteryVoltage : 7|16@0- (0.001,0) [-32.768|32.767] "V" ECU
- SG_ BatteryCurrent : 23|16@0- (0.01,0) [-327.68|327.67] "A" ECU
- SG_ BatteryPower : 39|16@0+ (0.1,0) [0|6553.5] "W" ECU
- SG_ BatteryEnergy : 55|16@0+ (0.01,0) [0|655.35] "Wh" ECU
+ SG_ BatteryVoltage : 7|16@0- (0.001,0) [-32.768|32.767] "V"  ECU
+ SG_ BatteryCurrent : 23|16@0- (0.01,0) [-327.68|327.67] "A"  ECU
+ SG_ BatteryPower : 39|16@0+ (0.1,0) [0|6553.5] "W"  ECU
+ SG_ BatteryEnergy : 55|16@0+ (0.01,0) [0|655.35] "Wh"  ECU
 
 BO_ 1442 FanController_Status: 8 FanController
- SG_ Fan1_RPM : 7|16@0+ (1,0) [0|65535] "rpm" ECU
- SG_ Fan2_RPM : 23|16@0+ (1,0) [0|65535] "rpm" ECU
- SG_ Fan3_RPM : 39|16@0+ (1,0) [0|65535] "rpm" ECU
- SG_ Fan_PWM1_Duty : 55|8@0+ (1,0) [0|100] "%" ECU
- SG_ Fan_PWM2_Duty : 63|8@0+ (1,0) [0|100] "%" ECU
+ SG_ Fan1_RPM : 7|16@0+ (1,0) [0|65535] "rpm"  ECU
+ SG_ Fan2_RPM : 23|16@0+ (1,0) [0|65535] "rpm"  ECU
+ SG_ Fan3_RPM : 39|16@0+ (1,0) [0|65535] "rpm"  ECU
+ SG_ Fan_PWM1_Duty : 55|8@0+ (1,0) [0|100] "%"  ECU
+ SG_ Fan_PWM2_Duty : 63|8@0+ (1,0) [0|100] "%"  ECU
 
 BO_ 1443 FanController_Diagnostic: 8 FanController
- SG_ Fan_Faults : 7|8@0+ (1,0) [0|255] "" ECU
- SG_ Fan_StatusFlags : 15|8@0+ (1,0) [0|255] "" ECU
- SG_ MaxMotorTemp : 23|16@0- (0.1,0) [-3276.8|3276.7] "degC" ECU
- SG_ MaxControllerTemp : 39|16@0- (0.1,0) [-3276.8|3276.7] "degC" ECU
- SG_ Fan_PWM1_Target : 55|8@0+ (1,0) [0|100] "%" ECU
- SG_ Fan_PWM2_Target : 63|8@0+ (1,0) [0|100] "%" ECU
+ SG_ Fan_Faults : 7|8@0+ (1,0) [0|255] ""  ECU
+ SG_ Fan_StatusFlags : 15|8@0+ (1,0) [0|255] ""  ECU
+ SG_ MaxMotorTemp : 23|16@0- (0.1,0) [-3276.8|3276.7] "degC"  ECU
+ SG_ MaxControllerTemp : 39|16@0- (0.1,0) [-3276.8|3276.7] "degC"  ECU
+ SG_ Fan_PWM1_Target : 55|8@0+ (1,0) [0|100] "%"  ECU
+ SG_ Fan_PWM2_Target : 63|8@0+ (1,0) [0|100] "%"  ECU
 
 BO_ 1444 FanController_Command: 8 ECU
- SG_ CommandOpcode : 0|8@1+ (1,0) [0|255] "" FanController
- SG_ CommandSequence : 8|8@1+ (1,0) [0|255] "" FanController
- SG_ CommandParameter1 : 16|8@1+ (1,0) [0|255] "" FanController
- SG_ CommandParameter2 : 24|8@1+ (1,0) [0|255] "" FanController
- SG_ CommandParameter3 : 32|8@1+ (1,0) [0|255] "" FanController
- SG_ CommandParameter4 : 40|8@1+ (1,0) [0|255] "" FanController
- SG_ CommandParameter5 : 48|8@1+ (1,0) [0|255] "" FanController
- SG_ CommandCRC8 : 56|8@1+ (1,0) [0|255] "" FanController
+ SG_ CommandOpcode : 0|8@1+ (1,0) [0|255] ""  FanController
+ SG_ CommandSequence : 8|8@1+ (1,0) [0|255] ""  FanController
+ SG_ CommandParameter1 : 16|8@1+ (1,0) [0|255] ""  FanController
+ SG_ CommandParameter2 : 24|8@1+ (1,0) [0|255] ""  FanController
+ SG_ CommandParameter3 : 32|8@1+ (1,0) [0|255] ""  FanController
+ SG_ CommandParameter4 : 40|8@1+ (1,0) [0|255] ""  FanController
+ SG_ CommandParameter5 : 48|8@1+ (1,0) [0|255] ""  FanController
+ SG_ CommandCRC8 : 56|8@1+ (1,0) [0|255] ""  FanController
 
 BO_ 1445 FanController_CommandAck: 8 FanController
- SG_ AckOpcode : 0|8@1+ (1,0) [0|255] "" ECU
- SG_ AckSequence : 8|8@1+ (1,0) [0|255] "" ECU
- SG_ AckResult : 16|8@1+ (1,0) [0|255] "" ECU
- SG_ AckMode : 24|2@1+ (1,0) [0|3] "" ECU
- SG_ AckFailsafe : 28|2@1+ (1,0) [0|3] "" ECU
- SG_ AckPWM1Actual : 32|8@1+ (1,0) [0|100] "%" ECU
- SG_ AckPWM2Actual : 40|8@1+ (1,0) [0|100] "%" ECU
- SG_ AckPWM1Target : 48|8@1+ (1,0) [0|100] "%" ECU
- SG_ AckPWM2Target : 56|8@1+ (1,0) [0|100] "%" ECU
+ SG_ AckOpcode : 0|8@1+ (1,0) [0|255] ""  ECU
+ SG_ AckSequence : 8|8@1+ (1,0) [0|255] ""  ECU
+ SG_ AckResult : 16|8@1+ (1,0) [0|255] ""  ECU
+ SG_ AckMode : 24|2@1+ (1,0) [0|3] ""  ECU
+ SG_ AckFailsafe : 28|2@1+ (1,0) [0|3] ""  ECU
+ SG_ AckPWM1Actual : 32|8@1+ (1,0) [0|100] "%"  ECU
+ SG_ AckPWM2Actual : 40|8@1+ (1,0) [0|100] "%"  ECU
+ SG_ AckPWM1Target : 48|8@1+ (1,0) [0|100] "%"  ECU
+ SG_ AckPWM2Target : 56|8@1+ (1,0) [0|100] "%"  ECU
 
 BO_ 1446 FanController_CurveStatus: 8 FanController
- SG_ FanTempOff : 0|8@1+ (1,0) [0|150] "degC" ECU
- SG_ FanTempOn : 8|8@1+ (1,0) [0|150] "degC" ECU
- SG_ FanTempFull : 16|8@1+ (1,0) [0|150] "degC" ECU
- SG_ FanMinDuty : 24|8@1+ (1,0) [0|100] "%" ECU
- SG_ FanRampUp : 32|8@1+ (1,0) [0|100] "%/s" ECU
- SG_ FanTempCritical : 40|8@1+ (1,0) [0|150] "degC" ECU
- SG_ FanStartDuty : 48|8@1+ (1,0) [0|100] "%" ECU
- SG_ FanCurveChannel : 56|8@1+ (1,0) [1|2] "" ECU
+ SG_ FanTempOff : 0|8@1+ (1,0) [0|150] "degC"  ECU
+ SG_ FanTempOn : 8|8@1+ (1,0) [0|150] "degC"  ECU
+ SG_ FanTempFull : 16|8@1+ (1,0) [0|150] "degC"  ECU
+ SG_ FanMinDuty : 24|8@1+ (1,0) [0|100] "%"  ECU
+ SG_ FanRampUp : 32|8@1+ (1,0) [0|100] "%/s"  ECU
+ SG_ FanTempCritical : 40|8@1+ (1,0) [0|150] "degC"  ECU
+ SG_ FanStartDuty : 48|8@1+ (1,0) [0|100] "%"  ECU
+ SG_ FanCurveChannel : 56|8@1+ (1,0) [1|2] ""  ECU
 
 BO_ 1447 FanController_FailsafeStatus: 8 FanController
- SG_ FanFailsafeStrategy : 0|8@1+ (1,0) [0|2] "" ECU
- SG_ FanFallback1Duty : 8|8@1+ (1,0) [0|100] "%" ECU
- SG_ FanFallback2Duty : 16|8@1+ (1,0) [0|100] "%" ECU
- SG_ FanStaleHold : 24|8@1+ (1,0) [0|30] "s" ECU
- SG_ FanRampDown : 32|8@1+ (1,0) [0|100] "%/s" ECU
- SG_ FanControlMode : 40|8@1+ (1,0) [0|2] "" ECU
- SG_ FanControlLeaseRemaining : 48|8@1+ (1,0) [0|60] "s" ECU
- SG_ FanProtocolVersion : 56|8@1+ (1,0) [0|255] "" ECU
+ SG_ FanFailsafeStrategy : 0|8@1+ (1,0) [0|2] ""  ECU
+ SG_ FanFallback1Duty : 8|8@1+ (1,0) [0|100] "%"  ECU
+ SG_ FanFallback2Duty : 16|8@1+ (1,0) [0|100] "%"  ECU
+ SG_ FanStaleHold : 24|8@1+ (1,0) [0|30] "s"  ECU
+ SG_ FanRampDown : 32|8@1+ (1,0) [0|100] "%/s"  ECU
+ SG_ FanControlMode : 40|8@1+ (1,0) [0|2] ""  ECU
+ SG_ FanControlLeaseRemaining : 48|8@1+ (1,0) [0|60] "s"  ECU
+ SG_ FanProtocolVersion : 56|8@1+ (1,0) [0|255] ""  ECU
 
 BO_ 1448 FanController_PowerStatus: 8 FanController
- SG_ PowerSupplyState : 0|4@1+ (1,0) [0|15] "" ECU
- SG_ PowerLimitReason : 4|4@1+ (1,0) [0|15] "" ECU
- SG_ ThermalRequest1_Duty : 8|8@1+ (1,0) [0|100] "%" ECU
- SG_ ThermalRequest2_Duty : 16|8@1+ (1,0) [0|100] "%" ECU
- SG_ PowerLimitedTarget1_Duty : 24|8@1+ (1,0) [0|100] "%" ECU
- SG_ PowerLimitedTarget2_Duty : 32|8@1+ (1,0) [0|100] "%" ECU
- SG_ CurrentBudget : 40|8@1+ (0.1,0) [0|25.5] "A" ECU
- SG_ PredictedCurrent : 48|16@1+ (0.1,0) [0|6553.5] "A" ECU
+ SG_ PowerSupplyState : 0|4@1+ (1,0) [0|15] ""  ECU
+ SG_ PowerLimitReason : 4|4@1+ (1,0) [0|15] ""  ECU
+ SG_ ThermalRequest1_Duty : 8|8@1+ (1,0) [0|100] "%"  ECU
+ SG_ ThermalRequest2_Duty : 16|8@1+ (1,0) [0|100] "%"  ECU
+ SG_ PowerLimitedTarget1_Duty : 24|8@1+ (1,0) [0|100] "%"  ECU
+ SG_ PowerLimitedTarget2_Duty : 32|8@1+ (1,0) [0|100] "%"  ECU
+ SG_ CurrentBudget : 40|8@1+ (0.1,0) [0|25.5] "A"  ECU
+ SG_ PredictedCurrent : 48|16@1+ (0.1,0) [0|6553.5] "A"  ECU
 
 BO_ 1449 FanController_CalibStatus: 8 FanController
- SG_ CalibState : 0|4@1+ (1,0) [0|15] "" ECU
- SG_ CalibAbortReason : 4|4@1+ (1,0) [0|15] "" ECU
- SG_ CalibStep : 8|8@1+ (1,0) [0|255] "" ECU
- SG_ CalibPWM1Target : 16|8@1+ (1,0) [0|100] "%" ECU
- SG_ CalibPWM2Target : 24|8@1+ (1,0) [0|100] "%" ECU
- SG_ CalibLeaseRemaining : 32|8@1+ (1,0) [0|255] "s" ECU
- SG_ CalibParamVersion : 40|8@1+ (1,0) [0|255] "" ECU
- SG_ CalibFlags : 48|16@1+ (1,0) [0|65535] "" ECU
+ SG_ CalibState : 0|4@1+ (1,0) [0|15] ""  ECU
+ SG_ CalibAbortReason : 4|4@1+ (1,0) [0|15] ""  ECU
+ SG_ CalibStep : 8|8@1+ (1,0) [0|255] ""  ECU
+ SG_ CalibPWM1Target : 16|8@1+ (1,0) [0|100] "%"  ECU
+ SG_ CalibPWM2Target : 24|8@1+ (1,0) [0|100] "%"  ECU
+ SG_ CalibLeaseRemaining : 32|8@1+ (1,0) [0|255] "s"  ECU
+ SG_ CalibParamVersion : 40|8@1+ (1,0) [0|255] ""  ECU
+ SG_ CalibFlags : 48|16@1+ (1,0) [0|65535] ""  ECU
 
 BO_ 513 Chroma_VoltageFeedback: 8 Chroma
- SG_ ChromaVoltage : 24|32@1+ (1,0) [0|1000] "V" BMS_Master
+ SG_ ChromaVoltage : 24|32@1+ (1,0) [0|1000] "V"  BMS_Master
 
 BO_ 514 Chroma_CurrentFeedback: 8 Chroma
- SG_ ChromaCurrent : 24|32@1+ (1,0) [0|1000] "A" BMS_Master
+ SG_ ChromaCurrent : 24|32@1+ (1,0) [0|1000] "A"  BMS_Master
 
 BO_ 516 Chroma_ProtectionFeedback: 8 Chroma
- SG_ ChromaProtection : 24|32@1+ (1,0) [0|4294967295] "" BMS_Master
+ SG_ ChromaProtection : 24|32@1+ (1,0) [0|4294967295] ""  BMS_Master
 
 BO_ 517 Chroma_OutputFeedback: 8 Chroma
- SG_ ChromaOutputState : 24|8@1+ (1,0) [0|255] "" BMS_Master
+ SG_ ChromaOutputState : 24|8@1+ (1,0) [0|255] ""  BMS_Master
 
 BO_ 656 Chroma_Command: 6 BMS_Master
- SG_ ChromaCommandCode : 0|8@1+ (1,0) [0|255] "" Chroma
- SG_ ChromaCommandReserved : 8|8@1+ (1,0) [0|255] "" Chroma
- SG_ ChromaCommandParameter : 16|32@1+ (1,0) [0|4294967295] "" Chroma
+ SG_ ChromaCommandCode : 0|8@1+ (1,0) [0|255] ""  Chroma
+ SG_ ChromaCommandReserved : 8|8@1+ (1,0) [0|255] ""  Chroma
+ SG_ ChromaCommandParameter : 16|32@1+ (1,0) [0|4294967295] ""  Chroma
 
 BO_ 657 Chroma_CommandResponse: 8 Chroma
- SG_ ChromaResponseByte0 : 0|8@1+ (1,0) [0|255] "" BMS_Master
- SG_ ChromaResponseByte1 : 8|8@1+ (1,0) [0|255] "" BMS_Master
- SG_ ChromaResponseByte2 : 16|8@1+ (1,0) [0|255] "" BMS_Master
- SG_ ChromaResponseByte3 : 24|8@1+ (1,0) [0|255] "" BMS_Master
- SG_ ChromaResponseByte4 : 32|8@1+ (1,0) [0|255] "" BMS_Master
- SG_ ChromaResponseByte5 : 40|8@1+ (1,0) [0|255] "" BMS_Master
- SG_ ChromaResponseByte6 : 48|8@1+ (1,0) [0|255] "" BMS_Master
- SG_ ChromaResponseByte7 : 56|8@1+ (1,0) [0|255] "" BMS_Master
+ SG_ ChromaResponseByte0 : 0|8@1+ (1,0) [0|255] ""  BMS_Master
+ SG_ ChromaResponseByte1 : 8|8@1+ (1,0) [0|255] ""  BMS_Master
+ SG_ ChromaResponseByte2 : 16|8@1+ (1,0) [0|255] ""  BMS_Master
+ SG_ ChromaResponseByte3 : 24|8@1+ (1,0) [0|255] ""  BMS_Master
+ SG_ ChromaResponseByte4 : 32|8@1+ (1,0) [0|255] ""  BMS_Master
+ SG_ ChromaResponseByte5 : 40|8@1+ (1,0) [0|255] ""  BMS_Master
+ SG_ ChromaResponseByte6 : 48|8@1+ (1,0) [0|255] ""  BMS_Master
+ SG_ ChromaResponseByte7 : 56|8@1+ (1,0) [0|255] ""  BMS_Master
 
 BO_ 1184 BMS_SOPLimits: 8 BMS_Master
- SG_ DischargeCurrentLimit : 0|16@1+ (0.1,0) [0|6553.5] "A" ECU
- SG_ ChargeCurrentLimit : 16|16@1+ (0.1,0) [0|6553.5] "A" ECU
- SG_ DischargePowerLimit : 32|16@1+ (0.1,0) [0|6553.5] "kW" ECU
- SG_ ChargePowerLimit : 48|16@1+ (0.1,0) [0|6553.5] "kW" ECU
+ SG_ DischargeCurrentLimit : 0|16@1+ (0.1,0) [0|6553.5] "A"  ECU
+ SG_ ChargeCurrentLimit : 16|16@1+ (0.1,0) [0|6553.5] "A"  ECU
+ SG_ DischargePowerLimit : 32|16@1+ (0.1,0) [0|6553.5] "kW"  ECU
+ SG_ ChargePowerLimit : 48|16@1+ (0.1,0) [0|6553.5] "kW"  ECU
 
 BO_ 1187 BMS_SOPStatus: 8 BMS_Master
- SG_ SOPSequence : 0|4@1+ (1,0) [0|15] "" ECU
- SG_ SOPProtocolVersion : 4|4@1+ (1,0) [0|15] "" ECU
- SG_ LimitsValid : 8|1@1+ (1,0) [0|1] "" ECU
- SG_ DriveAllowed : 9|1@1+ (1,0) [0|1] "" ECU
- SG_ RegenAllowed : 10|1@1+ (1,0) [0|1] "" ECU
- SG_ OvercurrentLimitZero : 11|1@1+ (1,0) [0|1] "" ECU
- SG_ BMSFaultHold : 12|1@1+ (1,0) [0|1] "" ECU
- SG_ SOPAckRequired : 13|1@1+ (1,0) [0|1] "" ECU
- SG_ LimitsReduced : 14|1@1+ (1,0) [0|1] "" ECU
- SG_ BatteryState : 16|8@1+ (1,0) [0|255] "" ECU
- SG_ LimitReason : 24|16@1+ (1,0) [0|65535] "" ECU
- SG_ InputHealth : 40|8@1+ (1,0) [0|255] "" ECU
- SG_ InterventionLevel : 48|2@1+ (1,0) [0|3] "" ECU
- SG_ DischargeOvercurrentZero : 50|1@1+ (1,0) [0|1] "" ECU
- SG_ ChargeOvercurrentZero : 51|1@1+ (1,0) [0|1] "" ECU
- SG_ AckMissing : 52|1@1+ (1,0) [0|1] "" ECU
- SG_ AckFresh : 53|1@1+ (1,0) [0|1] "" ECU
- SG_ CurrentBelowClearThreshold : 54|1@1+ (1,0) [0|1] "" ECU
- SG_ SOPCRC8 : 56|8@1+ (1,0) [0|255] "" ECU
+ SG_ SOPSequence : 0|4@1+ (1,0) [0|15] ""  ECU
+ SG_ SOPProtocolVersion : 4|4@1+ (1,0) [0|15] ""  ECU
+ SG_ LimitsValid : 8|1@1+ (1,0) [0|1] ""  ECU
+ SG_ DriveAllowed : 9|1@1+ (1,0) [0|1] ""  ECU
+ SG_ RegenAllowed : 10|1@1+ (1,0) [0|1] ""  ECU
+ SG_ OvercurrentLimitZero : 11|1@1+ (1,0) [0|1] ""  ECU
+ SG_ BMSFaultHold : 12|1@1+ (1,0) [0|1] ""  ECU
+ SG_ SOPAckRequired : 13|1@1+ (1,0) [0|1] ""  ECU
+ SG_ LimitsReduced : 14|1@1+ (1,0) [0|1] ""  ECU
+ SG_ BatteryState : 16|8@1+ (1,0) [0|255] ""  ECU
+ SG_ LimitReason : 24|16@1+ (1,0) [0|65535] ""  ECU
+ SG_ InputHealth : 40|8@1+ (1,0) [0|255] ""  ECU
+ SG_ InterventionLevel : 48|2@1+ (1,0) [0|3] ""  ECU
+ SG_ DischargeOvercurrentZero : 50|1@1+ (1,0) [0|1] ""  ECU
+ SG_ ChargeOvercurrentZero : 51|1@1+ (1,0) [0|1] ""  ECU
+ SG_ AckMissing : 52|1@1+ (1,0) [0|1] ""  ECU
+ SG_ AckFresh : 53|1@1+ (1,0) [0|1] ""  ECU
+ SG_ CurrentBelowClearThreshold : 54|1@1+ (1,0) [0|1] ""  ECU
+ SG_ SOPCRC8 : 56|8@1+ (1,0) [0|255] ""  ECU
 
 BO_ 1188 ECU_SOPAcknowledgement: 8 ECU
- SG_ AcceptedSOPSequence : 0|4@1+ (1,0) [0|15] "" BMS_Master
- SG_ SOPProtocolVersion : 4|4@1+ (1,0) [0|15] "" BMS_Master
- SG_ SOPChecksPassed : 8|1@1+ (1,0) [0|1] "" BMS_Master
- SG_ SOPAppliedToTorque : 9|1@1+ (1,0) [0|1] "" BMS_Master
- SG_ PositiveTorqueZero : 10|1@1+ (1,0) [0|1] "" BMS_Master
- SG_ NegativeTorqueZero : 11|1@1+ (1,0) [0|1] "" BMS_Master
- SG_ DriveLimitedByBMS : 12|1@1+ (1,0) [0|1] "" BMS_Master
- SG_ RegenLimitedByBMS : 13|1@1+ (1,0) [0|1] "" BMS_Master
- SG_ ECUSOPTimeout : 14|1@1+ (1,0) [0|1] "" BMS_Master
- SG_ ECUFaultBlocksDrive : 15|1@1+ (1,0) [0|1] "" BMS_Master
- SG_ FinalDischargePowerLimit : 16|16@1+ (0.1,0) [0|6553.5] "kW" BMS_Master
- SG_ FinalChargePowerLimit : 32|16@1+ (0.1,0) [0|6553.5] "kW" BMS_Master
- SG_ PrimaryLimitSource : 48|8@1+ (1,0) [0|255] "" BMS_Master
- SG_ SOPAckCRC8 : 56|8@1+ (1,0) [0|255] "" BMS_Master
+ SG_ AcceptedSOPSequence : 0|4@1+ (1,0) [0|15] ""  BMS_Master
+ SG_ SOPProtocolVersion : 4|4@1+ (1,0) [0|15] ""  BMS_Master
+ SG_ SOPChecksPassed : 8|1@1+ (1,0) [0|1] ""  BMS_Master
+ SG_ SOPAppliedToTorque : 9|1@1+ (1,0) [0|1] ""  BMS_Master
+ SG_ PositiveTorqueZero : 10|1@1+ (1,0) [0|1] ""  BMS_Master
+ SG_ NegativeTorqueZero : 11|1@1+ (1,0) [0|1] ""  BMS_Master
+ SG_ DriveLimitedByBMS : 12|1@1+ (1,0) [0|1] ""  BMS_Master
+ SG_ RegenLimitedByBMS : 13|1@1+ (1,0) [0|1] ""  BMS_Master
+ SG_ ECUSOPTimeout : 14|1@1+ (1,0) [0|1] ""  BMS_Master
+ SG_ ECUFaultBlocksDrive : 15|1@1+ (1,0) [0|1] ""  BMS_Master
+ SG_ FinalDischargePowerLimit : 16|16@1+ (0.1,0) [0|6553.5] "kW"  BMS_Master
+ SG_ FinalChargePowerLimit : 32|16@1+ (0.1,0) [0|6553.5] "kW"  BMS_Master
+ SG_ PrimaryLimitSource : 48|8@1+ (1,0) [0|255] ""  BMS_Master
+ SG_ SOPAckCRC8 : 56|8@1+ (1,0) [0|255] ""  BMS_Master
 
 BO_ 1200 BMS_PackStatus: 7 BMS_Master
- SG_ BatteryVoltage : 7|16@0+ (0.1,0) [0|6553.5] "V" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ BatteryCurrent : 23|16@0- (0.1,0) [-3276.8|3276.7] "A" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ BatterySOC : 32|8@1+ (1,0) [0|100] "%" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ PackVoltageValid : 40|1@1+ (1,0) [0|1] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ PackCurrentValid : 41|1@1+ (1,0) [0|1] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ SOCValid : 42|1@1+ (1,0) [0|1] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ CellVoltagesComplete : 43|1@1+ (1,0) [0|1] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ TemperaturesComplete : 44|1@1+ (1,0) [0|1] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ BatteryAlarmLevel : 48|4@1+ (1,0) [0|15] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ BatteryState : 52|4@1+ (1,0) [0|15] "" ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ BatteryVoltage : 7|16@0+ (0.1,0) [0|6553.5] "V"  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ BatteryCurrent : 23|16@0- (0.1,0) [-3276.8|3276.7] "A"  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ BatterySOC : 32|8@1+ (1,0) [0|100] "%"  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ PackVoltageValid : 40|1@1+ (1,0) [0|1] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ PackCurrentValid : 41|1@1+ (1,0) [0|1] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ SOCValid : 42|1@1+ (1,0) [0|1] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ CellVoltagesComplete : 43|1@1+ (1,0) [0|1] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ TemperaturesComplete : 44|1@1+ (1,0) [0|1] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ BatteryAlarmLevel : 48|4@1+ (1,0) [0|15] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ BatteryState : 52|4@1+ (1,0) [0|15] ""  ECU,VEHICLE_LOGGER,WirelessGateway
 
 BO_ 1201 BMS_FaultStatus: 8 BMS_Master
- SG_ BatteryAlarmLevel : 0|4@1+ (1,0) [0|15] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ BatteryState : 4|4@1+ (1,0) [0|15] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ FaultCode : 15|32@0+ (1,0) [0|4294967295] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ ChargerType : 41|1@1+ (1,0) [0|1] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ ChargeMode : 42|1@1+ (1,0) [0|1] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ LogClearActive : 43|1@1+ (1,0) [0|1] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ FlashWriteError : 44|1@1+ (1,0) [0|1] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ FaultResetRequested : 45|1@1+ (1,0) [0|1] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ FaultOutputLatched : 46|1@1+ (1,0) [0|1] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ FaultLatched : 47|1@1+ (1,0) [0|1] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ SlaveOfflineMask : 48|6@1+ (1,0) [0|63] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ FaultFrameVersion : 56|8@1+ (1,0) [0|255] "" ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ BatteryAlarmLevel : 0|4@1+ (1,0) [0|15] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ BatteryState : 4|4@1+ (1,0) [0|15] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ FaultCode : 15|32@0+ (1,0) [0|4294967295] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ ChargerType : 41|1@1+ (1,0) [0|1] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ ChargeMode : 42|1@1+ (1,0) [0|1] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ LogClearActive : 43|1@1+ (1,0) [0|1] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ FlashWriteError : 44|1@1+ (1,0) [0|1] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ FaultResetRequested : 45|1@1+ (1,0) [0|1] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ FaultOutputLatched : 46|1@1+ (1,0) [0|1] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ FaultLatched : 47|1@1+ (1,0) [0|1] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ SlaveOfflineMask : 48|6@1+ (1,0) [0|63] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ FaultFrameVersion : 56|8@1+ (1,0) [0|255] ""  ECU,VEHICLE_LOGGER,WirelessGateway
 
 BO_ 1202 BMS_AlarmLevels: 8 BMS_Master
- SG_ CellOverVoltageLevel : 0|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ CellUnderVoltageLevel : 2|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ CellOverTemperatureLevel : 4|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ CellUnderTemperatureLevel : 6|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ CellVoltageSenseLevel : 8|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ TemperatureSenseLevel : 10|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ CellDeltaVoltageLevel : 12|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ PackDeltaTemperatureLevel : 14|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ PackOverVoltageLevel : 16|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ PackUnderVoltageLevel : 18|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ AuxiliaryFailureLevel : 20|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ LowSOCLevel : 22|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ ChargeSustainedOvercurrentLevel : 24|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ DischargeSustainedOvercurrentLevel : 26|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ ChargeInstantOvercurrentLevel : 28|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ DischargeInstantOvercurrentLevel : 30|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ SlaveOfflineLevel : 32|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ PrechargeFailureLevel : 34|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ CriticalControlFailureLevel : 36|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ PackVoltageMismatchLevel : 38|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ CurrentSensorFailureLevel : 40|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ CANRuntimeFailureLevel : 42|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ ReservedAlarm22Level : 44|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ ChromaTelemetryLossLevel : 46|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ ChromaCommandFailureLevel : 48|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ Slave1OfflineLevel : 50|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ Slave2OfflineLevel : 52|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ Slave3OfflineLevel : 54|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ Slave4OfflineLevel : 56|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ Slave5OfflineLevel : 58|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ Slave6OfflineLevel : 60|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
- SG_ IVTVoltageLossLevel : 62|2@1+ (1,0) [0|3] "" ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ CellOverVoltageLevel : 0|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ CellUnderVoltageLevel : 2|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ CellOverTemperatureLevel : 4|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ CellUnderTemperatureLevel : 6|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ CellVoltageSenseLevel : 8|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ TemperatureSenseLevel : 10|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ CellDeltaVoltageLevel : 12|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ PackDeltaTemperatureLevel : 14|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ PackOverVoltageLevel : 16|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ PackUnderVoltageLevel : 18|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ AuxiliaryFailureLevel : 20|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ LowSOCLevel : 22|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ ChargeSustainedOvercurrentLevel : 24|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ DischargeSustainedOvercurrentLev : 26|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ ChargeInstantOvercurrentLevel : 28|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ DischargeInstantOvercurrentLevel : 30|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ SlaveOfflineLevel : 32|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ PrechargeFailureLevel : 34|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ CriticalControlFailureLevel : 36|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ PackVoltageMismatchLevel : 38|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ CurrentSensorFailureLevel : 40|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ CANRuntimeFailureLevel : 42|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ ReservedAlarm22Level : 44|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ ChromaTelemetryLossLevel : 46|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ ChromaCommandFailureLevel : 48|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ Slave1OfflineLevel : 50|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ Slave2OfflineLevel : 52|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ Slave3OfflineLevel : 54|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ Slave4OfflineLevel : 56|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ Slave5OfflineLevel : 58|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ Slave6OfflineLevel : 60|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
+ SG_ IVTVoltageLossLevel : 62|2@1+ (1,0) [0|3] ""  ECU,VEHICLE_LOGGER,WirelessGateway
 
 BO_ 1072 FS_Datalogger_Status: 6 FS_Datalogger
- SG_ MsgCounter : 0|8@1+ (1,0) [0|255] "" VEHICLE_LOGGER,WirelessGateway
- SG_ StatusReady : 8|1@1+ (1,0) [0|1] "" VEHICLE_LOGGER,WirelessGateway
- SG_ StatusLogging : 9|1@1+ (1,0) [0|1] "" VEHICLE_LOGGER,WirelessGateway
- SG_ StatusTriggeredVoltage : 10|1@1+ (1,0) [0|1] "" VEHICLE_LOGGER,WirelessGateway
- SG_ StatusTriggeredCurrent : 11|1@1+ (1,0) [0|1] "" VEHICLE_LOGGER,WirelessGateway
- SG_ Voltage : 23|16@0+ (16,0) [0|1048560] "mV" VEHICLE_LOGGER,WirelessGateway
- SG_ Current : 39|16@0+ (64,0) [0|4194240] "mA" VEHICLE_LOGGER,WirelessGateway
+ SG_ MsgCounter : 0|8@1+ (1,0) [0|255] ""  VEHICLE_LOGGER,WirelessGateway
+ SG_ StatusReady : 8|1@1+ (1,0) [0|1] ""  VEHICLE_LOGGER,WirelessGateway
+ SG_ StatusLogging : 9|1@1+ (1,0) [0|1] ""  VEHICLE_LOGGER,WirelessGateway
+ SG_ StatusTriggeredVoltage : 10|1@1+ (1,0) [0|1] ""  VEHICLE_LOGGER,WirelessGateway
+ SG_ StatusTriggeredCurrent : 11|1@1+ (1,0) [0|1] ""  VEHICLE_LOGGER,WirelessGateway
+ SG_ Voltage : 23|16@0+ (16,0) [0|1048560] "mV"  VEHICLE_LOGGER,WirelessGateway
+ SG_ Current : 39|16@0+ (64,0) [0|4194240] "mA"  VEHICLE_LOGGER,WirelessGateway
 
 BO_ 1313 CompetitionMeter_Current_Result: 6 Competition_Meter
- SG_ ResultMux : 0|8@1+ (1,0) [0|255] "" VEHICLE_LOGGER,WirelessGateway
- SG_ ResultCounter : 8|4@1+ (1,0) [0|15] "" VEHICLE_LOGGER,WirelessGateway
- SG_ ResultState : 12|4@1+ (1,0) [0|15] "" VEHICLE_LOGGER,WirelessGateway
- SG_ ResultValue : 23|32@0- (1,0) [-2147483648|2147483647] "mA" VEHICLE_LOGGER,WirelessGateway
+ SG_ ResultMux : 0|8@1+ (1,0) [0|255] ""  VEHICLE_LOGGER,WirelessGateway
+ SG_ ResultCounter : 8|4@1+ (1,0) [0|15] ""  VEHICLE_LOGGER,WirelessGateway
+ SG_ ResultState : 12|4@1+ (1,0) [0|15] ""  VEHICLE_LOGGER,WirelessGateway
+ SG_ ResultValue : 23|32@0- (1,0) [-2147483648|2147483647] "mA"  VEHICLE_LOGGER,WirelessGateway
 
 BO_ 1314 CompetitionMeter_U1_Result: 6 Competition_Meter
- SG_ ResultMux : 0|8@1+ (1,0) [0|255] "" VEHICLE_LOGGER,WirelessGateway
- SG_ ResultCounter : 8|4@1+ (1,0) [0|15] "" VEHICLE_LOGGER,WirelessGateway
- SG_ ResultState : 12|4@1+ (1,0) [0|15] "" VEHICLE_LOGGER,WirelessGateway
- SG_ ResultValue : 23|32@0- (1,0) [-2147483648|2147483647] "mV" VEHICLE_LOGGER,WirelessGateway
+ SG_ ResultMux : 0|8@1+ (1,0) [0|255] ""  VEHICLE_LOGGER,WirelessGateway
+ SG_ ResultCounter : 8|4@1+ (1,0) [0|15] ""  VEHICLE_LOGGER,WirelessGateway
+ SG_ ResultState : 12|4@1+ (1,0) [0|15] ""  VEHICLE_LOGGER,WirelessGateway
+ SG_ ResultValue : 23|32@0- (1,0) [-2147483648|2147483647] "mV"  VEHICLE_LOGGER,WirelessGateway
 
 BO_ 1318 CompetitionMeter_Power_Result: 6 Competition_Meter
- SG_ ResultMux : 0|8@1+ (1,0) [0|255] "" VEHICLE_LOGGER,WirelessGateway
- SG_ ResultCounter : 8|4@1+ (1,0) [0|15] "" VEHICLE_LOGGER,WirelessGateway
- SG_ ResultState : 12|4@1+ (1,0) [0|15] "" VEHICLE_LOGGER,WirelessGateway
- SG_ ResultValue : 23|32@0- (1,0) [-2147483648|2147483647] "W" VEHICLE_LOGGER,WirelessGateway
+ SG_ ResultMux : 0|8@1+ (1,0) [0|255] ""  VEHICLE_LOGGER,WirelessGateway
+ SG_ ResultCounter : 8|4@1+ (1,0) [0|15] ""  VEHICLE_LOGGER,WirelessGateway
+ SG_ ResultState : 12|4@1+ (1,0) [0|15] ""  VEHICLE_LOGGER,WirelessGateway
+ SG_ ResultValue : 23|32@0- (1,0) [-2147483648|2147483647] "W"  VEHICLE_LOGGER,WirelessGateway
 
 BO_ 1320 CompetitionMeter_Energy_Result: 6 Competition_Meter
- SG_ ResultMux : 0|8@1+ (1,0) [0|255] "" VEHICLE_LOGGER,WirelessGateway
- SG_ ResultCounter : 8|4@1+ (1,0) [0|15] "" VEHICLE_LOGGER,WirelessGateway
- SG_ ResultState : 12|4@1+ (1,0) [0|15] "" VEHICLE_LOGGER,WirelessGateway
- SG_ ResultValue : 23|32@0- (1,0) [-2147483648|2147483647] "Wh" VEHICLE_LOGGER,WirelessGateway
+ SG_ ResultMux : 0|8@1+ (1,0) [0|255] ""  VEHICLE_LOGGER,WirelessGateway
+ SG_ ResultCounter : 8|4@1+ (1,0) [0|15] ""  VEHICLE_LOGGER,WirelessGateway
+ SG_ ResultState : 12|4@1+ (1,0) [0|15] ""  VEHICLE_LOGGER,WirelessGateway
+ SG_ ResultValue : 23|32@0- (1,0) [-2147483648|2147483647] "Wh"  VEHICLE_LOGGER,WirelessGateway
 
 BO_ 2550588916 LegacyCharger_Command: 5 BMS_Master
- SG_ LegacyRequestVoltage : 7|16@0+ (0.1,0) [0|6553.5] "V" LegacyCharger
- SG_ LegacyRequestCurrent : 23|16@0+ (0.1,0) [0|6553.5] "A" LegacyCharger
- SG_ LegacyControl : 32|8@1+ (1,0) [0|255] "" LegacyCharger
+ SG_ LegacyRequestVoltage : 7|16@0+ (0.1,0) [0|6553.5] "V"  LegacyCharger
+ SG_ LegacyRequestCurrent : 23|16@0+ (0.1,0) [0|6553.5] "A"  LegacyCharger
+ SG_ LegacyControl : 32|8@1+ (1,0) [0|255] ""  LegacyCharger
 
 BO_ 2566869221 LegacyCharger_Feedback: 8 LegacyCharger
- SG_ LegacyFeedbackVoltage : 7|16@0+ (0.1,0) [0|6553.5] "V" BMS_Master
- SG_ LegacyFeedbackCurrent : 23|16@0+ (0.1,0) [0|6553.5] "A" BMS_Master
- SG_ LegacyStatus : 32|8@1+ (1,0) [0|255] "" BMS_Master
+ SG_ LegacyFeedbackVoltage : 7|16@0+ (0.1,0) [0|6553.5] "V"  BMS_Master
+ SG_ LegacyFeedbackCurrent : 23|16@0+ (0.1,0) [0|6553.5] "A"  BMS_Master
+ SG_ LegacyStatus : 32|8@1+ (1,0) [0|255] ""  BMS_Master
+
+BO_ 1450 BMS_BatteryFanStatus: 8 BMS_Master
+ SG_ BatteryFanRPM : 7|16@0+ (1,0) [0|65535] "rpm"  ECU
+ SG_ BatteryFanActualDuty : 16|8@1+ (1,0) [0|100] "%"  ECU
+ SG_ BatteryFanActiveLimit : 24|8@1+ (1,0) [0|100] "%"  ECU
+ SG_ BatteryFanMode : 32|2@1+ (1,0) [0|2] ""  ECU
+ SG_ BatteryFanPowerSource : 34|2@1+ (1,0) [0|2] ""  ECU
+ SG_ BatteryFanHardwareReady : 40|1@1+ (1,0) [0|1] ""  ECU
+ SG_ BatteryFanTargetActive : 41|1@1+ (1,0) [0|1] ""  ECU
+ SG_ BatteryFanSpeedDetected : 42|1@1+ (1,0) [0|1] ""  ECU
+ SG_ BatteryFanManualMode : 43|1@1+ (1,0) [0|1] ""  ECU
+ SG_ BatteryFanStallConfirmed : 44|1@1+ (1,0) [0|1] ""  ECU
+ SG_ BatteryFanCalibrated : 45|1@1+ (1,0) [0|1] ""  ECU
+ SG_ BatteryFanRemoteLeaseActive : 46|1@1+ (1,0) [0|1] ""  ECU
+ SG_ BatteryFanCalibrationActive : 47|1@1+ (1,0) [0|1] ""  ECU
+ SG_ BatteryFanLeaseRemaining : 48|8@1+ (1,0) [0|60] "s"  ECU
+ SG_ BatteryFanProtocolVersion : 56|8@1+ (1,0) [0|255] ""  ECU
+
+BO_ 1451 BMS_BatteryFanCommand: 8 ECU
+ SG_ BatteryFanCommandOpcode : 0|8@1+ (1,0) [0|255] ""  BMS_Master
+ SG_ BatteryFanRequestCounter : 8|8@1+ (1,0) [0|255] ""  BMS_Master
+ SG_ BatteryFanCommandParameter1 : 16|8@1+ (1,0) [0|255] ""  BMS_Master
+ SG_ BatteryFanCommandParameter2 : 24|8@1+ (1,0) [0|255] ""  BMS_Master
+ SG_ BatteryFanCommandParameter3 : 32|8@1+ (1,0) [0|255] ""  BMS_Master
+ SG_ BatteryFanCommandParameter4 : 40|8@1+ (1,0) [0|255] ""  BMS_Master
+ SG_ BatteryFanCommandParameter5 : 48|8@1+ (1,0) [0|255] ""  BMS_Master
+ SG_ BatteryFanCommandCRC8 : 56|8@1+ (1,0) [0|255] ""  BMS_Master
+
+BO_ 1452 BMS_BatteryFanCommandAck: 8 BMS_Master
+ SG_ BatteryFanAckOpcode : 0|8@1+ (1,0) [0|255] ""  ECU
+ SG_ BatteryFanAckRequestCounter : 8|8@1+ (1,0) [0|255] ""  ECU
+ SG_ BatteryFanAckResult : 16|8@1+ (1,0) [0|7] ""  ECU
+ SG_ BatteryFanAckMode : 24|8@1+ (1,0) [0|2] ""  ECU
+ SG_ BatteryFanAckActualDuty : 32|8@1+ (1,0) [0|100] "%"  ECU
+ SG_ BatteryFanAckActiveLimit : 40|8@1+ (1,0) [0|100] "%"  ECU
+ SG_ BatteryFanAckStatusFlags : 48|8@1+ (1,0) [0|255] ""  ECU
+ SG_ BatteryFanAckPowerSource : 56|8@1+ (1,0) [0|2] ""  ECU
+
+BO_ 1453 BMS_BatteryFanCalibration: 8 BMS_Master
+ SG_ BatteryFanLimitsCalibrated : 0|1@1+ (1,0) [0|1] ""  ECU
+ SG_ BatteryFanLimitsSavePending : 1|1@1+ (1,0) [0|1] ""  ECU
+ SG_ BatteryFanChromaPwmCap : 8|8@1+ (1,0) [0|100] "%"  ECU
+ SG_ BatteryFanHvPwmCap : 16|8@1+ (1,0) [0|100] "%"  ECU
+ SG_ BatteryFanChromaPowerBudget : 24|8@1+ (1,0) [0|255] "W"  ECU
+ SG_ BatteryFanHvPowerBudget : 32|8@1+ (1,0) [0|255] "W"  ECU
+ SG_ BatteryFanCalibrationState : 40|4@1+ (1,0) [0|3] ""  ECU
+ SG_ BatteryFanCalibrationAbortReason : 44|4@1+ (1,0) [0|6] ""  ECU
+ SG_ BatteryFanCalibrationStep : 48|8@1+ (1,0) [0|255] ""  ECU
+ SG_ BatteryFanCalibrationTargetDuty : 56|8@1+ (1,0) [0|100] "%"  ECU
+
+BO_ 1454 FanController_CalibLimits: 8 FanController
+ SG_ CalibLimitsCalibrated : 0|1@1+ (1,0) [0|1] ""  ECU
+ SG_ CalibLimitsFlashError : 1|1@1+ (1,0) [0|1] ""  ECU
+ SG_ BatteryTierPwmCap : 8|8@1+ (1,0) [0|100] "%"  ECU
+ SG_ DcdcTierPwmCap : 16|8@1+ (1,0) [0|100] "%"  ECU
+ SG_ ActivePowerTier : 24|8@1+ (1,0) [0|1] ""  ECU
+ SG_ ActivePwmCap : 32|8@1+ (1,0) [0|100] "%"  ECU
+ SG_ CalibLimitsProtocolVersion : 40|8@1+ (1,0) [0|255] ""  ECU
 
 
 CM_ SG_ 1289 FR_AMK_bEnable "Front-right motor enable flag.";
@@ -506,22 +564,22 @@ CM_ BO_ 769 "Legacy-compatible GPS ground speed, standard CAN ID 0x301, DLC=2, D
 CM_ SG_ 769 GroundSpeed "Bits 0..15, Intel little-endian, unsigned. RMC speed is parsed in knots, converted to 0.01 km/h internally, rounded to 0.1 km/h for CAN, then clamped to 0..300 km/h. Raw value = physical km/h / 0.1.";
 CM_ BO_ 103 "GPS position snapshot, standard CAN ID 0x067, DLC=8, Display->WirelessGateway, periodic 50 ms. Latitude and longitude come from the latest valid 20 Hz RMC sentence and are encoded as signed 1e-7 degree integers.";
 CM_ BO_ 104 "GPS motion, validity and compact quality snapshot, standard CAN ID 0x068, DLC=8, Display->WirelessGateway, periodic 50 ms. Ground track comes from RMC; dual-antenna heading is the most recent HPR value and its validity bit expires after 1.5 s. HPR is currently configured at 5 Hz. Signal level is the same 0..4 value used by the display bars.";
-CM_ BO_ 105 "GPS reception status and persistent odometer snapshot, standard CAN ID 0x069, DLC=8, Display->WirelessGateway, periodic 50 ms. Odometer resolution is 0.1 km. Max/average SNR and tracked-satellite count come from the latest completed GSV window.";
-CM_ BO_ 106 "GPS-derived lap timing snapshot, standard CAN ID 0x06A, DLC=8, Display->WirelessGateway, periodic 50 ms. Times use centiseconds. Unsigned lap times saturate at 655.35 s and signed delta saturates at -327.68..327.67 s.";
+CM_ SG_ 104 GPS_LapDiagState "The same diagnostic state that drives the display lap indicator: 0=Inactive, 1=WaitArm, 2=Armed, 3=Approaching, 4=GateMiss, 5=ReversePass, 6=Crossed.";
 CM_ SG_ 104 GPS_RMCValid "1 means a valid-status RMC sentence has been received within the 500 ms freshness window; when 0, position/track fields may contain the last received values and GroundSpeed is transmitted as zero.";
 CM_ SG_ 104 GPS_HeadingValid "1 means the dual-antenna HPR quality is accepted and the most recent HPR sentence is not older than 1.5 s.";
-CM_ SG_ 104 GPS_LapDiagState "The same diagnostic state that drives the display lap indicator: 0=Inactive, 1=WaitArm, 2=Armed, 3=Approaching, 4=GateMiss, 5=ReversePass, 6=Crossed.";
+CM_ BO_ 105 "GPS reception status and persistent odometer snapshot, standard CAN ID 0x069, DLC=8, Display->WirelessGateway, periodic 50 ms. Odometer resolution is 0.1 km. Max/average SNR and tracked-satellite count come from the latest completed GSV window.";
+CM_ BO_ 106 "GPS-derived lap timing snapshot, standard CAN ID 0x06A, DLC=8, Display->WirelessGateway, periodic 50 ms. Times use centiseconds. Unsigned lap times saturate at 655.35 s and signed delta saturates at -327.68..327.67 s.";
 CM_ BO_ 1792 "Steering wheel unified panel packet, standard CAN ID 0x700, DLC=8. Event-driven and sent only when panel data changes.";
-CM_ SG_ 1792 RecorderToggle "PB12: 0=Idle, 1=ToggleRecorderCmd. A 250 ms one-shot pulse; Display acts only on the rising edge.";
-CM_ SG_ 1792 ErrorClearActive "PB13: 0=Idle, 1=ErrorClear. A 250 ms one-shot pulse; Display acts only on the rising edge.";
-CM_ SG_ 1792 DriveMode "Rotary switch S1-S4: 0=S1/S, 1=S2/Q, 2=S3/C, 3=S4/E, 255=Invalid.";
 CM_ SG_ 1792 SlipLevel "PA1 ADC potentiometer quantized to eight levels: 0..7.";
+CM_ SG_ 1792 DriveMode "Rotary switch S1-S4: 0=S1/S, 1=S2/Q, 2=S3/C, 3=S4/E, 255=Invalid.";
+CM_ SG_ 1792 ErrorClearActive "PB13: 0=Idle, 1=ErrorClear. A 250 ms one-shot pulse; Display acts only on the rising edge.";
+CM_ SG_ 1792 RecorderToggle "PB12: 0=Idle, 1=ToggleRecorderCmd. A 250 ms one-shot pulse; Display acts only on the rising edge.";
 CM_ BO_ 1924 "Steering wheel redundant drive-mode packet, standard CAN ID 0x784, DLC=8. Sent together with 0x700 when drive mode changes.";
 CM_ SG_ 1924 DriveMode "Rotary switch S1-S4: 0=S1/S, 1=S2/Q, 2=S3/C, 3=S4/E, 255=Invalid.";
 CM_ SG_ 784 DriveModeCode "Drive mode request: 48=S, 49=Q, 50=C, 51=E, Display->ECU";
-CM_ SG_ 80 IMU_Header "Fixed frame header 0x55.";
-CM_ SG_ 80 IMU_SubType "Packet type: 0x50=time, 0x51=acceleration, 0x52=angular velocity, 0x53=angle, 0x54=magnetic field.";
 CM_ SG_ 80 IMU_RawData "Payload selected by IMU_SubType; see decoded packets 0x060 through 0x066.";
+CM_ SG_ 80 IMU_SubType "Packet type: 0x50=time, 0x51=acceleration, 0x52=angular velocity, 0x53=angle, 0x54=magnetic field.";
+CM_ SG_ 80 IMU_Header "Fixed frame header 0x55.";
 CM_ SG_ 96 IMU_Time_Year "Year offset from 2000, decoded from packet 0x050 with SubType 0x50.";
 CM_ SG_ 97 IMU_AccelX "X-axis acceleration in g, decoded from packet 0x050 with SubType 0x51.";
 CM_ SG_ 98 IMU_GyroX "X-axis angular velocity in deg/s, decoded from packet 0x050 with SubType 0x52.";
@@ -556,20 +614,44 @@ CM_ BO_ 1318 "赛会能量计功率结果，标准帧 0x526；MUX=0x05，Byte2..5 为大端有符号 
 CM_ BO_ 1320 "赛会能量计 Wh 结果，标准帧 0x528；MUX=0x07，Byte2..5 为大端有符号 int32 Wh；设备可能不发送。";
 CM_ BO_ 2550588916 "CANB 扩展帧 0x1806E5F4，Legacy 充电模式约 1 s；Byte4=1 表示停止。";
 CM_ BO_ 2566869221 "CANB 扩展帧 0x18FF50E5；BMS 接收时要求 DLC 至少为 5，Byte5..7 不参与当前接口。";
+CM_ BO_ 1450 "Battery-box fan status. Sent only after a 0x5AB request: 100 ms during active lease/calibration, otherwise 500 ms within the report window.";
+CM_ BO_ 1451 "Battery-box fan control, query and power-calibration command. Byte7 is CRC-8 SAE-J1850 over bytes 0..6.";
+CM_ BO_ 1452 "Event acknowledgement for 0x5AB. Match both opcode and request counter.";
+CM_ BO_ 1453 "Battery-box fan 35 W/70 W caps, Flash-save state and calibration-session status. Sent only in the request report window.";
+CM_ BO_ 1454 "Vehicle fan battery/DCDC PWM caps, active tier and Flash persistence result. Uncalibrated caps are 15 percent.";
+
+BA_DEF_ SG_  "SystemSignalLongSymbol" STRING;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
+BA_DEF_DEF_  "SystemSignalLongSymbol" "";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+
+BA_ "SystemSignalLongSymbol" SG_ 1202 DischargeSustainedOvercurrentLev "DischargeSustainedOvercurrentLevel";
+BA_ "GenMsgCycleTime" BO_ 1450 100;
+BA_ "GenMsgCycleTime" BO_ 1453 500;
+BA_ "GenMsgCycleTime" BO_ 1454 500;
 
 VAL_ 1444 CommandOpcode 1 "SetControl" 2 "SetCurveCH1" 3 "SetFailsafe" 4 "RestoreDefaults" 5 "Query" 6 "SetCurveCH2" 8 "SetCalib" ;
-VAL_ 1445 AckResult 0 "OK" 1 "BadCRC" 2 "BadLength" 3 "BadValue" 4 "Unsupported" 5 "LeaseExpired" 6 "SafetyAbort" ;
-VAL_ 1445 AckMode 0 "Auto" 1 "Manual" 2 "Off" ;
 VAL_ 1445 AckFailsafe 0 "HoldLast" 1 "Fallback" 2 "Full" ;
-VAL_ 1447 FanFailsafeStrategy 0 "HoldLast" 1 "Fallback" 2 "Full" ;
+VAL_ 1445 AckMode 0 "Auto" 1 "Manual" 2 "Off" ;
+VAL_ 1445 AckResult 0 "OK" 1 "BadCRC" 2 "BadLength" 3 "BadValue" 4 "Unsupported" 5 "LeaseExpired" 6 "SafetyAbort" 7 "StorageError" ;
 VAL_ 1447 FanControlMode 0 "Auto" 1 "Manual" 2 "Off" ;
-VAL_ 1448 PowerSupplyState 0 "Unknown" 1 "Battery" 2 "Transition" 3 "DcdcReady" 4 "PowerLimited" 5 "DataFault" ;
+VAL_ 1447 FanFailsafeStrategy 0 "HoldLast" 1 "Fallback" 2 "Full" ;
 VAL_ 1448 PowerLimitReason 0 "None" 1 "BusLimit" 2 "BatteryLimit" 3 "PdmTimeout" 4 "TransitionHold" 5 "StallHold" 6 "OverTemperature" 7 "SafetyAbort" ;
+VAL_ 1448 PowerSupplyState 0 "Unknown" 1 "Battery" 2 "Transition" 3 "DcdcReady" 4 "PowerLimited" 5 "DataFault" ;
+VAL_ 1449 CalibAbortReason 0 "None" 1 "SupplyStateChanged" 2 "PdmTimeout" 3 "PowerLimit" 4 "OverTemp" 5 "FanStall" 6 "LeaseExpired" 7 "UserStop" ;
 VAL_ 1449 CalibState 0 "Inactive" 1 "Active" 2 "Aborted" 3 "Completed" ;
-VAL_ 1449 CalibAbortReason 0 "None" 1 "DcdcLost" 2 "PdmTimeout" 3 "PowerLimit" 4 "OverTemp" 5 "FanStall" 6 "LeaseExpired" 7 "UserStop" ;
 VAL_ 1187 InterventionLevel 0 "Normal" 1 "Derating" 2 "OvercurrentZero" 3 "FaultOrShutdown" ;
 VAL_ 1200 BatteryState 2 "SelfTest" 3 "Standby" 4 "Precharge" 5 "HighVoltageOn" 7 "FaultHold" ;
 VAL_ 1200 BatteryAlarmLevel 0 "Normal" 1 "Level1Fault" 2 "Level2Alarm" ;
+VAL_ 1450 BatteryFanPowerSource 0 "LowVoltageOrDisabled" 1 "Chroma35W" 2 "VehicleHvDcdc70W" ;
+VAL_ 1450 BatteryFanMode 0 "Auto" 1 "Manual" 2 "Off" ;
+VAL_ 1451 BatteryFanCommandOpcode 1 "SetControl" 2 "Query" 3 "CalibrationSession" 4 "CommitPowerLimits" 5 "ClearCalibration" ;
+VAL_ 1452 BatteryFanAckPowerSource 0 "LowVoltageOrDisabled" 1 "Chroma35W" 2 "VehicleHvDcdc70W" ;
+VAL_ 1452 BatteryFanAckMode 0 "Auto" 1 "Manual" 2 "Off" ;
+VAL_ 1452 BatteryFanAckResult 0 "OK" 1 "BadCRC" 2 "BadLength" 3 "BadValue" 4 "Unsupported" 5 "LeaseExpired" 6 "SafetyAbort" 7 "StorageUnavailable" ;
+VAL_ 1453 BatteryFanCalibrationAbortReason 0 "None" 1 "StateChanged" 2 "OverTemperature" 3 "FanStall" 4 "LeaseExpired" 5 "UserStop" 6 "PwmOrTachStartFailure" ;
+VAL_ 1453 BatteryFanCalibrationState 0 "Inactive" 1 "Active" 2 "Aborted" 3 "Completed" ;
+VAL_ 1454 ActivePowerTier 0 "Battery" 1 "Dcdc" ;
 
 SIG_VALTYPE_ 513 ChromaVoltage : 1 ;
 SIG_VALTYPE_ 514 ChromaCurrent : 1 ;

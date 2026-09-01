@@ -14,13 +14,14 @@
 
 ```
 [车载 STM32 G473 网关]
-         │ (Nanopb 序列化 TelemetryFrame)
+         │ (TelemetryFrame + 长度/序号/CRC16 封包)
          ▼
 [DTU 4G 透传终端] (RS485 半双工, 115200 8N1)
-         │ (MQTT 单 Topic: fsae/telemetry)
+         │ (raw MQTT: fsae/telemetry)
          ▼
-[云服务器 Mosquitto Broker] (<MQTT_BROKER>:1883)
-         │ (内部消费)
+[ 云服务器 Mosquitto Broker ] (<MQTT_BROKER>:1883)
+         │ (telemetry_bridge 跨消息重组 + CRC 校验)
+         │ (clean: fsae/telemetry/v1；link: fsae/telemetry/link)
          ▼
 [Telegraf xpath_protobuf 插件] (按 XPath 提取并存入 Measurement)
          │ (批量写入)
@@ -44,7 +45,7 @@
 
 ---
 
-## 2. InfluxDB 5 大 Measurements 全量字段矩阵
+## 2. InfluxDB 6 大 Measurements 全量字段矩阵
 
 Telegraf 根据 `fsae_telemetry.proto` 的 XPath 配置，将单条 `TelemetryFrame` 解析并写入以下 5 个独立的 Measurement：
 
@@ -179,12 +180,19 @@ Telegraf 根据 `fsae_telemetry.proto` 的 XPath 配置，将单条 `TelemetryFr
 
 ### 2.5 `alarm_state` 表（整车告警列表）
 
-- **Tags 索引**：`alarm_id`（告警 CAN ID，如 `0x186050F4`）。
+- **Tags 索引**：`alarm_id`（BMS 故障 bit 序号 `0..31`）。
 
 | 字段名 (Field Key) | 数据类型 | 物理含义 | 说明 |
 | :--- | :--- | :--- | :--- |
 | `severity` | integer | 告警严重级别 | 0=UNSPECIFIED, 1=INFO, 2=WARNING, 3=ERROR, 4=FATAL |
-| `message` | string | 告警详细描述文本 | 如 `"BMS summary alarm level 1"` |
+| `alarm_name` | string | BMS 告警中文名称 | Telegraf 按 `alarm_id` 映射 |
+| `message` | string | 告警详细描述文本 | 车端留空时由 Telegraf 补为 `alarm_name` |
+
+---
+
+### 2.6 `telemetry_link` 表（RS485/DTU 链路健康，60 s）
+
+`frames_ok/framed_ok/legacy_ok` 表示已通过的遥测帧。`crc_bad`、`length_bad`、`bytes_skipped`和 `resync_events` 用于定位损坏或夹杂字节；`sequence_gaps`、`sequence_duplicates`和 `sequence_resets` 用于观察丢帧、重复和设备重启；`buffer_bytes` 表示当前等待后续 MQTT 分片的字节数。这些值都是桥进程启动后的累计值，看变化量可判断某个时段的链路质量。
 
 ---
 
@@ -342,7 +350,7 @@ FROM "telemetry" WHERE $timeFilter;
 SELECT "battery_fault_code" FROM "telemetry" WHERE $timeFilter;
 
 -- 2. 最新告警事件列表
-SELECT "severity", "message" FROM "alarm_state" WHERE $timeFilter ORDER BY time DESC LIMIT 50;
+SELECT "severity", "alarm_name", "message" FROM "alarm_state" WHERE $timeFilter ORDER BY time DESC LIMIT 50;
 ```
 
 ---

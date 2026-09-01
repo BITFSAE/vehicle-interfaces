@@ -299,7 +299,7 @@ def validate_fan_enum_sync() -> None:
         'VAL_ 1444 CommandOpcode 1 "SetControl" 2 "SetCurveCH1" '
         '3 "SetFailsafe" 4 "RestoreDefaults" 5 "Query" 6 "SetCurveCH2" 8 "SetCalib";',
         'VAL_ 1445 AckResult 0 "OK" 1 "BadCRC" 2 "BadLength" 3 "BadValue" '
-        '4 "Unsupported" 5 "LeaseExpired" 6 "SafetyAbort";',
+        '4 "Unsupported" 5 "LeaseExpired" 6 "SafetyAbort" 7 "StorageError";',
         'VAL_ 1448 PowerLimitReason 0 "None" 1 "BusLimit" 2 "BatteryLimit" '
         '3 "PdmTimeout" 4 "TransitionHold" 5 "StallHold" 6 "OverTemperature" 7 "SafetyAbort";',
     )

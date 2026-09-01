@@ -4,6 +4,9 @@
 
 ### 已完成
 
+- 遥测 `alarms[]` 的 Nanopb 上限由 8 扩展到 32，定义 `alarm_id=0..31` 对应 BMS 故障 bit，一级故障映射 `FATAL`、二级告警映射 `WARNING`；对照表与 Grafana 指南同步 raw/clean MQTT 桥、告警名称和链路健康统计。
+- 新增 BMS 电池箱风扇 CANB `0x5AA..0x5AD` 和 CAN1 `0x186E50F4`，并补齐 `0x186250F4` 标定、远程租约和标定会话状态位；正式 DBC 与接口文档同步定义 35 W Chroma/70 W 高压两档限值、控制应答和保存状态。
+- FanController 协议升为 V3，新增 `0x5AE` 两档保存限值状态和存储错误应答；电池低压与 DCDC 高压分别标定，未标定上限为 15%。
 - 自有 IVT-S `0x512..0x519` 从 CANB 迁到 CAN1/500 kbit/s；八个消息及 `IVT_S` 节点从 `Vehicle_CanB.dbc` 移入 `Vehicle_Can1.dbc`，Chroma/Legacy 的 CANB 位率切换不再影响 IVT。`CAN1接口.md` 补齐八通道布局；`CAN与遥测对照.md` 改为 CAN1 接收自有 IVT，CANB 同 ID 不作为网关输入。
 - 清理 CANdb++ DBC 重复交付物：每条总线仅保留 UTF-8/LF 正式源和 GBK/CRLF 交付副本，删除无 BOM UTF-8 及 UTF-8 BOM 副本；archive/ 历史参考资料不变。
 - BMS SOP `0x4A0/0x4A3` 保持 10 ms 周期，发送条件收紧为放电模式高压接通后；自检、待机、预充、故障保持和充电模式不发送，避免占用 Chroma 通讯时间。
@@ -28,7 +31,7 @@
 - Display/HMI/遥测负责人确认 GPS `0x067..0x06A`、`0x301` 和 IMU `0x050/0x060..0x066` 的周期和优先级；
 - 胎温设备/遥测负责人确认 `0x071..0x074` 轮位、温度公式、周期和优先级；
 - PDM 负责人确认 `0x5A0/0x5A1`；
-- FanController 负责人确认 `0x5A2..0x5A9`；
+- FanController 负责人确认 `0x5A2..0x5A9/0x5AE`；
 - 方向盘/HMI 负责人确认 `0x700/0x784` 和 `0x310`；
 - 赛会设备/遥测负责人确认 `0x430/0x521/0x522/0x526/0x528`；
 - 用台架或整车原始帧复核全部正式 DBC 字段；

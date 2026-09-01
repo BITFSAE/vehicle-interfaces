@@ -84,7 +84,7 @@
 | **赛会能量计数据** | CANB `0x521/0x522/0x526/0x528`<br>CANB `0x430` (FS 状态) | `energy_meter.*` (#32) | 大端解码或 FS 格式识别，记录 source (1=IVT, 2=FS)、电流、电压、功率、Wh、MsgCnt | `telemetry.energy_meter_*` | mA, mV, W, Wh 及计数器 | 已接入 (赛会专用) |
 | **IMU 三轴加速度** | CANB `0x061` (IMU_Accel, 源自 `0x050`) | `motion.accel_x/y/z_g` (#33.2~4) | 小端解码 raw $\times 0.00048828125\text{ g}$ | `telemetry.accel_x/y/z_g` | g $\to$ `g` | 已接入 |
 | **IMU 角速度与横摆角** | CANB `0x062/0x065` (源自 `0x050`) | `motion.yaw_rate_dps` (#33.5)<br>`motion.yaw_deg` (#33.6) | 陀螺仪 Z 轴 (raw $\times 0.0610352$)、横摆角 (raw $\times 0.005493$) | `telemetry.yaw_rate_dps`<br>`telemetry.yaw_deg` | deg/s, deg | 已接入 |
-| **告警等级摘要** | CAN1 `0x186050F4` / CANB `0x4B0` | `alarms[]` (#30) | 若 `BatteryAlarmLevel != 0`，生成一条等级摘要告警 | `alarm_state.severity`<br>`alarm_state.message` | 告警文本 | 已接入 (摘要级) |
+| **BMS 活动告警明细** | 故障字：CAN1 `0x187650F4` / CANB `0x4B1`<br>等级：CAN1 `0x187850F4` / CANB `0x4B2` | `battery_fault_code` (#25)<br>`alarms[]` (#30) | 故障字是权威活动位图；按置位 bit 展开最多 32 条。`alarm_id=bit 0..31`，等级 1 映射 `FATAL`，等级 2 映射 `WARNING`；等级明细超过 3 s 未更新时保留包级摘要 | `telemetry.battery_fault_code`<br>`alarm_state.alarm_id/severity/alarm_name/message` | 32 位位图 + 告警名称 | 已接入 |
 
 ---
 
@@ -106,7 +106,8 @@
 | `0x515/0x516/0x518` | IVT U3/温度/As | 周期 | **已解析/未上报** | MUX、消息计数、状态和数值已保存；当前公共 Proto 仅定义 I/U1/U2/W/Wh。 |
 | `0x186050F4` | BMS 电池包状态 | 500 ms | **已接入** | 包总压、总流、SOC、有效位 (Byte5)、BMS 状态机与告警等级。作为 `battery_soc` 主源及 `hv_voltage`/`hv_current` 备用源，并刷新 `bms_telemetry.battery_state/battery_alarm_level`。 |
 | `0x186150F4` | 单体电压极值 | 500 ms | **已接入** | 最高/最低单体电压 (大端 mV) 及单体编号 (0..137，上报时 +1 转为 1..138)。编码入 `max/min_cell_voltage(_no)`。 |
-| `0x186250F4` | 温度极值与风扇 | 500 ms | **部分上报** | 温度极值和编号进入遥测；风扇目标占空比、转速和五个状态位已解析到本地状态，公共 Proto 暂无对应字段。 |
+| `0x186250F4` | 温度极值与风扇 | 500 ms | **部分上报** | 温度极值和编号进入遥测；风扇目标占空比、转速和八个状态位可供本地工具使用，公共 Proto 暂无对应字段。 |
+| `0x186E50F4` | 电池箱风扇详细状态 | 500 ms | 待网关接入 | 转速、实际占空比、当前上限、模式、供电来源和八个状态位已进入正式 DBC。 |
 | `0x186350F4` | 继电器与工作状态 | 500 ms | **已接入** | 正/负/预充继电器命令、Byte1 bit4 充电状态和 bit3 反馈有效位进入 `bms_telemetry`；预充电压使用自有 IVT-S U2 上报。 |
 | `0x186750F4` | 单体电压累加和 | 1 s | **已接入** | 138 串单体累加总压 (大端 0.1 V)。作为 `hv_voltage` 第 3 优先级备用源。 |
 | `0x187650F4` | 故障汇总 | 500 ms/变发 | **部分上报** | 32 位故障字进入 `fault_code` 与 `battery_fault_code`；Byte5 状态、从控离线掩码和版本已解析到本地状态。 |
@@ -117,7 +118,7 @@
 | `0x186B50F4` | 运行配置与充电机 | 1 s | 未接入 | 运维配置回读与充电机状态。 |
 | `0x186C50F4/51F4` | 固件身份与构建日期 | 5 s | 未接入 | Git commit 与构建日期，运维类。 |
 | `0x186D50F4` | IVT 诊断与 SOC 来源 | 1 s | 未接入 | IVT 诊断与零漂偏移量，运维类。 |
-| `0x187850F4` | 32 项告警等级表 | 2 s/变发 | **已解析/未上报** | 32 项两位告警等级已展开到本地状态（与 CANB `0x4B2` 冗余）；公共 Proto 暂无对应字段。 |
+| `0x187850F4` | 32 项告警等级表 | 2 s/变发 | **已接入** | 32 项两位等级与故障字组合后展开到 `alarms[]`，与 CANB `0x4B2` 冗余。 |
 
 ---
 
@@ -145,9 +146,10 @@
 | `0x071..0x074` | 轮胎红外温度 | 采集模块 | 周期 | **已接入** | 四轮各 4 点红外温度（0.01 °C），按帧顺序映射 FL/FR/RL/RR 写入 `thermal_summary`（映射待实物确认）。 |
 | `0x201/202/204/205` | Chroma 充电机反馈 | Chroma | 周期 | **已接入** | Chroma 充电电压/电流（LE float32）、保护位图与输出状态，编码入 `charger_telemetry`。 |
 | `0x4A0/0x4A3/0x4A4` | BMS/ECU SOP 限值 | BMS/ECU | 放电模式高压接通后 10 ms | **部分上报** | `0x4A0/0x4A3` 通过成组 CRC 和 100 ms 配对检查后才更新限值；`0x4A4` 独立验 CRC。完整状态保存在本地，Proto 已定义的限值和汇总标志进入 `sop_limits`。 |
-| `0x4B2` | BMS 告警等级冗余 | BMS | 2 s | **已解析/未上报** | 32 项两位告警等级已展开到本地状态，与 CAN1 `0x187850F4` 共用数据。 |
+| `0x4B2` | BMS 告警等级冗余 | BMS | 2 s | **已接入** | 32 项两位等级与故障字组合后展开到 `alarms[]`，与 CAN1 `0x187850F4` 共用数据。 |
 | `0x5A0/0x5A1` | 低压配电 PDM | PDM | 周期 | **已接入** | 低压母线/蓄电池电压、电流、功率、能量，编码入 `pdm_telemetry`。 |
-| `0x5A2..0x5A9` | 风扇控制器 | 风扇板 | 周期/事件 | **部分上报** | `0x5A2..0x5A9` 均已解析；现有 `fan_telemetry` 字段继续上报，新增曲线/协议/功率仲裁/标定字段在公共 Proto 扩展前只保存在本地状态（`0x5A4` 命令帧不解析）。 |
+| `0x5A2..0x5A9/0x5AE` | 整车风扇控制器 | 风扇板 | 周期/事件 | **部分上报** | `0x5A2..0x5A9` 已解析；`0x5AE` 两档保存限值待网关接入。现有 `fan_telemetry` 字段继续上报，新增字段在公共 Proto 扩展前只保存在本地状态。 |
+| `0x5AA..0x5AD` | BMS 电池箱风扇 | BMS/工具 | 请求窗口内周期/事件 | 待网关接入 | 状态、远程控制、命令应答及 Chroma 35 W/高压 70 W 两档标定已进入正式 DBC。 |
 
 ---
 
