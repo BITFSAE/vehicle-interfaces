@@ -4,6 +4,7 @@
 
 ### 已完成
 
+- FanController 风扇子系统报文在 `Vehicle_CanB.dbc` 补齐 `GenMsgCycleTime` 周期属性（`0x5A0/0x5A1/0x5A2/0x5A8/0x5A9` 100 ms、`0x5A3` 500 ms、`0x5AE` 500 ms）；`CANB接口.md` 修正 `0x08` Action 5 的描述为一次提交电池档和 DCDC 档两档上限，并注明 COMPLETED 会话重复停止不丢失提交资格。
 - 遥测 `alarms[]` 的 Nanopb 上限由 8 扩展到 32，定义 `alarm_id=0..31` 对应 BMS 故障 bit，一级故障映射 `FATAL`、二级告警映射 `WARNING`；对照表与 Grafana 指南同步 raw/clean MQTT 桥、告警名称和链路健康统计。
 - 新增 BMS 电池箱风扇 CANB `0x5AA..0x5AD` 和 CAN1 `0x186E50F4`，并补齐 `0x186250F4` 标定、远程租约和标定会话状态位；正式 DBC 与接口文档同步定义 35 W Chroma/70 W 高压两档限值、控制应答和保存状态。
 - FanController 协议升为 V3，新增 `0x5AE` 两档保存限值状态和存储错误应答；电池低压与 DCDC 高压分别标定，未标定上限为 15%。

@@ -626,6 +626,12 @@ BA_DEF_DEF_  "SystemSignalLongSymbol" "";
 BA_DEF_DEF_  "GenMsgCycleTime" 0;
 
 BA_ "SystemSignalLongSymbol" SG_ 1202 DischargeSustainedOvercurrentLev "DischargeSustainedOvercurrentLevel";
+BA_ "GenMsgCycleTime" BO_ 1440 100;
+BA_ "GenMsgCycleTime" BO_ 1441 100;
+BA_ "GenMsgCycleTime" BO_ 1442 100;
+BA_ "GenMsgCycleTime" BO_ 1443 500;
+BA_ "GenMsgCycleTime" BO_ 1448 100;
+BA_ "GenMsgCycleTime" BO_ 1449 100;
 BA_ "GenMsgCycleTime" BO_ 1450 100;
 BA_ "GenMsgCycleTime" BO_ 1453 500;
 BA_ "GenMsgCycleTime" BO_ 1454 500;
