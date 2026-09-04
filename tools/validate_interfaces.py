@@ -297,10 +297,8 @@ def validate_candbpp_gbk() -> None:
         print(f"OK: {gbk_path.relative_to(ROOT)}，GBK/CRLF/语义一致")
 def validate_fan_enum_sync() -> None:
     """核对中央 DBC 与 FanController 节点 DBC 的关键枚举值。"""
-    if not FAN_NODE_DBC.is_file():
-        fail(f"缺少 FanController 节点 DBC：{FAN_NODE_DBC.relative_to(ROOT.parent)}")
     central = (ROOT / "can/Vehicle_CanB.dbc").read_text(encoding="utf-8")
-    node = FAN_NODE_DBC.read_text(encoding="utf-8")
+    node = FAN_NODE_DBC.read_text(encoding="utf-8") if FAN_NODE_DBC.is_file() else None
     required_lines = (
         'VAL_ 1444 CommandOpcode 1 "SetControl" 2 "SetCurveCH1" '
         '3 "SetFailsafe" 4 "RestoreDefaults" 5 "Query" 6 "SetCurveCH2" 8 "SetCalib";',
@@ -312,9 +310,12 @@ def validate_fan_enum_sync() -> None:
     for line in required_lines:
         if line not in central:
             fail(f"中央 DBC 缺失枚举行：{line}")
-        if line not in node:
+        if node is not None and line not in node:
             fail(f"FanController 节点 DBC 缺失枚举行：{line}")
-    print("OK: FanController 命令/应答/限功率枚举中央与节点一致")
+    if node is not None:
+        print("OK: FanController 命令/应答/限功率枚举中央与节点一致")
+    else:
+        print("OK: 中央 DBC 风扇关键枚举完整（未检出兄弟仓库 FanController，跳过节点镜像对比）")
 
 
 def validate_proto() -> None:
