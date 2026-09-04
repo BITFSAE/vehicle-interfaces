@@ -84,7 +84,7 @@
 | **赛会能量计数据** | CANB `0x521/0x522/0x526/0x528`<br>CANB `0x430` (FS 状态) | `energy_meter.*` (#32) | 大端解码或 FS 格式识别，记录 source (1=IVT, 2=FS)、电流、电压、功率、Wh、MsgCnt | `telemetry.energy_meter_*` | mA, mV, W, Wh 及计数器 | 已接入 (赛会专用) |
 | **IMU 三轴加速度** | CANB `0x061` (IMU_Accel, 源自 `0x050`) | `motion.accel_x/y/z_g` (#33.2~4) | 小端解码 raw $\times 0.00048828125\text{ g}$ | `telemetry.accel_x/y/z_g` | g $\to$ `g` | 已接入 |
 | **IMU 角速度与横摆角** | CANB `0x062/0x065` (源自 `0x050`) | `motion.yaw_rate_dps` (#33.5)<br>`motion.yaw_deg` (#33.6) | 陀螺仪 Z 轴 (raw $\times 0.0610352$)、横摆角 (raw $\times 0.005493$) | `telemetry.yaw_rate_dps`<br>`telemetry.yaw_deg` | deg/s, deg | 已接入 |
-| **BMS 活动告警明细** | 故障字：CAN1 `0x187650F4` / CANB `0x4B1`<br>等级：CAN1 `0x187850F4` / CANB `0x4B2` | `battery_fault_code` (#25)<br>`alarms[]` (#30) | 故障字是权威活动位图；按置位 bit 展开最多 32 条。`alarm_id=bit 0..31`，等级 1 映射 `FATAL`，等级 2 映射 `WARNING`；等级明细超过 3 s 未更新时保留包级摘要 | `telemetry.battery_fault_code`<br>`alarm_state.alarm_id/severity/alarm_name/message` | 32 位位图 + 告警名称 | 已接入 |
+| **BMS 活动告警明细** | 故障字：CAN1 `0x187650F4` / CANB `0x4B1`<br>等级：CAN1 `0x187850F4` / CANB `0x4B2` | `battery_fault_code` (#25)<br>`alarms[]` (#30) | 故障字是权威活动位图；按置位 bit 展开最多 32 条。公共接口约定 `alarm_id=bit 0..31`，等级 1 映射 `FATAL`，等级 2 映射 `WARNING`。等级明细超过 3 s 未更新时，当前 G473 兼容路径改发 `alarm_id=0x186050F4` 的包级摘要；该 ID 超出公共接口约定，待统一处理 | `telemetry.battery_fault_code`<br>`alarm_state.alarm_id/severity/alarm_name/message` | 32 位位图 + 告警名称 | 已接入；摘要 ID 待统一 |
 
 ---
 

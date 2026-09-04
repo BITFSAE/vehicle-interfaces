@@ -527,9 +527,11 @@ BO_ 2558480628 BMS_AlarmSwitches: 4 BMS_Master
  SG_ IVTVoltageLossEnabled : 23|1@1+ (1,0) [0|1] ""  Display
  SG_ BlockAllLevel1Enabled : 22|1@1+ (1,0) [0|1] ""  Display
  SG_ BlockAllLevel2Enabled : 21|1@1+ (1,0) [0|1] ""  Display
- SG_ SlaveNotReadyHVActionEnabled : 20|1@1+ (1,0) [0|1] ""  Display
- SG_ SlaveOfflineHVActionEnabled : 19|1@1+ (1,0) [0|1] ""  Display
+ SG_ SlaveNotReadyActionEnabled : 20|1@1+ (1,0) [0|1] ""  Display
+ SG_ SlaveOfflineActionEnabled : 19|1@1+ (1,0) [0|1] ""  Display
  SG_ AlarmSwitchFrameVersion : 24|8@1+ (1,0) [0|255] ""  Display
+ SG_ CellVoltageSenseActionEnabled : 18|1@1+ (1,0) [0|1] ""  Display
+ SG_ TemperatureSenseActionEnabled : 17|1@1+ (1,0) [0|1] ""  Display
 
 BO_ 2560643317 BMS_ToolRequest: 8 Tools
  SG_ OperationCode : 0|4@1+ (1,0) [0|15] ""  BMS_Master
@@ -695,14 +697,14 @@ CM_ BO_ 2556907764 "CAN1 扩展帧 0x186750F4，1 s；138 串单体电压累加�
 CM_ BO_ 2556973300 "CAN1 扩展帧 0x186850F4，500 ms；测量字段必须结合 Byte1 对应有效位使用。";
 CM_ BO_ 2557038836 "CAN1 扩展帧 0x186950F4，500 ms；Byte5..7 保留并发送 0。";
 CM_ BO_ 2557104372 "CAN1 扩展帧 0x186A50F4，1 s；CANB 0x4A0 的诊断镜像，本帧使用大端。";
-CM_ BO_ 2557169908 "CAN1 扩展帧 0x186B50F4，1 s；Byte0 当前为协议版本 4。";
+CM_ BO_ 2557169908 "CAN1 扩展帧 0x186B50F4，1 s；Byte0 当前为协议版本 5。";
 CM_ BO_ 2557235444 "CAN1 扩展帧 0x186C50F4；上电首轮发送，之后每 5 s 发送。";
 CM_ BO_ 2557235700 "CAN1 扩展帧 0x186C51F4；与固件身份帧同时发送，Byte4..7 保留并发送 0。";
 CM_ BO_ 2557300980 "CAN1 扩展帧 0x186D50F4，1 s；Byte3 保留并发送 0。";
 CM_ BO_ 2557890804 "CAN1 扩展帧 0x187650F4，500 ms，并在状态变化时补发；当前格式版本为 4，fault bit22 保留。版本3的bit22是旧版外部安回事件。";
 CM_ BO_ 2557956340 "CAN1 扩展帧 0x187750F4，2 s；发送当前阈值。";
 CM_ BO_ 2558021876 "CAN1 扩展帧 0x187850F4，2 s，并在告警变化时补发；0 未触发，1 一级故障，2 二级告警，3 保留。";
-CM_ BO_ 2558480628 "CAN1 扩展帧 0x187F50F4，2 s；Byte2 bit7 为 IVT 电压失联动作，bit6/5 为一级/二级全部受阻，bit4/3 为从控未就绪/完全离线动作，bit2..0 保留并发送 0，Byte3 当前为版本 4。";
+CM_ BO_ 2558480628 "CAN1 扩展帧 0x187F50F4，2 s；Byte2 bit7 为 IVT 电压失联动作，bit6/5 为一级/二级全部受阻，bit4/3 为从控未就绪/完全离线全状态动作，bit2/1 为电压/温度采样线断线动作，bit0 保留并发送 0，Byte3 当前为版本 7。";
 CM_ BO_ 2560643317 "CAN1 扩展帧 0x18A050F5，DLC=8；所有工具操作共用此请求 ID，Byte0 高 4 bit 为版本、低 4 bit 为操作码。";
 CM_ BO_ 2560905460 "CAN1 扩展帧 0x18A450F4；RTC 操作的专用应答。";
 CM_ BO_ 2561036532 "CAN1 扩展帧 0x18A650F4；按请求计数和命令码与 0x18A050F5 配对。";

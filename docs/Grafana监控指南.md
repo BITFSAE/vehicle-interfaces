@@ -180,13 +180,24 @@ Telegraf 根据 `fsae_telemetry.proto` 的 XPath 配置，将单条 `TelemetryFr
 
 ### 2.5 `alarm_state` 表（整车告警列表）
 
-- **Tags 索引**：`alarm_id`（BMS 故障 bit 序号 `0..31`）。
+- **Tags 索引**：`alarm_id`。BMS 明细告警使用故障 bit 序号 `0..31`；Telegraf 还会自动写入 `host` 和 `topic` tag。
+- `alarm_state` 保存“当前活动告警的周期采样”。同一告警持续存在时，每个遥测帧都会写一条；告警消失时不会另写“恢复”记录，因此它不是告警发生/恢复事件日志。
+- 公共接口约定明细 `alarm_id=0..31`。当前固件还有一条待统一的兼容路径：明细等级超过 3 s 未更新、包级摘要仍有效且非 0 时，会改发 `alarm_id=0x186050F4`（十进制 `408965364`）的包级摘要。该 ID 超出公共接口约定，也不在 Telegraf 的 32 项中文名称表内，所以这一行没有 `alarm_name`，`message` 为 `BMS summary alarm level N`。
+- InfluxDB 的 `time` 是 Telegraf 收到并写入该告警的服务器时间。`TelemetryFrame.timestamp_ms` 是 MCU 启动后的毫秒计数，当前没有写入 `alarm_state`，不能作为日期时间使用。
 
 | 字段名 (Field Key) | 数据类型 | 物理含义 | 说明 |
 | :--- | :--- | :--- | :--- |
-| `severity` | integer | 告警严重级别 | 0=UNSPECIFIED, 1=INFO, 2=WARNING, 3=ERROR, 4=FATAL |
-| `alarm_name` | string | BMS 告警中文名称 | Telegraf 按 `alarm_id` 映射 |
-| `message` | string | 告警详细描述文本 | 车端留空时由 Telegraf 补为 `alarm_name` |
+| `severity` | integer | 告警严重级别 | 协议定义 0=UNSPECIFIED、1=INFO、2=WARNING、3=ERROR、4=FATAL；当前 BMS 一级故障写 4，二级告警写 2，其他等级写 0 |
+| `alarm_name` | string | BMS 告警中文名称 | Telegraf 对 `alarm_id=0..31` 写入中文名称；包级摘要行没有此字段 |
+| `message` | string | 告警详细描述文本 | BMS 明细在车端留空，Telegraf 补为 `alarm_name`；包级摘要保留车端英文说明 |
+
+可在 Grafana Explore 或 InfluxDB 命令行直接核对现有结构：
+
+```sql
+SHOW FIELD KEYS FROM "alarm_state";
+SHOW TAG KEYS FROM "alarm_state";
+SELECT * FROM "alarm_state" ORDER BY time DESC LIMIT 10;
+```
 
 ---
 
@@ -349,9 +360,23 @@ FROM "telemetry" WHERE $timeFilter;
 -- 1. BMS 故障字时序变化
 SELECT "battery_fault_code" FROM "telemetry" WHERE $timeFilter;
 
--- 2. 最新告警事件列表
-SELECT "severity", "alarm_name", "message" FROM "alarm_state" WHERE $timeFilter ORDER BY time DESC LIMIT 50;
+-- 2. 告警列表原始数据；推荐面板把查询时间限制为最近 10 s
+SELECT "alarm_id", "severity", "alarm_name", "message"
+FROM "alarm_state"
+WHERE $timeFilter
+ORDER BY time DESC;
 ```
+
+推荐建立一个名为“当前活动告警”的 **Table** 面板：
+
+1. 数据源选择 `influxdb`，查询方式选择 InfluxQL 原始查询，`Format as` 选择 `Table`，使用上面的第 2 条查询。
+2. 在面板 Query options 中把 `Relative time` 设为 `10s`。这样只处理近期采样，旧告警不会长期留在表内。
+3. 添加 **Group by** transformation：`alarm_id` 选择 `Group by`；`Time`、`severity`、`alarm_name`、`message` 都选择 `Calculate → Last`。每个告警只保留最新一行，`Time` 就是该告警最后一次收到的服务器时间。
+4. 再用 **Organize fields by name** 排成 `Time → alarm_id → alarm_name → severity → message`，显示名改为 `最后收到时间 → ID → 告警 → 级别 → 说明`。
+5. 给 `severity` 设置 Value mappings：`0 未指定`、`1 信息`、`2 警告`、`3 错误`、`4 严重`；颜色依次用灰、蓝、黄、橙、红，并将 Cell type 设为 `Colored background`。
+6. Dashboard 的 Timezone 固定为 `Asia/Shanghai`，`Time` 字段使用本地日期时间格式并显示到秒。全车时序面板共用同一个 Dashboard 时间范围，就能按服务器接收时间对齐。
+
+表为空表示最近 10 s 没收到活动告警，也可能是遥测链路没有数据。旁边应保留“遥测链路健康”或最新遥测时间面板，用它区分“无告警”和“无数据”。需要查历史采样时复制一个 Table 面板，取消 `Relative time=10s` 和 Group by transformation，并给原始查询加 `LIMIT 200`；持续告警会出现重复行，这是当前存储方式的正常结果。
 
 ---
 

@@ -1,0 +1,52 @@
+{
+  "ops": [
+    {
+      "op": "rename_signal",
+      "message": "BMS_AlarmSwitches",
+      "signal": "SlaveNotReadyHVActionEnabled",
+      "new_name": "SlaveNotReadyActionEnabled"
+    },
+    {
+      "op": "rename_signal",
+      "message": "BMS_AlarmSwitches",
+      "signal": "SlaveOfflineHVActionEnabled",
+      "new_name": "SlaveOfflineActionEnabled"
+    },
+    {
+      "op": "add_signal",
+      "message": "BMS_AlarmSwitches",
+      "name": "CellVoltageSenseActionEnabled",
+      "start": 18,
+      "length": 1,
+      "byte_order": "little_endian",
+      "is_signed": false,
+      "scale": 1,
+      "offset": 0,
+      "minimum": 0,
+      "maximum": 1,
+      "unit": "",
+      "receivers": ["Display"]
+    },
+    {
+      "op": "add_signal",
+      "message": "BMS_AlarmSwitches",
+      "name": "TemperatureSenseActionEnabled",
+      "start": 17,
+      "length": 1,
+      "byte_order": "little_endian",
+      "is_signed": false,
+      "scale": 1,
+      "offset": 0,
+      "minimum": 0,
+      "maximum": 1,
+      "unit": "",
+      "receivers": ["Display"]
+    },
+    {
+      "op": "set_comment",
+      "scope": "message",
+      "message": "BMS_AlarmSwitches",
+      "comment": "CAN1 扩展帧 0x187F50F4，2 s；Byte2 bit7 为 IVT 电压失联动作，bit6/5 为一级/二级全部受阻，bit4/3 为从控未就绪/完全离线全状态动作，bit2/1 为电压/温度采样线断线动作，bit0 保留并发送 0，Byte3 当前为版本 7。"
+    }
+  ]
+}

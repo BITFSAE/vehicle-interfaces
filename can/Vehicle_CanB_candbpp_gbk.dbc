@@ -590,11 +590,11 @@ CM_ SG_ 102 IMU_MagX "Raw X-axis magnetic-field value, decoded from packet 0x050
 CM_ BO_ 1440 "Low-voltage bus status. All four fields at their invalid raw values mean the INA226 is offline or a read failed.";
 CM_ BO_ 1441 "Low-voltage battery branch status. Positive current means battery discharge/load consumption; negative means charging. Signed convention validated by serial load test. Energy is accumulated since MCU boot and is not battery state of charge.";
 CM_ BO_ 1442 "Three fan speeds and two measured fan-side PWM duty cycles. 100ms cycle.";
-CM_ BO_ 1443 "Fan faults, input validity, control mode, maximum temperatures and target duty cycles. 500ms cycle.";
-CM_ BO_ 1444 "Fan control command. Byte 7 is CRC-8/SAE-J1850 over bytes 0 through 6.";
-CM_ BO_ 1445 "Fan command acknowledgement and current control state.";
+CM_ BO_ 1443 "Fan faults, input validity, control mode, maximum temperatures and target duty cycles. 500ms cycle. MaxMotorTemp/MaxControllerTemp are 0x7FFF (big-endian int16) when the corresponding source is stale or unavailable; do not treat that as -0.1 C.";
+CM_ BO_ 1444 "Fan control command. Byte 7 is CRC-8/SAE-J1850 over bytes 0 through 6. Opcode 0x08 uses Parameter1 as calibration action: 1 START, 2 UPDATE, 3 STOP, 4 confirm DCDC ready, 5 COMMIT and 6 CLEAR.";
+CM_ BO_ 1445 "Fan command acknowledgement and current control state. AckResult 7 means Flash write or read-back failed; Session remains COMPLETED so COMMIT can be retried.";
 CM_ BO_ 1448 "Fan power arbitration status, including power supply state, limits, independent thermal requests, targets and predicted current. 100ms cycle.";
-CM_ BO_ 1449 "Fan calibration session status. Sent at 100ms while session is ACTIVE/ABORTED/COMPLETED, not when inactive.";
+CM_ BO_ 1449 "Fan calibration session status. Sent at 100ms while session is ACTIVE/ABORTED/COMPLETED, not when inactive. A calibration session locks the power-supply tier at START and aborts with reason 1 if the tier changes during UPDATE.";
 CM_ BO_ 513 "CANB 标准帧 0x201；Byte3..6 为小端 IEEE-754 float 电压，BMS 接收时要求 DLC 至少为 7。";
 CM_ BO_ 514 "CANB 标准帧 0x202；Byte3..6 为小端 IEEE-754 float 电流，BMS 接收时要求 DLC 至少为 7。";
 CM_ BO_ 516 "CANB 标准帧 0x204；Byte3..6 为小端 uint32，0 表示没有保护状态，BMS 接收时要求 DLC 至少为 7。";
@@ -614,11 +614,11 @@ CM_ BO_ 1318 "赛会能量计功率结果，标准帧 0x526；MUX=0x05，Byte2..5 为大端有符号 
 CM_ BO_ 1320 "赛会能量计 Wh 结果，标准帧 0x528；MUX=0x07，Byte2..5 为大端有符号 int32 Wh；设备可能不发送。";
 CM_ BO_ 2550588916 "CANB 扩展帧 0x1806E5F4，Legacy 充电模式约 1 s；Byte4=1 表示停止。";
 CM_ BO_ 2566869221 "CANB 扩展帧 0x18FF50E5；BMS 接收时要求 DLC 至少为 5，Byte5..7 不参与当前接口。";
-CM_ BO_ 1450 "Battery-box fan status. Sent only after a 0x5AB request: 100 ms during active lease/calibration, otherwise 500 ms within the report window.";
-CM_ BO_ 1451 "Battery-box fan control, query and power-calibration command. Byte7 is CRC-8 SAE-J1850 over bytes 0..6.";
-CM_ BO_ 1452 "Event acknowledgement for 0x5AB. Match both opcode and request counter.";
-CM_ BO_ 1453 "Battery-box fan 35 W/70 W caps, Flash-save state and calibration-session status. Sent only in the request report window.";
-CM_ BO_ 1454 "Vehicle fan battery/DCDC PWM caps, active tier and Flash persistence result. Uncalibrated caps are 15 percent.";
+CM_ BO_ 1450 "Battery-box fan status. Sent only after a 0x5AB request: 100 ms during active lease/calibration, otherwise 500 ms within the report window. At least 5% duty is required before a stall is confirmed (5 s no RPM, clear after 2 s RPM); the status flag indicates at least a 5% target was active.";
+CM_ BO_ 1451 "Battery-box fan control, query and power-calibration command. Byte7 is CRC-8 SAE-J1850 over bytes 0..6. Opcode 0x01 SetControl, 0x02 Query, 0x03 CalibrationSession, 0x04 CommitPowerLimits, 0x05 ClearCalibration. Manual/Off and calibration lease time must be 1..60 s; SetControl Auto requires all parameters zero; Off requires duty zero.";
+CM_ BO_ 1452 "Event acknowledgement for 0x5AB. Match both opcode and request counter. Result 7 means external Flash is unavailable; result 6 means a safety condition rejected the command.";
+CM_ BO_ 1453 "Battery-box fan 35 W/70 W caps, Flash-save state and calibration-session status. Sent only in the request report window. Bit1=1 means Flash save is pending or retrying; clear before power-off and verify after a full reset. Valid caps must satisfy 5 <= Chroma <= HV <= 100; otherwise boot restores 55/55.";
+CM_ BO_ 1454 "Vehicle fan battery/DCDC PWM caps, active tier and Flash persistence result. Uncalibrated caps are 15 percent. Valid caps must satisfy 5 <= BatteryTierPwmCap <= DcdcTierPwmCap <= 100; bit1=1 means Flash write/read-back failed. Parameters are committed only once and are independent of the active tier.";
 
 BA_DEF_ SG_  "SystemSignalLongSymbol" STRING;
 BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
