@@ -66,7 +66,7 @@
 | **左后控制器温度 (旧)** | CANB `0x507` (Debug7, 10ms) | `inverter_temp` (#12) | 取 `Debug7` 中 RL 控制器温度 $\div 10.0$ | `telemetry` (保留) | 0.1 °C $\to$ °C $\to$ `°C` | 已接入 (兼容字段) |
 | **就绪驱动标志** | 暂无真实 ECU/VCU 源；候选 CANC `0x166` | `ready_to_drive` (#13) | 当前固定 0，禁止由 BMS 状态派生；接入 VCU 源后再填充 | `telemetry.ready_to_drive` | 0 / 1 标志位 | 未接入（等待 VCU 源） |
 | **VCU 状态字段** | 暂无真实 ECU/VCU 源；候选 CANC `0x166` 或 CANB ECU 状态帧 | `vcu_status` (#14)<br>`vehicle_state.vcu_status` (#28.6) | 当前保持 0；BMS 状态只写入 `bms_telemetry.battery_state` | `telemetry.vcu_status` | VCU 枚举；当前 0=未知 | 未接入（等待 VCU 源） |
-| **138 串单体电压** | CAN1 `0x180050F3 + (n << 16)` (36 帧) | `modules[].v01..v23` (#15) | 6 从控 $\times$ 23 串，有效范围 500..5000 mV | `bms_data.v_01` ~ `v_23` (Tag: `module_id`) | mV $\to$ `mV` (Bar chart / 压差) | 已接入 (2 Hz 上报) |
+| **138 串单体电压** | CAN1 `0x180050F3 + (n << 16)` (36 帧) | `modules[].v01..v23` (#15) | 6 从控 $\times$ 23 串；`2101..5399 mV` 有效，`≤2100 mV`、`≥5400 mV`、`0xFFFF` 无效；任一电压帧无效时省略整个模组 | `bms_data.v_01` ~ `v_23` (Tag: `module_id`) | mV $\to$ `mV` (Bar chart / 压差) | 已接入 (2 Hz 上报) |
 | **48 路采样温度** | CAN1 `0x184050F3 + (n << 16)` (6 帧) | `modules[].t1..t8` (#15) | 6 从控 $\times$ 8 路，原始值减 30 °C | `bms_data.t_1` ~ `t_8` (Tag: `module_id`) | 0.1 °C $\to$ 0.1°C $\to$ `°C` (/10) | 已接入 (2 Hz 上报) |
 | **电池 SOC** | CAN1 `0x186050F4` / CANB `0x4B0` | `battery_soc` (#16) | `BatterySOC` (0..100%)，结合有效位使用 | `telemetry.battery_soc` | % $\to$ `%` | 已接入 (双源互备) |
 | **单体极值及编号** | CAN1 `0x186150F4` (单体极值帧)<br>或 138 串单体本地遍历 | `max_cell_voltage` (#17)<br>`min_cell_voltage` (#18)<br>`max_cell_voltage_no` (#19)<br>`min_cell_voltage_no` (#20) | 优先解码 `0x186150F4`；无数据时本地遍历 138 串数组计算 | `telemetry.max_cell_voltage`<br>`telemetry.min_cell_voltage`<br>`telemetry.max_cell_voltage_no`<br>`telemetry.min_cell_voltage_no` | mV / 编号 (1..138) | 已接入 (含备用算法) |
@@ -96,7 +96,7 @@
 
 | CAN ID | 帧名 | 周期 | 接入状态 | 字段说明与固件处理 |
 | :--- | :--- | :--- | :--- | :--- |
-| `0x180050F3 + (n << 16)` (n=0..35) | 从控单体电压帧 | 周期 | **已接入** | 6 个从控模块各 6 帧，共 138 串电芯电压 (mV，小端 uint16，有效范围 500..5000 mV)。编码入 `modules[].v01..v23`。 |
+| `0x180050F3 + (n << 16)` (n=0..35) | 从控单体电压帧 | 周期 | **已接入** | 6 个从控模块各 6 帧，共 138 串电芯电压（mV，小端 uint16）。`2101..5399 mV` 按原值上报；`≤2100 mV`、`≥5400 mV`、`0xFFFF` 使当前电压帧无效，任一帧无效时该模组不进入 `modules[]`。 |
 | `0x184050F3 + (n << 16)` (n=0..5) | 从控温度采样帧 | 周期 | **已接入** | 6 个从控模块各 1 帧，共 48 路温度。原始值减 30 得到摄氏度 (0.1 °C 存储，0xFF 无效)。编码入 `modules[].t1..t8`。 |
 | `0x512` | IVT 电流 | 周期 | **已接入** | 自有 IVT-S 电流 (mA, 小端 int32) 及状态位。**`hv_current` 第一优先级主源**。CANB 同 ID 不解析。 |
 | `0x513` | IVT U1 | 周期 | **已接入** | 自有 IVT-S 电池侧总压 (mV, 小端 int32) 及状态位。**`hv_voltage` 第一优先级主源**。 |
