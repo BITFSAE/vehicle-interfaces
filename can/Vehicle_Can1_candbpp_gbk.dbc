@@ -714,7 +714,7 @@ CM_ BO_ 1302 "CAN1 标准帧 0x516，DLC=6；MUX 固定为 0x04，Byte2..5 为小端有符号 i
 CM_ BO_ 1303 "CAN1 标准帧 0x517，DLC=6；MUX 固定为 0x05，Byte2..5 为小端有符号 int32。";
 CM_ BO_ 1304 "CAN1 标准帧 0x518，DLC=6；MUX 固定为 0x06，Byte2..5 为小端有符号 int32。";
 CM_ BO_ 1305 "CAN1 标准帧 0x519，DLC=6；MUX 固定为 0x07，Byte2..5 为小端有符号 int32。";
-CM_ BO_ 2557366516 "Extended frame 0x186E50F4. Precise battery-box fan RPM, permille duty/cap and state. Sent only while actual duty or RPM is non-zero.";
+CM_ BO_ 2557366516 "Extended frame 0x186E50F4. Precise battery-box fan RPM, permille duty/cap and state. Sent every 100 ms from power-on, including zero duty and zero RPM while stopped.";
 
 BA_DEF_ SG_  "SystemSignalLongSymbol" STRING;
 BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;

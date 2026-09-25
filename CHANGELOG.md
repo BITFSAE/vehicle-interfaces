@@ -4,12 +4,13 @@
 
 ### 已完成
 
+- F405 电池箱风扇 CAN1 `0x186E50F4` 改为上电后持续 100 ms，CANB `0x5AA` 根据放电高压、Chroma 充电/预充和待机活动会话以 100/200/500 ms 持续发送，`0x5AD` 所有状态持续 500 ms；`0x5AB` 查询 `0x02` 保留应答且不改变周期。同步正式 DBC、CANdb++ GBK 副本及接口文档，ID、字段、协议版本与 Flash 格式保持原样。
 - 电池箱风扇 `0x5AB` 标定开始/更新的状态条件随 F405 固件更新：允许待机低压或非 Chroma 高压接通，供电切换中止；帧 ID、字段、CRC 与协议版本不变。旧固件仍只接受高压状态。
 
 - 单体电压有效范围与 F405 BMS、can-host 统一为 `2101..5399 mV`；`≤2100 mV`、`≥5400 mV`、`0xFFFF` 表示采样线断开或无效。两个遥测网关保持任一电压帧无效时省略整个模组的现有兼容行为，DBC 与 Proto 布局不变；接口校验全部通过。
 - FanController `0x5A9 CalibFlags.bit0` 定义为 PDM 遥测超过 1500 ms 后的标定输出安全暂停：会话保持 ACTIVE，输出退出越限扫描；上位机等待数据稳定后重发并重做当前测点。bit1..15 保留为 0，持续失联仍由标定租约最终中止。
 - BMS 告警开关帧 `0x187F50F4` 升为版本7：从控未就绪和从控离线改为全状态动作开关，新增电压/温度采样线断线动作位；单体压差和新增动作位默认开启，单体过压默认值改为4300mV。同步更新 CAN1 DBC、CANdb++ GBK 副本、接口文档和关键字段校验，并把工具协议当前版本说明修正为5。
-- 按 FanController 协议 V3 与 F405 电池箱风扇固件复核两套风扇接口：DBC 注释补充 `0x5A3` 温度无效值 `0x7FFF`、`0x08` Action 1..6、`0x5A5` 结果 7、`0x5A9` 供电档位锁定、`0x5AA`/ `0x5AB`/`0x5AC`/`0x5AD`/`0x5AE` 的保存与上下限约束；`CANB接口.md` 补齐 Action 1..6、PDM 四字段离线判定和电池箱风扇中止条件；`CAN1接口.md` 修正 `0x186E50F4` 条件发送周期；接口校验脚本补齐 `0x5A4`/`0x5AA..0x5AE`/`0x186E50F4` 帧回归。
+- 按 FanController 协议 V3 与 F405 电池箱风扇固件复核两套风扇接口：DBC 注释补充 `0x5A3` 温度无效值 `0x7FFF`、`0x08` Action 1..6、`0x5A5` 结果 7、`0x5A9` 供电档位锁定、`0x5AA`/ `0x5AB`/`0x5AC`/`0x5AD`/`0x5AE` 的保存与上下限约束；`CANB接口.md` 补齐 Action 1..6、PDM 四字段离线判定和电池箱风扇中止条件；`CAN1接口.md` 更新 `0x186E50F4` 周期说明；接口校验脚本补齐 `0x5A4`/`0x5AA..0x5AE`/`0x186E50F4` 帧回归。
 - 现网只读核对确认 `alarm_state` 已有 `severity/alarm_name/message` fields 和 `alarm_id` tag；Grafana 指南补充当前活动告警 Table 的查询、去重、等级配色、时区与时间含义，并标明 G473 包级摘要 ID 超出公共 Proto 约定的问题。
 - FanController 风扇子系统报文在 `Vehicle_CanB.dbc` 补齐 `GenMsgCycleTime` 周期属性（`0x5A0/0x5A1/0x5A2/0x5A8/0x5A9` 100 ms、`0x5A3` 500 ms、`0x5AE` 500 ms）；`CANB接口.md` 修正 `0x08` Action 5 的描述为一次提交电池档和 DCDC 档两档上限，并注明 COMPLETED 会话重复停止不丢失提交资格。
 - 遥测 `alarms[]` 的 Nanopb 上限由 8 扩展到 32，定义 `alarm_id=0..31` 对应 BMS 故障 bit，一级故障映射 `FATAL`、二级告警映射 `WARNING`；对照表与 Grafana 指南同步 raw/clean MQTT 桥、告警名称和链路健康统计。
