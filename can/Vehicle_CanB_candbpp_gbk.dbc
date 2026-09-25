@@ -105,45 +105,45 @@ BO_ 1283 Debug3: 8 ECU
  SG_ Diagnostic_number_2 : 32|32@1+ (1,0) [0|4294967295] "" Vector__XXX
  SG_ Diagnostic_number_1 : 0|32@1+ (1,0) [0|4294967295] "" Vector__XXX
 
-BO_ 113 MLX90640_TireTemp_01_04_0x071: 8 DATA_COLLECTION_INTEGRAL
- SG_ TireTemp01_Integer : 0|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp01_Fraction : 8|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp02_Integer : 16|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp02_Fraction : 24|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp03_Integer : 32|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp03_Fraction : 40|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp04_Integer : 48|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp04_Fraction : 56|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+BO_ 113 MLX90640_TireTemperature_FL: 8 DATA_COLLECTION_INTEGRAL
+ SG_ Band0_Integer : 0|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ Band0_Fraction : 8|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ Band1_Integer : 16|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ Band1_Fraction : 24|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ Band2_Integer : 32|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ Band2_Fraction : 40|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ Band3_Integer : 48|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ Band3_Fraction : 56|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
 
-BO_ 114 MLX90640_TireTemp_05_08_0x072: 8 DATA_COLLECTION_INTEGRAL
- SG_ TireTemp05_Integer : 0|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp05_Fraction : 8|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp06_Integer : 16|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp06_Fraction : 24|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp07_Integer : 32|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp07_Fraction : 40|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp08_Integer : 48|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp08_Fraction : 56|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+BO_ 114 MLX90640_TireTemperature_FR: 8 DATA_COLLECTION_INTEGRAL
+ SG_ Band0_Integer : 0|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ Band0_Fraction : 8|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ Band1_Integer : 16|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ Band1_Fraction : 24|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ Band2_Integer : 32|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ Band2_Fraction : 40|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ Band3_Integer : 48|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ Band3_Fraction : 56|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
 
-BO_ 115 MLX90640_TireTemp_09_12_0x073: 8 DATA_COLLECTION_INTEGRAL
- SG_ TireTemp09_Integer : 0|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp09_Fraction : 8|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp10_Integer : 16|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp10_Fraction : 24|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp11_Integer : 32|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp11_Fraction : 40|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp12_Integer : 48|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp12_Fraction : 56|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+BO_ 115 MLX90640_TireTemperature_RL: 8 DATA_COLLECTION_INTEGRAL
+ SG_ Band0_Integer : 0|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ Band0_Fraction : 8|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ Band1_Integer : 16|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ Band1_Fraction : 24|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ Band2_Integer : 32|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ Band2_Fraction : 40|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ Band3_Integer : 48|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ Band3_Fraction : 56|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
 
-BO_ 116 MLX90640_TireTemp_13_16_0x074: 8 DATA_COLLECTION_INTEGRAL
- SG_ TireTemp13_Integer : 0|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp13_Fraction : 8|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp14_Integer : 16|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp14_Fraction : 24|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp15_Integer : 32|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp15_Fraction : 40|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp16_Integer : 48|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
- SG_ TireTemp16_Fraction : 56|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+BO_ 116 MLX90640_TireTemperature_RR: 8 DATA_COLLECTION_INTEGRAL
+ SG_ Band0_Integer : 0|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ Band0_Fraction : 8|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ Band1_Integer : 16|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ Band1_Fraction : 24|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ Band2_Integer : 32|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ Band2_Fraction : 40|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ Band3_Integer : 48|8@1+ (1,0) [0|255] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
+ SG_ Band3_Fraction : 56|8@1+ (0.01,0) [0|0.99] "degC"  Display,WirelessGateway,VEHICLE_LOGGER
 
 BO_ 769 GPS_Speed: 2 Display
  SG_ GroundSpeed : 0|16@1+ (0.1,0) [0|300] "km/h"  ECU,WirelessGateway
@@ -556,10 +556,10 @@ CM_ SG_ 1282 FR_ActualTorque "Front-right actual motor torque.";
 CM_ SG_ 773 OilPressure_Kpa "Oil pressure signal in kPa.";
 CM_ SG_ 773 APS_OpenPct "Accelerator pedal opening percentage.";
 CM_ SG_ 773 SteeringWheelAngle "Steering-wheel angle in degrees.";
-CM_ BO_ 113 "MLX90640 right-front tire-temperature cells 1..4, standard CAN ID 0x071, DLC=8. R0..R3 map directly to cells 1..4 in payload order, from RF rightmost/outside to RF leftmost/inside. Bytes 0/2/4/6 are unsigned integer degC; bytes 1/3/5/7 are unsigned hundredths 0..99. Full temperature = Integer + Fraction.";
-CM_ BO_ 114 "MLX90640 left-front tire-temperature cells 5..8, standard CAN ID 0x072, DLC=8. R0..R3 map directly to cells 5..8 in payload order, from LF rightmost/inside to LF leftmost/outside. Bytes 0/2/4/6 are unsigned integer degC; bytes 1/3/5/7 are unsigned hundredths 0..99. Full temperature = Integer + Fraction.";
-CM_ BO_ 115 "MLX90640 left-rear tire-temperature cells 9..12, standard CAN ID 0x073, DLC=8. R0..R3 map directly to cells 9..12 in payload order, from LR leftmost/outside to LR rightmost/inside. Bytes 0/2/4/6 are unsigned integer degC; bytes 1/3/5/7 are unsigned hundredths 0..99. Full temperature = Integer + Fraction.";
-CM_ BO_ 116 "MLX90640 right-rear tire-temperature cells 13..16, standard CAN ID 0x074, DLC=8. R0..R3 map directly to cells 13..16 in payload order, from RR leftmost/inside to RR rightmost/outside. Bytes 0/2/4/6 are unsigned integer degC; bytes 1/3/5/7 are unsigned hundredths 0..99. Full temperature = Integer + Fraction.";
+CM_ BO_ 113 "MLX90640 front-left tire-temperature summary on CANB, standard ID 0x71, DLC=8. Band0..Band3 are the arithmetic mean of image rows 0..5, 6..11, 12..17 and 18..23 respectively; every band includes all 32 columns, so payload order is top to bottom in the sensor image. Bytes 0/2/4/6 contain unsigned integer degC and bytes 1/3/5/7 contain unsigned hundredths 0..99; temperature = Integer + Fraction. The sender clamps negative values to 0.00 degC and provides no invalid-value sentinel.";
+CM_ BO_ 114 "MLX90640 front-right tire-temperature summary on CANB, standard ID 0x72, DLC=8. Band0..Band3 are the arithmetic mean of image rows 0..5, 6..11, 12..17 and 18..23 respectively; every band includes all 32 columns, so payload order is top to bottom in the sensor image. Bytes 0/2/4/6 contain unsigned integer degC and bytes 1/3/5/7 contain unsigned hundredths 0..99; temperature = Integer + Fraction. The sender clamps negative values to 0.00 degC and provides no invalid-value sentinel.";
+CM_ BO_ 115 "MLX90640 rear-left tire-temperature summary on CANB, standard ID 0x73, DLC=8. Band0..Band3 are the arithmetic mean of image rows 0..5, 6..11, 12..17 and 18..23 respectively; every band includes all 32 columns, so payload order is top to bottom in the sensor image. Bytes 0/2/4/6 contain unsigned integer degC and bytes 1/3/5/7 contain unsigned hundredths 0..99; temperature = Integer + Fraction. The sender clamps negative values to 0.00 degC and provides no invalid-value sentinel.";
+CM_ BO_ 116 "MLX90640 rear-right tire-temperature summary on CANB, standard ID 0x74, DLC=8. Band0..Band3 are the arithmetic mean of image rows 0..5, 6..11, 12..17 and 18..23 respectively; every band includes all 32 columns, so payload order is top to bottom in the sensor image. Bytes 0/2/4/6 contain unsigned integer degC and bytes 1/3/5/7 contain unsigned hundredths 0..99; temperature = Integer + Fraction. The sender clamps negative values to 0.00 degC and provides no invalid-value sentinel.";
 CM_ BO_ 769 "Legacy-compatible GPS ground speed, standard CAN ID 0x301, DLC=2, Display->ECU/WirelessGateway, periodic 50 ms. Source is the latest NMEA RMC speed configured at 20 Hz; invalid RMC status or no RMC update for more than 500 ms transmits zero. The DLC remains 2 to avoid breaking the existing ECU receiver; additional GPS data use IDs 0x067 through 0x06A.";
 CM_ SG_ 769 GroundSpeed "Bits 0..15, Intel little-endian, unsigned. RMC speed is parsed in knots, converted to 0.01 km/h internally, rounded to 0.1 km/h for CAN, then clamped to 0..300 km/h. Raw value = physical km/h / 0.1.";
 CM_ BO_ 103 "GPS position snapshot, standard CAN ID 0x067, DLC=8, Display->WirelessGateway, periodic 50 ms. Latitude and longitude come from the latest valid 20 Hz RMC sentence and are encoded as signed 1e-7 degree integers.";
